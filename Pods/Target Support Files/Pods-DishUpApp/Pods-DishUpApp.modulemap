@@ -1,0 +1,6 @@
+framework module Pods_DishUpApp {
+  umbrella header "Pods-DishUpApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
