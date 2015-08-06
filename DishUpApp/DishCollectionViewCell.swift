@@ -12,6 +12,8 @@ class DishCollectionViewCell: UICollectionViewCell {
     weak var dish: Dish?
     weak var indexPath: NSIndexPath?
     weak var collectionView: UICollectionView?
+    var hideLeftArrow: Bool? = false
+    var hideRightArrow: Bool? = false
     
     @IBOutlet weak var dishPic: UIImageView!
     @IBOutlet weak var dishName: UILabel!
@@ -33,26 +35,38 @@ class DishCollectionViewCell: UICollectionViewCell {
 
     }
     
-//    @IBOutlet weak var dragHandle: UIView!
-    //@IBOutlet weak var dishDesc: UILabel!
     @IBOutlet weak var dishPrice: UILabel!
-//    let dragHandleUp = UIScreenEdgePanGestureRecognizer()
-//    let dragHandleDown = UIPanGestureRecognizer()
+    func hideForGrid(){
+//        self.dishName.hidden = true
+//        self.dishPrice.hidden = true
+        self.infoPanel.hidden = true
+        self.rightArrow.hidden = true
+        self.leftArrow.hidden = true
+        
+//        for c in self.infoPanel.constraints {
+//            if c.identifier == "infoPanelHeight"{
+//                c.constant = 12
+//            }
+//        }
+        
+    }
+    func showForGrid(){
+//        self.dishName.hidden = false
+//        self.dishPrice.hidden = false
+        self.infoPanel.hidden = false
+        if hideRightArrow! == false{
+            self.rightArrow.hidden = false
+        }
+        if hideLeftArrow! == false{
+            self.leftArrow.hidden = false
+        }
+        
+//        for c in self.infoPanel.constraints {
+//            if c.identifier == "infoPanelHeight"{
+//                c.constant = 135
+//            }
+//        }
 
-//    override func prepareForReuse() {
-////        self.hidden = true
-//        
-//        self.dishPic = nil
-//        self.dishName = nil
-//        self.dishRating = nil
-//        self.infoPanel = nil
-//        self.rightArrow = nil
-//        self.leftArrow = nil
-//        self.dishIndex = nil
-//        self.leftArrow = nil
-//        self.dishPrice = nil
-//        self.dish = nil
-//        self.indexPath = nil
-//        self.collectionView = nil
-//    }
+
+    }
 }

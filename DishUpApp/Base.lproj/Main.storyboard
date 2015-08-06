@@ -57,7 +57,7 @@
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ocN-32-UW4" id="7iL-2i-MTy">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -568,8 +568,40 @@
                                                 <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bcj-r6-0qV">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                                 </imageView>
+                                                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bcm-Ll-EqY">
+                                                    <rect key="frame" x="0.0" y="164" width="600" height="164"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tz4-Um-VZX">
+                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="164"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </view>
+                                                    <vibrancyEffect>
+                                                        <blurEffect style="light"/>
+                                                    </vibrancyEffect>
+                                                </visualEffectView>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0De-hd-4vU" userLabel="Left Arrow">
+                                                    <rect key="frame" x="25" y="110" width="79" height="79"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="OiT-gs-O9X"/>
+                                                        <constraint firstAttribute="width" constant="25" id="RRa-wV-mfz"/>
+                                                    </constraints>
+                                                    <state key="normal" image="left-arrow.png"/>
+                                                    <connections>
+                                                        <action selector="leftArrowTap:" destination="jrc-m9-ftp" eventType="touchUpInside" id="5gh-3T-Dni"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1YW-P4-ZQa" userLabel="Right Arrow">
+                                                    <rect key="frame" x="531" y="107" width="79" height="79"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="1YV-cV-NcE"/>
+                                                        <constraint firstAttribute="height" constant="25" id="W5m-zJ-nSS"/>
+                                                    </constraints>
+                                                    <state key="normal" image="right-arrow.png"/>
+                                                    <connections>
+                                                        <action selector="rightArrowTap:" destination="jrc-m9-ftp" eventType="touchUpInside" id="8r4-LE-WTb"/>
+                                                    </connections>
+                                                </button>
                                                 <view opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8oW-p6-lAx">
-                                                    <rect key="frame" x="0.0" y="358" width="600" height="149"/>
+                                                    <rect key="frame" x="0.0" y="330" width="600" height="149"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="$8.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOv-aZ-ebp">
                                                             <rect key="frame" x="232" y="120" width="100" height="21"/>
@@ -612,7 +644,7 @@
                                                     <color key="backgroundColor" white="0.25" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="4BS-Al-uDU" firstAttribute="centerX" secondItem="8oW-p6-lAx" secondAttribute="centerX" id="1eD-9C-G5l"/>
-                                                        <constraint firstAttribute="height" constant="135" id="3dq-hn-sYI"/>
+                                                        <constraint firstAttribute="height" constant="135" identifier="infoPanelHeight" id="3dq-hn-sYI"/>
                                                         <constraint firstAttribute="trailing" secondItem="ztf-eF-4jq" secondAttribute="trailing" id="O18-e8-ZYT"/>
                                                         <constraint firstItem="ztf-eF-4jq" firstAttribute="top" secondItem="4BS-Al-uDU" secondAttribute="bottom" constant="10" id="Q9i-un-zNR"/>
                                                         <constraint firstItem="ztf-eF-4jq" firstAttribute="leading" secondItem="8oW-p6-lAx" secondAttribute="leading" id="X2x-Zw-W43"/>
@@ -622,38 +654,6 @@
                                                         <constraint firstItem="zOv-aZ-ebp" firstAttribute="leading" secondItem="8oW-p6-lAx" secondAttribute="leading" id="nAB-Mq-Buw"/>
                                                     </constraints>
                                                 </view>
-                                                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bcm-Ll-EqY">
-                                                    <rect key="frame" x="0.0" y="164" width="600" height="164"/>
-                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tz4-Um-VZX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="164"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    </view>
-                                                    <vibrancyEffect>
-                                                        <blurEffect style="light"/>
-                                                    </vibrancyEffect>
-                                                </visualEffectView>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0De-hd-4vU" userLabel="Left Arrow">
-                                                    <rect key="frame" x="25" y="110" width="79" height="79"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="OiT-gs-O9X"/>
-                                                        <constraint firstAttribute="width" constant="25" id="RRa-wV-mfz"/>
-                                                    </constraints>
-                                                    <state key="normal" image="left-arrow.png"/>
-                                                    <connections>
-                                                        <action selector="leftArrowTap:" destination="jrc-m9-ftp" eventType="touchUpInside" id="5gh-3T-Dni"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1YW-P4-ZQa" userLabel="Right Arrow">
-                                                    <rect key="frame" x="531" y="107" width="79" height="79"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="1YV-cV-NcE"/>
-                                                        <constraint firstAttribute="height" constant="25" id="W5m-zJ-nSS"/>
-                                                    </constraints>
-                                                    <state key="normal" image="right-arrow.png"/>
-                                                    <connections>
-                                                        <action selector="rightArrowTap:" destination="jrc-m9-ftp" eventType="touchUpInside" id="8r4-LE-WTb"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -687,7 +687,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" reuseIdentifier="dishGrid" id="8ng-Cr-hY6" customClass="DishCollectionViewCell" customModule="DishUpApp" customModuleProvider="target">
-                                        <rect key="frame" x="238" y="502" width="125" height="125"/>
+                                        <rect key="frame" x="237.5" y="502" width="125" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
@@ -802,7 +802,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" reuseIdentifier="dishpic" id="iDp-lY-zjN" customClass="DishpicCell" customModule="DishUpApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="26" width="188" height="128"/>
+                                        <rect key="frame" x="0.0" y="26" width="187.5" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="188" height="128"/>
@@ -828,23 +828,23 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-yB-cBA" userLabel="DishView">
                                 <rect key="frame" x="0.0" y="244" width="600" height="180"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j14-Ty-Nw4" customClass="CosmosView" customModule="Cosmos">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j14-Ty-Nw4" customClass="CosmosView" customModule="Cosmos">
                                         <rect key="frame" x="8" y="8" width="240" height="46"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="The Yardbird" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgH-fn-rJY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="The Yardbird" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgH-fn-rJY">
                                         <rect key="frame" x="8" y="62" width="240" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecP-Uk-mlb">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecP-Uk-mlb">
                                         <rect key="frame" x="256" y="8" width="336" height="164"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$9.99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMD-wx-Oj8">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="$9.99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMD-wx-Oj8">
                                         <rect key="frame" x="184" y="151" width="64" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

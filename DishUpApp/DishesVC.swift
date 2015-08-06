@@ -18,33 +18,43 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     @IBOutlet weak var zoomLevel: UIButton!
     @IBOutlet weak var dishes: UICollectionView!
     
-        var dishType:DishType?
+    var dishType:DishType?
     var restaurant:Restaurant?
     
     var dishesArray : [Dish] = []
     
     
     @IBAction func switchToGridView(sender: AnyObject) {
-        if layoutMode == .Single{
-            layoutMode = .Grid
-            zoomLevel.setImage(UIImage(named: "single-view.png"), forState: UIControlState.Normal)
-            //scrollDirection = .Vertical
-            
-        }else{
-            layoutMode = .Single
-            zoomLevel.setImage(UIImage(named: "grid-view.png"), forState: UIControlState.Normal)
-            //scrollDirection = .Horizontal
-        }
-        //dishes.reloadData()
-            self.dishes.performBatchUpdates({
-            //self.dishes.setCollectionViewLayout(self.dishes.collectionViewLayout, animated: true)
-            self.dishes.collectionViewLayout.invalidateLayout()
-            
-            self.dishes.reloadData()
-            }, completion: nil)
         
+            let visible = self.dishes.visibleCells() as! [DishCollectionViewCell]
+            
+            if layoutMode == .Single{
+                layoutMode = .Grid
+                self.dishes.performBatchUpdates({
+                    self.zoomLevel.setImage(UIImage(named: "single-view.png"), forState: UIControlState.Normal)
+                
+                    for c in visible{
+                        c.hideForGrid()
+                    }
+                    self.dishes.reloadData()
+                }, completion: nil)
+                
+            }else{
+                layoutMode = .Single
+                
+                self.dishes.performBatchUpdates({
+                    self.dishes.reloadData()
+                    self.zoomLevel.setImage(UIImage(named: "grid-view.png"), forState: UIControlState.Normal)
+                    
+                    for c  in visible {
+                        c.showForGrid()
+                    }
+                 }, completion: nil)
+
+            }
         
-        //self.dishes.collectionViewLayout.invalidateLayout()
+            
+        
     }
     
     
@@ -56,12 +66,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         
         print("Screen Width \(screenWidth)")
         print("Screen Height \(screenHeight)")
-        //self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
-        //layout.itemSize = CGSize(width: screenWidth, height: screenHeight)
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+    
         if let dishTypeId = dishType?.id{
             Networking.getDishes(self, urlParent: "dish_types/\(dishTypeId)", completion: {self.dishes!.reloadData()})
 
@@ -72,38 +77,16 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
             Networking.getDishes(self, urlParent: nil, completion: {self.dishes!.reloadData()})
         }
         
-        
-               // Register cell classes
-        //self.collectionView!.registerClass(DishCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+      
     
     }
-//    func dragBottomInfoPanelDown(sender : UIPanGestureRecognizer){
-//        
-//    }
-//    func dragBottomInfoPanelUp(sender : UIScreenEdgePanGestureRecognizer){
-//        var translation = sender.translationInView(sender.)
-//        sender.view
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
+  
      func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
         
@@ -115,32 +98,6 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         return dishesArray.count
         
     }
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        let collectionWidth = self.view.frame.size.width
-//        let collectionHeight = dishes.bounds.size.height
-//        print (dishes.bounds.size.height)
-//        var cellWidth : CGFloat
-//        
-//        var cellHeight : CGFloat
-//        if (layoutMode == .Single){
-//             cellWidth = collectionWidth
-//             cellHeight = collectionHeight
-//        }else{
-//            cellHeight = collectionHeight / 5
-//            cellWidth = cellHeight
-//            
-//        }
-//
-//        return CGSizeMake(cellWidth, cellHeight)
-//    }
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-//        if layoutMode == .Single{
-//            return 0 as CGFloat
-//        }else{
-//            return 1 as CGFloat
-//        }
-//
-//    }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -148,36 +105,29 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         let cellReuse : String
         dish = dishesArray[indexPath.row]
 
-        if layoutMode == .Single{
+        
             cellReuse = "dishSingle"
-        }else{
-            cellReuse = "dishGrid"
-            
-        }
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuse, forIndexPath: indexPath) as! DishCollectionViewCell
         
                //print ("IndexPath.row: \(indexPath.row)")
         
                // cell.dishPic.image = UIImage(named: "placeholder.png")
-        if layoutMode == .Single{
-            cell.dishName.text = dish.name.uppercaseString
+                    cell.dishName.text = dish.name.uppercaseString
            // cell.dishDesc.text = dish.description
             
             if indexPath.row == 0{
                 cell.leftArrow.hidden = true
-                
+                cell.hideLeftArrow = true
             }else{
                 cell.leftArrow.hidden = false
             }
             if indexPath.row == dishesArray.count - 1{
                 cell.rightArrow.hidden = true
+                cell.hideRightArrow = true
             }else{
                 cell.rightArrow.hidden = false
             }
-            //print("indexPathRow: \(indexPath.row) dishesArrayCount \(dishesArray.count) cellLeftArrow: \(cell.leftArrow.hidden)")
- 
-        }
         cell.dish = dish
 
         if dish.price != nil {
@@ -218,8 +168,13 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
 //        cell.dragHandle.userInteractionEnabled = true
         cell.indexPath = indexPath
         cell.collectionView = dishes
+        if layoutMode == .Grid{
+            cell.hideForGrid()
+        }
+        
         return cell
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let cell = sender as! DishCollectionViewCell
         let dishDetailVC = segue.destinationViewController as! DishDetailVC

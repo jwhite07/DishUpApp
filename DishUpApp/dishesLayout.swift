@@ -85,7 +85,7 @@ class DishesLayout: UICollectionViewLayout {
             for var item = 0; item < numberOfItems; item++ {
                 let indexPath = NSIndexPath(forItem: item, inSection: section)
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
-                
+                attributes.zIndex = numberOfItems - item
                 
                 var increaseRow = false
                 
@@ -149,15 +149,16 @@ class DishesLayout: UICollectionViewLayout {
     func layoutKeyForIndexPath(indexPath : NSIndexPath) -> String {
         return "\(indexPath.section)_\(indexPath.row)"
     }
-    override func collectionViewContentSize() -> CGSize {
-        print("Frame Size: x: \(frameWidth) y: \(frameHeight)")
-        print("Content Size: \(_contentSize)")
+       override func collectionViewContentSize() -> CGSize {
+        
         return _contentSize
     }
+    
     
     //    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
 //        <#code#>
 //    }
+    
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
         for attributes in cache {
