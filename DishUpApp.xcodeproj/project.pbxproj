@@ -72,7 +72,10 @@
 		0DD96EDC1B6ACD2C00265FE0 /* RestaurantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDB1B6ACD2C00265FE0 /* RestaurantsVC.swift */; };
 		0DD96EDE1B6ACE2700265FE0 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDD1B6ACE2700265FE0 /* RestaurantCell.swift */; };
 		0DD96EE01B6AD10F00265FE0 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDF1B6AD10F00265FE0 /* Restaurant.swift */; };
-		12F5F9B7F8CD61A0307C82B0 /* Pods_DishUpApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD740A2348EF280CF0330674 /* Pods_DishUpApp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0DFFE2A21B72E3FC0082B1C9 /* single-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE2A11B72E3FC0082B1C9 /* single-view.png */; };
+		0DFFE2A41B72E40B0082B1C9 /* single-view@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE2A31B72E40B0082B1C9 /* single-view@2x.png */; };
+		0DFFE2A61B72E41D0082B1C9 /* single-view@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE2A51B72E41D0082B1C9 /* single-view@3x.png */; };
+		DEC8215B2E8114DB7F606118 /* Pods_DishUpApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51F2C1B82B4373E690F17F9 /* Pods_DishUpApp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,9 +159,12 @@
 		0DD96EDB1B6ACD2C00265FE0 /* RestaurantsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsVC.swift; sourceTree = "<group>"; };
 		0DD96EDD1B6ACE2700265FE0 /* RestaurantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 		0DD96EDF1B6AD10F00265FE0 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
-		1D19AB12C68B486532EF0559 /* Pods-DishUpApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishUpApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DishUpApp/Pods-DishUpApp.release.xcconfig"; sourceTree = "<group>"; };
-		CD740A2348EF280CF0330674 /* Pods_DishUpApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DishUpApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA304523FAE8DDA86CBA01C8 /* Pods-DishUpApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishUpApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DishUpApp/Pods-DishUpApp.debug.xcconfig"; sourceTree = "<group>"; };
+		0DFFE2A11B72E3FC0082B1C9 /* single-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-view.png"; sourceTree = "<group>"; };
+		0DFFE2A31B72E40B0082B1C9 /* single-view@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-view@2x.png"; sourceTree = "<group>"; };
+		0DFFE2A51B72E41D0082B1C9 /* single-view@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-view@3x.png"; sourceTree = "<group>"; };
+		ECCBAF1B59C9594F3B0731AE /* Pods-DishUpApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishUpApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DishUpApp/Pods-DishUpApp.debug.xcconfig"; sourceTree = "<group>"; };
+		F51F2C1B82B4373E690F17F9 /* Pods_DishUpApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DishUpApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F79526C3DD3248A625E580D7 /* Pods-DishUpApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishUpApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DishUpApp/Pods-DishUpApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12F5F9B7F8CD61A0307C82B0 /* Pods_DishUpApp.framework in Frameworks */,
+				DEC8215B2E8114DB7F606118 /* Pods_DishUpApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,22 +186,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C6DE6B6EFB01586547F4711 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DA304523FAE8DDA86CBA01C8 /* Pods-DishUpApp.debug.xcconfig */,
-				1D19AB12C68B486532EF0559 /* Pods-DishUpApp.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		0D0A860F1B58391000DF0C71 = {
 			isa = PBXGroup;
 			children = (
 				0D0A861A1B58391000DF0C71 /* DishUpApp */,
 				0D0A86191B58391000DF0C71 /* Products */,
-				0C6DE6B6EFB01586547F4711 /* Pods */,
-				30D8827A26EDFC05B6B72AD2 /* Frameworks */,
+				1D17FDBDEA8264BDD8A12352 /* Pods */,
+				E733D5152CD3DE779F3CC6CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -228,6 +225,9 @@
 		0D0A861B1B58391000DF0C71 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0DFFE2A51B72E41D0082B1C9 /* single-view@3x.png */,
+				0DFFE2A31B72E40B0082B1C9 /* single-view@2x.png */,
+				0DFFE2A11B72E3FC0082B1C9 /* single-view.png */,
 				0DA365EA1B7197E000DC12F8 /* left-arrow@3x.png */,
 				0DA365EB1B7197E100DC12F8 /* options@3x.png */,
 				0DA365EC1B7197E100DC12F8 /* right-arrow@3x.png */,
@@ -323,10 +323,19 @@
 			name = Networking;
 			sourceTree = "<group>";
 		};
-		30D8827A26EDFC05B6B72AD2 /* Frameworks */ = {
+		1D17FDBDEA8264BDD8A12352 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CD740A2348EF280CF0330674 /* Pods_DishUpApp.framework */,
+				ECCBAF1B59C9594F3B0731AE /* Pods-DishUpApp.debug.xcconfig */,
+				F79526C3DD3248A625E580D7 /* Pods-DishUpApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E733D5152CD3DE779F3CC6CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F51F2C1B82B4373E690F17F9 /* Pods_DishUpApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -338,12 +347,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D0A86371B58391000DF0C71 /* Build configuration list for PBXNativeTarget "DishUpApp" */;
 			buildPhases = (
-				66C9F568E6A5E7E4DC5E27C2 /* Check Pods Manifest.lock */,
+				12D2422CF01B7027A4A8AD7C /* Check Pods Manifest.lock */,
 				0D0A86141B58391000DF0C71 /* Sources */,
 				0D0A86151B58391000DF0C71 /* Frameworks */,
 				0D0A86161B58391000DF0C71 /* Resources */,
-				1BA8CD6AED94671C6096D83A /* Embed Pods Frameworks */,
-				DE0404058A9165FA026DBC90 /* Copy Pods Resources */,
+				714494A23BAA792F9E962F24 /* Embed Pods Frameworks */,
+				EC9CA92A72BCD9E768607388 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -424,6 +433,7 @@
 				0D3D83051B6D16440031FC18 /* SourceSansPro-BlackItalic.ttf in Resources */,
 				0D3D83071B6D16440031FC18 /* SourceSansPro-BoldItalic.ttf in Resources */,
 				0D78E92A1B626F2600AECC90 /* line14.png in Resources */,
+				0DFFE2A61B72E41D0082B1C9 /* single-view@3x.png in Resources */,
 				0DA365E71B7197BC00DC12F8 /* left-arrow@2x.png in Resources */,
 				0D46AB6D1B70E9C3006602C4 /* _@2x.png in Resources */,
 				0D3D83191B6D88E00031FC18 /* Craving@3x.png in Resources */,
@@ -444,6 +454,7 @@
 				0D3872771B5BF4C500CF931A /* placeholder.png in Resources */,
 				0D0A86281B58391000DF0C71 /* LaunchScreen.xib in Resources */,
 				0D70D3C61B704AE4007E49C3 /* home.png in Resources */,
+				0DFFE2A21B72E3FC0082B1C9 /* single-view.png in Resources */,
 				0D3D82F71B6D03E00031FC18 /* AscensionBrewingCompany_EdamameHummus.jpg in Resources */,
 				0D3D830B1B6D16440031FC18 /* SourceSansPro-Light.ttf in Resources */,
 				0D3D830F1B6D16440031FC18 /* SourceSansPro-SemiboldItalic.ttf in Resources */,
@@ -453,6 +464,7 @@
 				0DA365E21B71979500DC12F8 /* left-arrow.png in Resources */,
 				0DA365EF1B7197E100DC12F8 /* right-arrow@3x.png in Resources */,
 				0D3D83081B6D16440031FC18 /* SourceSansPro-ExtraLight.ttf in Resources */,
+				0DFFE2A41B72E40B0082B1C9 /* single-view@2x.png in Resources */,
 				0DA365E91B7197BC00DC12F8 /* right-arrow@2x.png in Resources */,
 				0D0A86251B58391000DF0C71 /* Images.xcassets in Resources */,
 				0DA365E31B71979500DC12F8 /* right-arrow.png in Resources */,
@@ -472,22 +484,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1BA8CD6AED94671C6096D83A /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DishUpApp/Pods-DishUpApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		66C9F568E6A5E7E4DC5E27C2 /* Check Pods Manifest.lock */ = {
+		12D2422CF01B7027A4A8AD7C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -502,7 +499,22 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		DE0404058A9165FA026DBC90 /* Copy Pods Resources */ = {
+		714494A23BAA792F9E962F24 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DishUpApp/Pods-DishUpApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC9CA92A72BCD9E768607388 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -673,12 +685,12 @@
 		};
 		0D0A86381B58391000DF0C71 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA304523FAE8DDA86CBA01C8 /* Pods-DishUpApp.debug.xcconfig */;
+			baseConfigurationReference = ECCBAF1B59C9594F3B0731AE /* Pods-DishUpApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DishUpApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -691,12 +703,12 @@
 		};
 		0D0A86391B58391000DF0C71 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D19AB12C68B486532EF0559 /* Pods-DishUpApp.release.xcconfig */;
+			baseConfigurationReference = F79526C3DD3248A625E580D7 /* Pods-DishUpApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DishUpApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

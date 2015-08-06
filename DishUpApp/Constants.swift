@@ -15,4 +15,6 @@ struct GlobalConstants{
     
 }
 var imageCache : [String:UIImage] = [:]
+var dishCache : [Int:Dish] = [:]
+var tagCache : [Int:Int] = [:]
 

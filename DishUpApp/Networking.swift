@@ -19,10 +19,12 @@ class Networking {
     
     static func getDishTypes(requester: DishTypesVC, completion: (() -> ())? = nil){
         //
-        Alamofire.request(.GET, "https://removed.com/api/dish_types")
-            .responseJSON {(request, response, json, error)in
-                if json != nil{
-                    var jsonObj = JSON(json!)
+        Alamofire.request(.GET, "\(GlobalConstants.API.url)dish_types")
+            .responseJSON {(request, response, json)in
+                if json.isSuccess{
+                    let jsonData = json.value
+                    
+                    var jsonObj = JSON(jsonData!)
                     if let dishtypes = jsonObj["dish_types"].arrayValue as [JSON]?{
                         
                         let dishTypesArray =  dishtypes.map({ DishType(json: $0) })
@@ -45,10 +47,11 @@ class Networking {
         requestUrl += "/dishes"
         print("Dishes Request url: \(requestUrl)")
         Alamofire.request(.GET, requestUrl)
-            .response {(request, response, json, error) in
-                print("Request: \(request) response: \(response) json: \(json) error: \(error)")
-                if json != nil{
-                    var jsonObj = JSON(json!)
+            .responseJSON {(request, response, json)in
+                if json.isSuccess{
+                    let jsonData = json.value
+                    
+                    var jsonObj = JSON(jsonData!)
                     if let dishes = jsonObj["dishes"].arrayValue as [JSON]?{
                         print(json)
                         let dishesArray = dishes.map({Dish(json: $0)})
@@ -67,10 +70,11 @@ class Networking {
         
        
         Alamofire.request(.GET, requestUrl)
-            .responseJSON({(request, response, json, error)in
-                print(json)
-                if json != nil{
-                    var jsonObj = JSON(json!)
+            .responseJSON {(request, response, json)in
+                if json.isSuccess{
+                    let jsonData = json.value
+                    
+                    var jsonObj = JSON(jsonData!)
                     if let dish = jsonObj["dish"] as JSON?{
                         print(json)
                         let dishObj = Dish(json: dish)
@@ -79,13 +83,16 @@ class Networking {
                         
                     }
                 }
-        })
+        }
     }
     static func getRestaurants(requester: RestaurantsVC, completion: (() -> ())? = nil){
         Alamofire.request(.GET, "\(GlobalConstants.API.url)restaurants")
-            .response {(request, response, json, error)in
-                if json != nil{
-                    var jsonObj = JSON(json!)
+            .responseJSON {(request, response, json)in
+                if json.isSuccess{
+                    let jsonData = json.value
+                    
+                    var jsonObj = JSON(jsonData!)
+
                     if let restaurants = jsonObj["restaurants"].arrayValue as [JSON]?{
                         
                         let restaurantsArray =  restaurants.map({ Restaurant(json: $0) })

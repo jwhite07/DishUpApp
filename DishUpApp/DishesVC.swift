@@ -27,21 +27,24 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     @IBAction func switchToGridView(sender: AnyObject) {
         if layoutMode == .Single{
             layoutMode = .Grid
-            zoomLevel.setTitle("Single", forState: UIControlState.Normal)
+            zoomLevel.setImage(UIImage(named: "single-view.png"), forState: UIControlState.Normal)
             //scrollDirection = .Vertical
             
         }else{
             layoutMode = .Single
-            zoomLevel.setTitle("Grid", forState: UIControlState.Normal)
+            zoomLevel.setImage(UIImage(named: "grid-view.png"), forState: UIControlState.Normal)
             //scrollDirection = .Horizontal
         }
-        dishes.setCollectionViewLayout(dishes.collectionViewLayout, animated: true)
-        self.dishes.performBatchUpdates({
+        //dishes.reloadData()
+            self.dishes.performBatchUpdates({
+            //self.dishes.setCollectionViewLayout(self.dishes.collectionViewLayout, animated: true)
+            self.dishes.collectionViewLayout.invalidateLayout()
+            
             self.dishes.reloadData()
-
             }, completion: nil)
         
         
+        //self.dishes.collectionViewLayout.invalidateLayout()
     }
     
     
@@ -154,19 +157,25 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuse, forIndexPath: indexPath) as! DishCollectionViewCell
         
-        
-        if indexPath.row == 0{
-            cell.leftArrow.hidden = true
-        }
-        if indexPath.row == dishesArray.count - 1{
-            cell.rightArrow.hidden = true
-        }
-        print ("IndexPath.row: \(indexPath.section)")
+               //print ("IndexPath.row: \(indexPath.row)")
         
                // cell.dishPic.image = UIImage(named: "placeholder.png")
         if layoutMode == .Single{
             cell.dishName.text = dish.name.uppercaseString
            // cell.dishDesc.text = dish.description
+            
+            if indexPath.row == 0{
+                cell.leftArrow.hidden = true
+                
+            }else{
+                cell.leftArrow.hidden = false
+            }
+            if indexPath.row == dishesArray.count - 1{
+                cell.rightArrow.hidden = true
+            }else{
+                cell.rightArrow.hidden = false
+            }
+            //print("indexPathRow: \(indexPath.row) dishesArrayCount \(dishesArray.count) cellLeftArrow: \(cell.leftArrow.hidden)")
  
         }
         cell.dish = dish
@@ -196,13 +205,19 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
             let dishPicTap = UITapGestureRecognizer(target: self, action: Selector("dishPicTap:"))
             cell.dishPic.addGestureRecognizer(dishPicTap)
             cell.dishPic.userInteractionEnabled = true
+            let i = tagCache.count * 2
+            cell.tag = i + 1
+            cell.dishPic.tag = i + 2
+            tagCache[cell.dishPic.tag] = cell.tag
+                        
            // cell.tag =
         }
         
 //        cell.dragHandle.addGestureRecognizer(cell.dragHandleUp)
 //        cell.dragHandle.addGestureRecognizer(cell.dragHandleDown)
 //        cell.dragHandle.userInteractionEnabled = true
-
+        cell.indexPath = indexPath
+        cell.collectionView = dishes
         return cell
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -213,7 +228,8 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     func dishPicTap( sender: AnyObject) {
         if let imageView = sender.view as! UIImageView?{
             print(imageView)
-            if let cell = imageView.superview {
+            print("ImageView Tag: \(imageView.tag) tagCache: \(tagCache) cellTag: \(tagCache[imageView.tag])")
+            if let cell = dishes.viewWithTag(tagCache[imageView.tag]!) as! DishCollectionViewCell?{
                 print(cell)
                 performSegueWithIdentifier("showDishDetailSegue", sender: cell)
             }

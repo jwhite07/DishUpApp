@@ -43,6 +43,7 @@ final class Dish {
                 self.restaurant = Restaurant(json: restaurantJson)
             
         }
+        
     }
     //static func init_or_load( json: JSON)
     

@@ -55,8 +55,12 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
         return cell
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cell = sender as! DishTypeCollectionViewCell
-        let dishesVC = segue.destinationViewController as! DishesVC
-        dishesVC.dishType = cell.dishType
+        if segue.identifier == "dishTypeToDishSegue" {
+            let cell = sender as! DishTypeCollectionViewCell
+            let dishesVC = segue.destinationViewController as! DishesVC
+            dishesVC.dishType = cell.dishType
+
+        }
+        
     }
 }

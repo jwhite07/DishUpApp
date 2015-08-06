@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="f8w-Mg-NRI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="f8w-Mg-NRI">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
@@ -57,7 +57,7 @@
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ocN-32-UW4" id="7iL-2i-MTy">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -363,7 +363,7 @@
                                             <outlet property="restaurantCitySt" destination="sVd-KG-N3C" id="ubE-K4-RTf"/>
                                             <outlet property="restaurantImg" destination="nHH-VU-7df" id="Sa0-Ou-gdR"/>
                                             <outlet property="restaurantName" destination="H7u-NO-tug" id="yDZ-yP-ge5"/>
-                                            <segue destination="z7Y-BR-xuT" kind="show" id="qTT-HZ-QOT"/>
+                                            <segue destination="z7Y-BR-xuT" kind="presentation" modalPresentationStyle="currentContext" modalTransitionStyle="flipHorizontal" id="qTT-HZ-QOT"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -458,7 +458,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="imageView" destination="4OR-br-109" id="iUY-sA-mI4"/>
-                                            <segue destination="z7Y-BR-xuT" kind="show" id="aJB-k6-wmT"/>
+                                            <segue destination="z7Y-BR-xuT" kind="show" identifier="dishTypeToDishSegue" id="aJB-k6-wmT"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -503,7 +503,7 @@
         <!--Dish-->
         <scene sceneID="Yqj-eN-GlJ">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="z7Y-BR-xuT" customClass="DishesVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="z7Y-BR-xuT" customClass="DishesVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S9I-g2-XHI"/>
                         <viewControllerLayoutGuide type="bottom" id="BKj-mc-Ekc"/>
@@ -515,9 +515,13 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MuA-te-xFd" userLabel="Search Container">
                                 <rect key="frame" x="0.0" y="64" width="600" height="70"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" misplaced="YES" placeholder="search by name" translatesAutoresizingMaskIntoConstraints="NO" id="C19-n6-dHC">
+                                    <searchBar hidden="YES" contentMode="redraw" misplaced="YES" placeholder="search by name" translatesAutoresizingMaskIntoConstraints="NO" id="C19-n6-dHC">
                                         <rect key="frame" x="0.0" y="0.0" width="464" height="44"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
                                     </searchBar>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imn-MI-eCe">
                                         <rect key="frame" x="536" y="8" width="25" height="25"/>
@@ -576,7 +580,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4BS-Al-uDU" customClass="CosmosView" customModule="Cosmos">
+                                                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4BS-Al-uDU" customClass="CosmosView" customModule="Cosmos">
                                                             <rect key="frame" x="222" y="57" width="145" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="145" id="U7L-HF-RNB"/>
@@ -586,12 +590,15 @@
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="starSize">
                                                                     <real key="value" value="25"/>
                                                                 </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="YES"/>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="colorFilled">
                                                                     <color key="value" red="1" green="0.82352941176470584" blue="0.011764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColorEmpty">
                                                                     <color key="value" red="1" green="0.82352941180000006" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                                                    <integer key="value" value="0"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
@@ -615,7 +622,7 @@
                                                         <constraint firstItem="zOv-aZ-ebp" firstAttribute="leading" secondItem="8oW-p6-lAx" secondAttribute="leading" id="nAB-Mq-Buw"/>
                                                     </constraints>
                                                 </view>
-                                                <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bcm-Ll-EqY">
+                                                <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bcm-Ll-EqY">
                                                     <rect key="frame" x="0.0" y="164" width="600" height="164"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tz4-Um-VZX">
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="164"/>
@@ -680,7 +687,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" reuseIdentifier="dishGrid" id="8ng-Cr-hY6" customClass="DishCollectionViewCell" customModule="DishUpApp" customModuleProvider="target">
-                                        <rect key="frame" x="237.5" y="502" width="125" height="125"/>
+                                        <rect key="frame" x="238" y="502" width="125" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
@@ -795,7 +802,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" reuseIdentifier="dishpic" id="iDp-lY-zjN" customClass="DishpicCell" customModule="DishUpApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="26" width="187.5" height="128"/>
+                                        <rect key="frame" x="0.0" y="26" width="188" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="188" height="128"/>
