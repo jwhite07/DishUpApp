@@ -30,20 +30,19 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
             
             if layoutMode == .Single{
                 layoutMode = .Grid
-                self.dishes.performBatchUpdates({
                     self.zoomLevel.setImage(UIImage(named: "single-view.png"), forState: UIControlState.Normal)
                 
                     for c in visible{
                         c.hideForGrid()
                     }
                     self.dishes.reloadData()
-                }, completion: nil)
                 
             }else{
                 layoutMode = .Single
+                    self.dishes.reloadData()
                 
                 self.dishes.performBatchUpdates({
-                    self.dishes.reloadData()
+                   
                     self.zoomLevel.setImage(UIImage(named: "grid-view.png"), forState: UIControlState.Normal)
                     
                     for c  in visible {

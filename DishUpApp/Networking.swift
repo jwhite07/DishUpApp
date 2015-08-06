@@ -53,7 +53,6 @@ class Networking {
                     
                     var jsonObj = JSON(jsonData!)
                     if let dishes = jsonObj["dishes"].arrayValue as [JSON]?{
-                        print(json)
                         let dishesArray = dishes.map({Dish(json: $0)})
                         requester.dishesArray = dishesArray
                         completion?()
@@ -76,7 +75,6 @@ class Networking {
                     
                     var jsonObj = JSON(jsonData!)
                     if let dish = jsonObj["dish"] as JSON?{
-                        print(json)
                         let dishObj = Dish(json: dish)
                         requester.dish = dishObj
                         completion?()
@@ -106,20 +104,24 @@ class Networking {
     }
     
     static func getImageAtUrl (imageURL : String, completion: ((UIImage) -> ())? = nil) {
-        
-        if let imageObj = imageCache[imageURL]{
+        let allowedSet = NSCharacterSet(charactersInString:"=#%<>?@^{|}\"' ").invertedSet
+        let escapedUrl = imageURL.stringByAddingPercentEncodingWithAllowedCharacters(allowedSet)!
+        if let imageObj = imageCache[escapedUrl]{
             
             
             completion?(imageObj)
         }else{
-            Alamofire.request(.GET, imageURL).response() { (request, response, data, error) in
-                print("Request: \(request) Response: \(response)")
-                if error == nil{
-                    print("Downloaded image from: \(imageURL)")
-                    let imageObj = UIImage(data: data!)
-                    imageCache[imageURL] = imageObj
-                    completion?(imageObj!)
+            print("URL: \(escapedUrl)")
+            Alamofire.request(.GET, escapedUrl).response() { (request, response, data, error) in
+                    if error == nil{
+                        
+                        if let imageObj = UIImage(data: data!){
+                            
+                            imageCache[escapedUrl] = imageObj
+                            completion?(imageObj)
 
+                        }
+                    
                 }
             }
         }
