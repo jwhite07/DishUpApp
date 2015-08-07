@@ -129,7 +129,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
             }
         cell.dish = dish
 
-        if dish.price != nil {
+        if dish.price != nil && dish.price != 0 {
             let price = dish.price!
             
             let formatter = NSNumberFormatter()

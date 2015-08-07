@@ -25,6 +25,7 @@ class LaunchScreenVC: UIViewController {
         locationButton.layer.borderWidth = 1
         cravingButton.layer.borderColor = UIColor.blackColor().CGColor
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {

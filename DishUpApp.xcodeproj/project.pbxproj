@@ -72,6 +72,7 @@
 		0DD96EDC1B6ACD2C00265FE0 /* RestaurantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDB1B6ACD2C00265FE0 /* RestaurantsVC.swift */; };
 		0DD96EDE1B6ACE2700265FE0 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDD1B6ACE2700265FE0 /* RestaurantCell.swift */; };
 		0DD96EE01B6AD10F00265FE0 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDF1B6AD10F00265FE0 /* Restaurant.swift */; };
+		0DFC27A91B751A3D00AA2D7E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DFC27A81B751A3D00AA2D7E /* CoreLocation.framework */; };
 		0DFFE2A21B72E3FC0082B1C9 /* single-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE2A11B72E3FC0082B1C9 /* single-view.png */; };
 		0DFFE2A41B72E40B0082B1C9 /* single-view@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE2A31B72E40B0082B1C9 /* single-view@2x.png */; };
 		0DFFE2A61B72E41D0082B1C9 /* single-view@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE2A51B72E41D0082B1C9 /* single-view@3x.png */; };
@@ -159,6 +160,7 @@
 		0DD96EDB1B6ACD2C00265FE0 /* RestaurantsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsVC.swift; sourceTree = "<group>"; };
 		0DD96EDD1B6ACE2700265FE0 /* RestaurantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 		0DD96EDF1B6AD10F00265FE0 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		0DFC27A81B751A3D00AA2D7E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0DFFE2A11B72E3FC0082B1C9 /* single-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-view.png"; sourceTree = "<group>"; };
 		0DFFE2A31B72E40B0082B1C9 /* single-view@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-view@2x.png"; sourceTree = "<group>"; };
 		0DFFE2A51B72E41D0082B1C9 /* single-view@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-view@3x.png"; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DFC27A91B751A3D00AA2D7E /* CoreLocation.framework in Frameworks */,
 				DEC8215B2E8114DB7F606118 /* Pods_DishUpApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +338,7 @@
 		E733D5152CD3DE779F3CC6CB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DFC27A81B751A3D00AA2D7E /* CoreLocation.framework */,
 				F51F2C1B82B4373E690F17F9 /* Pods_DishUpApp.framework */,
 			);
 			name = Frameworks;

@@ -7,31 +7,43 @@
 //
 
 import UIKit
+import CoreLocation
 
-class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, CLLocationManagerDelegate {
     let reuseIdentifier = "restaurant"
     var restaurantsArray : [Restaurant] = []
+    let locationManager = CLLocationManager()
 
 
     @IBOutlet weak var restaurants: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        Networking.getRestaurants(self, completion: {self.restaurants!.reloadData()})
-
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        locationManager.startUpdatingLocation()
+        let location = locationManager.location
+        
+        
+        Networking.getRestaurants(self, location: location, completion: {self.restaurants!.reloadData()})
+        
         if self.revealViewController() != nil {
             
             //menuButton.targetForAction("revealToggle:", withSender: nil)
             //menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-
+        
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return restaurantsArray.count

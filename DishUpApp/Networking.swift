@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import CoreLocation
 
 class Networking {
     
@@ -71,6 +72,7 @@ class Networking {
         Alamofire.request(.GET, requestUrl)
             .responseJSON {(request, response, json)in
                 if json.isSuccess{
+                    print(json)
                     let jsonData = json.value
                     
                     var jsonObj = JSON(jsonData!)
@@ -83,7 +85,7 @@ class Networking {
                 }
         }
     }
-    static func getRestaurants(requester: RestaurantsVC, completion: (() -> ())? = nil){
+    static func getRestaurants(requester: RestaurantsVC, location: CLLocation?, completion: (() -> ())? = nil){
         Alamofire.request(.GET, "\(GlobalConstants.API.url)restaurants")
             .responseJSON {(request, response, json)in
                 if json.isSuccess{

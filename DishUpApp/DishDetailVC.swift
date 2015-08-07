@@ -13,6 +13,11 @@ import Cosmos
 class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     let reuseIdentifier = "dish"
     var dish:Dish?
+    var website : String?
+    var location : String?
+    var phone : String?
+    
+    
     
     @IBOutlet weak var dishpics: UICollectionView!
     
@@ -20,12 +25,34 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
     @IBOutlet weak var dishRating: CosmosView!
     @IBOutlet weak var dishName: UILabel!
     @IBOutlet weak var dishPrice: UILabel!
-    @IBOutlet weak var dishDesc: UILabel!
+    @IBOutlet weak var dishDesc: UITextView!
+    
     @IBOutlet weak var restarauntName: UILabel!
     @IBOutlet weak var restaurantAddress: UILabel!
     @IBOutlet weak var restaurantCityStZip: UILabel!
 
     
+    
+    @IBAction func mapTap(sender: AnyObject) {
+        let allowedSet = NSCharacterSet(charactersInString:"=#%<>?@^{|}\"'").invertedSet
+        
+        
+        let cleanLocation = location!.stringByReplacingOccurrencesOfString(" ", withString: "+").stringByAddingPercentEncodingWithAllowedCharacters(allowedSet)!
+       
+
+        
+        let mapUrl = "http://maps.apple.com/?q=\(cleanLocation)"
+        UIApplication.sharedApplication().openURL(NSURL(string: mapUrl)!)
+    }
+    
+    @IBAction func websiteTap(sender: AnyObject) {
+        UIApplication.sharedApplication().openURL(NSURL(string: website!)!)
+    }
+    @IBAction func callTap(sender: AnyObject) {
+        let phoneStripped = "".join(phone!.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet))
+        let phoneUrl = NSURL(string: "tel://\(phoneStripped)")
+        UIApplication.sharedApplication().openURL(phoneUrl!)
+    }
     
     
     override func viewDidLoad() {
@@ -43,17 +70,37 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
     func updateSubViews(dish: Dish) {
         self.dishRating.rating      = dish.rating.doubleValue
         self.dishName.text          = dish.name
-        if dish.price != nil {
-            self.dishPrice.text = dish.price!.stringValue
+      
+        
+        if dish.price != nil && dish.price != 0 {
+            let price = dish.price!
+            
+            let formatter = NSNumberFormatter()
+            formatter.numberStyle = .CurrencyStyle
+            
+            self.dishPrice.text = formatter.stringFromNumber(price)
         }else{
             self.dishPrice.text = nil
         }
-        
+
         self.dishDesc.text          = dish.description
         
         self.restarauntName.text    = dish.restaurant?.name
         self.restaurantAddress.text = dish.restaurant?.address
-        self.restaurantCityStZip.text = "\(dish.restaurant?.city), \(dish.restaurant?.state) \(dish.restaurant?.postal_code)"
+        if let rest = dish.restaurant{
+            var postal_code = ""
+            if let zip = rest.postal_code{
+                 postal_code = zip
+                
+            }
+            self.restaurantCityStZip.text = "\(rest.city), \(rest.state) \(postal_code)"
+            location = "\(rest.name) \(rest.address) \(rest.city) \(rest.state) \(postal_code)"
+        }
+        website = dish.restaurant?.website
+        phone = dish.restaurant?.phone_number
+        
+        
+        
     
     }
     override func didReceiveMemoryWarning() {
@@ -81,6 +128,9 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         
         return dish!.dishpics.count
         
+    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(135, 240)
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
