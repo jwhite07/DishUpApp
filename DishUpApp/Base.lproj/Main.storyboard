@@ -24,6 +24,7 @@
             <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
+            <string>SourceSansPro-Regular</string>
         </mutableArray>
         <mutableArray key="SourceSansPro-Semibold.ttf">
             <string>SourceSansPro-Semibold</string>
@@ -317,7 +318,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="restaurant" id="soG-wG-FFp" customClass="RestaurantCell" customModule="DishUpApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="64" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
@@ -456,7 +457,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hamburger3.png" translatesAutoresizingMaskIntoConstraints="NO" id="4OR-br-109">
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hamburger3.png" translatesAutoresizingMaskIntoConstraints="NO" id="4OR-br-109">
                                                     <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <accessibility key="accessibilityConfiguration">
@@ -479,6 +480,30 @@
                                     <outlet property="delegate" destination="W4r-ib-ktJ" id="fx7-bA-Rwk"/>
                                 </connections>
                             </collectionView>
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dic-69-78N">
+                                <rect key="frame" x="180" y="236" width="115" height="54"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="tooltip.png" translatesAutoresizingMaskIntoConstraints="NO" id="7mI-7V-C9b">
+                                        <rect key="frame" x="0.0" y="0.0" width="115" height="54"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcc-eD-uJX">
+                                        <rect key="frame" x="40" y="8" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                                        <color key="textColor" red="0.94509803920000002" green="0.36470588240000001" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="IlR-eX-ThM"/>
+                                    <constraint firstAttribute="width" constant="114" id="LdA-ZC-6Rd"/>
+                                    <constraint firstItem="vcc-eD-uJX" firstAttribute="centerX" secondItem="dic-69-78N" secondAttribute="centerX" id="SR7-Za-cMB"/>
+                                    <constraint firstItem="vcc-eD-uJX" firstAttribute="top" secondItem="dic-69-78N" secondAttribute="top" constant="8" id="ZQN-4q-Yql"/>
+                                    <constraint firstItem="7mI-7V-C9b" firstAttribute="leading" secondItem="dic-69-78N" secondAttribute="leading" id="ahZ-ce-tMK"/>
+                                    <constraint firstItem="7mI-7V-C9b" firstAttribute="top" secondItem="dic-69-78N" secondAttribute="top" id="hx6-8Y-tF8"/>
+                                    <constraint firstAttribute="bottom" secondItem="7mI-7V-C9b" secondAttribute="bottom" id="vQ5-Q1-aZL"/>
+                                    <constraint firstAttribute="trailing" secondItem="7mI-7V-C9b" secondAttribute="trailing" id="xgQ-ye-EH3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -506,6 +531,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dishTypes" destination="9Xs-xG-FCh" id="AJZ-UH-IIO"/>
+                        <outlet property="toolTip" destination="dic-69-78N" id="7HB-pg-ro3"/>
+                        <outlet property="toolTipLabel" destination="vcc-eD-uJX" id="K9J-1M-DfW"/>
                         <outletCollection property="dishTypes" destination="9Xs-xG-FCh" collectionClass="NSMutableArray" id="34e-Fn-06S"/>
                     </connections>
                 </viewController>
@@ -1117,10 +1144,11 @@
         <image name="home.png" width="53" height="50"/>
         <image name="left-arrow.png" width="79" height="79"/>
         <image name="right-arrow.png" width="79" height="79"/>
+        <image name="tooltip.png" width="114" height="54"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fvz-or-EST"/>
-        <segue reference="qTT-HZ-QOT"/>
+        <segue reference="jmd-cn-vvd"/>
+        <segue reference="aJB-k6-wmT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

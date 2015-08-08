@@ -701,5 +701,69 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DishUpApp/DishTypesVC.swift"
+            timestampString = "460764334.552918"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "showToolTip(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DishUpApp/DishTypesVC.swift"
+            timestampString = "460764334.552918"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "showToolTip(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DishUpApp.DishTypesVC.showToolTip (DishUpApp.DishTypesVC)(Swift.AnyObject) -&gt; ()"
+                  moduleName = "DishUpApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/whitej/Documents/DishUpApp/DishUpApp/DishTypesVC.swift"
+                  timestampString = "460763327.195194"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "1417">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DishUpApp.DishTypesVC.showToolTip (DishUpApp.DishTypesVC)(Swift.AnyObject) -&gt; ()"
+                  moduleName = "DishUpApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/whitej/Documents/DishUpApp/DishUpApp/DishTypesVC.swift"
+                  timestampString = "460763327.195369"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "1492">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

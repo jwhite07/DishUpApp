@@ -9,4 +9,5 @@ target 'DishUpApp' do
 	pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'swift-2.0'
 
 	pod 'Cosmos', '~> 1.0'
+	pod 'AMPopTip'
 end

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A7DB0777BBEA34B382EC1C6B"
-               BuildableName = "Cosmos.framework"
-               BlueprintName = "Cosmos"
+               BlueprintIdentifier = "A22E661908C40434E0E6AD40"
+               BuildableName = "AMPopTip.framework"
+               BlueprintName = "AMPopTip"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
