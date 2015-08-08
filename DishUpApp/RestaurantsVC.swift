@@ -73,9 +73,11 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         return cell
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cell = sender as! RestaurantCell
-        let dishesVC = segue.destinationViewController as! DishesVC
-        dishesVC.restaurant = cell.restaurant
+        if segue.identifier == "restaurantToDishesSegue" {
+            let cell = sender as! RestaurantCell
+            let dishesVC = segue.destinationViewController as! DishesVC
+            dishesVC.restaurant = cell.restaurant
+        }
     }
         func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
             let collectionWidth = restaurants.bounds.size.width

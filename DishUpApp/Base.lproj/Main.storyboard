@@ -204,14 +204,14 @@
                                     <constraint firstAttribute="trailing" secondItem="ICw-Vh-hZn" secondAttribute="trailing" constant="20" id="qqV-bW-XNI"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xjI-4u-0tS">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xjI-4u-0tS" customClass="DishUpNavigationBar" customModule="DishUpApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <color key="barTintColor" red="0.97647058823529409" green="0.40784313725490196" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="DishUp" id="YMj-FR-QwZ"/>
+                                    <navigationItem id="YMj-FR-QwZ"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -258,16 +258,13 @@
         <!--Navigation Controller-->
         <scene sceneID="FVm-tt-j9h">
             <objects>
-                <navigationController id="pNB-TU-5op" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jkv-Vl-Nqo">
+                <navigationController id="pNB-TU-5op" customClass="NavigationController" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jkv-Vl-Nqo" customClass="DishUpNavigationBar" customModule="DishUpApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.94509803920000002" green="0.36470588240000001" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="textShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -281,8 +278,8 @@
         <!--Navigation Controller-->
         <scene sceneID="b5f-Ex-VCj">
             <objects>
-                <navigationController id="Tqq-7n-utK" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="84j-30-7q0">
+                <navigationController id="Tqq-7n-utK" customClass="NavigationController" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="84j-30-7q0" customClass="DishUpNavigationBar" customModule="DishUpApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.94509803920000002" green="0.36470588240000001" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -382,7 +379,7 @@
                                             <outlet property="restaurantDistance" destination="SeW-0j-I1e" id="Aww-IN-aC9"/>
                                             <outlet property="restaurantImg" destination="nHH-VU-7df" id="Sa0-Ou-gdR"/>
                                             <outlet property="restaurantName" destination="H7u-NO-tug" id="yDZ-yP-ge5"/>
-                                            <segue destination="z7Y-BR-xuT" kind="show" id="qTT-HZ-QOT"/>
+                                            <segue destination="z7Y-BR-xuT" kind="show" identifier="restaurantToDishesSegue" id="qTT-HZ-QOT"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -401,14 +398,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XCn-t4-HwL">
-                        <barButtonItem key="leftBarButtonItem" title="Item" style="done" id="AxF-98-Ght">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KOV-Ro-Tek">
-                                <rect key="frame" x="0.0" y="-3" width="107" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="home.png"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" image="home.png" id="kVz-Aj-qgU">
+                            <inset key="imageInsets" minX="12" minY="12" maxX="12" maxY="12"/>
                             <connections>
-                                <segue destination="OG9-cj-rz6" kind="show" id="O8Q-cr-XIn"/>
+                                <segue destination="OG9-cj-rz6" kind="showDetail" id="Fvz-or-EST"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -420,7 +413,7 @@
             </objects>
             <point key="canvasLocation" x="335" y="1613"/>
         </scene>
-        <!--Title-->
+        <!--Dish TypesVC-->
         <scene sceneID="emh-JF-At7">
             <objects>
                 <viewController id="W4r-ib-ktJ" customClass="DishTypesVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -489,8 +482,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9Xs-xG-FCh" firstAttribute="top" secondItem="Gfb-lv-Qb1" secondAttribute="bottom" id="CWk-Tp-Edj"/>
                             <constraint firstItem="rtm-xO-E5J" firstAttribute="top" secondItem="Gfb-lv-Qb1" secondAttribute="bottom" id="Eih-tL-O4V"/>
+                            <constraint firstItem="9Xs-xG-FCh" firstAttribute="top" secondItem="Gfb-lv-Qb1" secondAttribute="bottom" id="IDy-gU-DdH"/>
                             <constraint firstItem="fV2-M3-MBQ" firstAttribute="top" secondItem="9Xs-xG-FCh" secondAttribute="bottom" id="LhT-me-KPA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rtm-xO-E5J" secondAttribute="trailing" id="Ovq-HK-fIy"/>
                             <constraint firstItem="rtm-xO-E5J" firstAttribute="leading" secondItem="3iF-2c-MVI" secondAttribute="leadingMargin" id="OxG-0t-hfq"/>
@@ -503,10 +496,11 @@
                             <constraint firstItem="9Xs-xG-FCh" firstAttribute="leading" secondItem="3iF-2c-MVI" secondAttribute="leading" id="wYo-Pk-noL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Tn3-GD-8np">
-                        <barButtonItem key="leftBarButtonItem" image="home.png" id="O8X-yc-S9j">
+                    <navigationItem key="navigationItem" id="Tn3-GD-8np">
+                        <barButtonItem key="leftBarButtonItem" image="home.png" id="Bh7-cr-x6q">
+                            <inset key="imageInsets" minX="12" minY="12" maxX="12" maxY="12"/>
                             <connections>
-                                <segue destination="OG9-cj-rz6" kind="show" id="oL9-Xg-B30"/>
+                                <segue destination="OG9-cj-rz6" kind="showDetail" id="jmd-cn-vvd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -519,7 +513,7 @@
             </objects>
             <point key="canvasLocation" x="335" y="929"/>
         </scene>
-        <!--Dish-->
+        <!--DishesVC-->
         <scene sceneID="Yqj-eN-GlJ">
             <objects>
                 <viewController id="z7Y-BR-xuT" customClass="DishesVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -787,7 +781,7 @@
                             <constraint firstItem="a0z-ej-HrB" firstAttribute="leading" secondItem="820-et-aqX" secondAttribute="leading" id="mKB-Ny-OXu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Dish" id="3Lc-or-nLo"/>
+                    <navigationItem key="navigationItem" id="3Lc-or-nLo"/>
                     <connections>
                         <outlet property="dishes" destination="a0z-ej-HrB" id="Bpe-om-9mH"/>
                         <outlet property="zoomLevel" destination="imn-MI-eCe" id="bnJ-ko-0ig"/>
@@ -1125,7 +1119,7 @@
         <image name="right-arrow.png" width="79" height="79"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O8Q-cr-XIn"/>
+        <segue reference="Fvz-or-EST"/>
         <segue reference="qTT-HZ-QOT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
