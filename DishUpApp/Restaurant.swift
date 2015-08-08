@@ -21,6 +21,7 @@ final class Restaurant{
     let premium_level: String?
     let phone_number: String?
     let website: String?
+    let distance: Float?
     
     let id: Int
     
@@ -38,7 +39,7 @@ final class Restaurant{
         self.premium_level = json["premium_level"].string
         self.phone_number = json["phone_number"].string
         self.website = json["website"].string
-        
+        self.distance = json["distance"].float
         self.id = json["id"].intValue
         if (self.logo  != nil){
             

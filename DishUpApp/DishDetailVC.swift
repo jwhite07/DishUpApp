@@ -32,6 +32,7 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
     @IBOutlet weak var restaurantCityStZip: UILabel!
 
     
+    @IBOutlet weak var largePic: UIImageView!
     
     @IBAction func mapTap(sender: AnyObject) {
         let allowedSet = NSCharacterSet(charactersInString:"=#%<>?@^{|}\"'").invertedSet
@@ -70,8 +71,17 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
     func updateSubViews(dish: Dish) {
         self.dishRating.rating      = dish.rating.doubleValue
         self.dishName.text          = dish.name
-      
-        
+        if dish.lead_dishpic_url != nil{
+            self.largePic.image = UIImage(named: "placeholder.png")
+            
+            
+            Networking.getImageAtUrl(dish.lead_dishpic_url!, completion:
+                {(imageObj: UIImage) in
+                    self.largePic.image = imageObj
+                    
+            })
+        }
+
         if dish.price != nil && dish.price != 0 {
             let price = dish.price!
             

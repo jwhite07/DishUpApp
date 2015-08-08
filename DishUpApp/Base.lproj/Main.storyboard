@@ -23,6 +23,7 @@
             <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
+            <string>SourceSansPro-Regular</string>
         </mutableArray>
         <mutableArray key="SourceSansPro-Semibold.ttf">
             <string>SourceSansPro-Semibold</string>
@@ -325,7 +326,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nHH-VU-7df">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nHH-VU-7df">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grid_photo_shadow.png" translatesAutoresizingMaskIntoConstraints="NO" id="pju-ny-7AJ">
@@ -349,6 +350,12 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1.0 mi" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeW-0j-I1e">
+                                                    <rect key="frame" x="538" y="163" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -356,11 +363,13 @@
                                             <constraint firstAttribute="trailing" secondItem="nHH-VU-7df" secondAttribute="trailing" id="4xF-mN-mtM"/>
                                             <constraint firstItem="nHH-VU-7df" firstAttribute="leading" secondItem="soG-wG-FFp" secondAttribute="leading" id="5JI-dQ-Rk0"/>
                                             <constraint firstAttribute="trailing" secondItem="H7u-NO-tug" secondAttribute="trailing" constant="20" id="97f-6I-BwD"/>
+                                            <constraint firstAttribute="bottom" secondItem="SeW-0j-I1e" secondAttribute="bottom" constant="16" id="9eD-i1-ko6"/>
                                             <constraint firstAttribute="bottom" secondItem="nHH-VU-7df" secondAttribute="bottom" id="Nmc-hj-wux"/>
                                             <constraint firstItem="sVd-KG-N3C" firstAttribute="leading" secondItem="soG-wG-FFp" secondAttribute="leading" constant="20" id="TrG-2B-1p9"/>
                                             <constraint firstItem="sVd-KG-N3C" firstAttribute="top" secondItem="H7u-NO-tug" secondAttribute="bottom" constant="8" id="Y9V-fI-zyf"/>
                                             <constraint firstItem="H7u-NO-tug" firstAttribute="top" secondItem="soG-wG-FFp" secondAttribute="top" priority="750" constant="118" id="Yse-QX-ODS"/>
                                             <constraint firstItem="pju-ny-7AJ" firstAttribute="top" secondItem="H7u-NO-tug" secondAttribute="top" constant="-40" id="bGb-E5-yiE"/>
+                                            <constraint firstAttribute="trailing" secondItem="SeW-0j-I1e" secondAttribute="trailing" constant="20" id="dnb-6k-kQO"/>
                                             <constraint firstItem="nHH-VU-7df" firstAttribute="top" secondItem="soG-wG-FFp" secondAttribute="top" id="iGK-Ph-biH"/>
                                             <constraint firstAttribute="bottom" secondItem="sVd-KG-N3C" secondAttribute="bottom" constant="20" id="jdL-5T-Tcy"/>
                                             <constraint firstAttribute="trailing" secondItem="pju-ny-7AJ" secondAttribute="trailing" id="olR-Db-Zr5"/>
@@ -370,6 +379,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="restaurantCitySt" destination="sVd-KG-N3C" id="ubE-K4-RTf"/>
+                                            <outlet property="restaurantDistance" destination="SeW-0j-I1e" id="Aww-IN-aC9"/>
                                             <outlet property="restaurantImg" destination="nHH-VU-7df" id="Sa0-Ou-gdR"/>
                                             <outlet property="restaurantName" destination="H7u-NO-tug" id="yDZ-yP-ge5"/>
                                             <segue destination="z7Y-BR-xuT" kind="show" id="qTT-HZ-QOT"/>
@@ -696,7 +706,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" reuseIdentifier="dishGrid" id="8ng-Cr-hY6" customClass="DishCollectionViewCell" customModule="DishUpApp" customModuleProvider="target">
-                                        <rect key="frame" x="238" y="502" width="125" height="125"/>
+                                        <rect key="frame" x="237.5" y="502" width="125" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
@@ -1066,6 +1076,7 @@
                         <outlet property="dishPrice" destination="pMD-wx-Oj8" id="9dz-Ws-Z0f"/>
                         <outlet property="dishRating" destination="j14-Ty-Nw4" id="7WB-cL-xjr"/>
                         <outlet property="dishpics" destination="cEJ-9b-ld0" id="joX-nQ-FCd"/>
+                        <outlet property="largePic" destination="ozi-bt-asM" id="JMZ-DX-aGB"/>
                         <outlet property="restarauntName" destination="reN-4t-RfX" id="ODr-Fb-Kp4"/>
                         <outlet property="restaurantAddress" destination="Trk-6q-Med" id="iXT-DR-jUa"/>
                         <outlet property="restaurantCityStZip" destination="YNV-1o-JGD" id="av7-Fb-AL8"/>
@@ -1114,7 +1125,7 @@
         <image name="right-arrow.png" width="79" height="79"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oL9-Xg-B30"/>
+        <segue reference="O8Q-cr-XIn"/>
         <segue reference="qTT-HZ-QOT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

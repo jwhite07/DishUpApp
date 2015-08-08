@@ -61,6 +61,12 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
             
             Networking.getImageAtUrl(logo_url, completion: {(imageObj: UIImage) in cell.restaurantImg.image = imageObj})
         }
+        if let distance = cell.restaurant?.distance{
+            let distanceTrimmed = String(format: "%.1f", distance)
+            cell.restaurantDistance.text = "\(distanceTrimmed) mi"
+        }else{
+            cell.restaurantDistance.text = ""
+        }
         cell.restaurant = restaurantsArray[indexPath.row]
         cell.restaurantName.text = cell.restaurant!.name
         cell.restaurantCitySt.text = "\(cell.restaurant!.city), \(cell.restaurant!.state)"

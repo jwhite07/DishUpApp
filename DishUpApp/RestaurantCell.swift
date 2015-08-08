@@ -14,4 +14,5 @@ class RestaurantCell: UICollectionViewCell {
     @IBOutlet weak var restaurantCitySt: UILabel!
     @IBOutlet weak var restaurantImg: UIImageView!
     
+    @IBOutlet weak var restaurantDistance: UILabel!
 }

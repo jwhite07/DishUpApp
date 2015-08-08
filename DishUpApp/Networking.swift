@@ -86,8 +86,15 @@ class Networking {
         }
     }
     static func getRestaurants(requester: RestaurantsVC, location: CLLocation?, completion: (() -> ())? = nil){
-        Alamofire.request(.GET, "\(GlobalConstants.API.url)restaurants")
+        var params : [String:String] = [:]
+        if let coordinates = location?.coordinate{
+            params["latitude"] = coordinates.latitude.description
+            params["longitude"] = coordinates.longitude.description
+        }
+        print(params)
+        Alamofire.request(.GET, "\(GlobalConstants.API.url)restaurants", parameters: params)
             .responseJSON {(request, response, json)in
+                print(json)
                 if json.isSuccess{
                     let jsonData = json.value
                     
