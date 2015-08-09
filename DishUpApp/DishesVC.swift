@@ -14,7 +14,7 @@ enum LayoutMode{
 }
 var layoutMode  = LayoutMode.Single
 
-class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UINavigationControllerDelegate {
+class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     let reuseIdentifier = "dish"
     @IBOutlet weak var zoomLevel: UIButton!
     @IBOutlet weak var dishes: UICollectionView!
@@ -81,11 +81,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
       
     
     }
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        navigationController?.delegate = self
-    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -198,13 +194,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
 
         }
     }
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-            transition.operation = operation
-            return transition
-        
-                    
-    }
-
+    
 
     
 }

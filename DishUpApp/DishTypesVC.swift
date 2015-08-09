@@ -39,14 +39,10 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
             //menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        
+        navigationController?.delegate = self
 
     }
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        navigationController?.delegate = self
-    }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dishTypesArray.count
     }
@@ -82,14 +78,14 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
             let cell = sender as! DishTypeCollectionViewCell
             let dishesVC = segue.destinationViewController as! DishesVC
             dishesVC.dishType = cell.dishType
+            
+           
+            
 
         }
         
     }
-    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
-        viewController.viewDidAppear(animated)
-    }
-    func showToolTip( sender: AnyObject) {
+        func showToolTip( sender: AnyObject) {
         
         
         
@@ -114,9 +110,8 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
         
     }
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-            transition.operation = operation
-            return transition
-           }
-
+        transition.reverse = operation == .Pop
+        return transition
+    }
+    
 }

@@ -13,6 +13,7 @@ class NavigationFlipTransitionController: NSObject,  UIViewControllerAnimatedTra
     let animationDuration = 0.5
     var animating = false
     var operation: UINavigationControllerOperation = .Push
+    var reverse: Bool = false
     
     weak var storedContext: UIViewControllerContextTransitioning? = nil
     
@@ -22,28 +23,45 @@ class NavigationFlipTransitionController: NSObject,  UIViewControllerAnimatedTra
         return animationDuration
     }
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        //
-        storedContext = transitionContext
-        if(operation == .Push){
-            let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as UIViewController?
-            let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as UIViewController?
-            
-            //transitionContext.containerView()!.addSubview(toVC!.view)
-            
-                       
-            
-            UIView.transitionFromView(fromVC!.view, toView: toVC!.view, duration: animationDuration, options: (.TransitionFlipFromRight), completion: nil)
-        }else{
-            let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as UIViewController?
-            let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as UIViewController?
-            
-            //transitionContext.containerView()!.addSubview(toVC!.view)
-            
-            
-            
-            UIView.transitionFromView(fromVC!.view, toView: toVC!.view, duration: animationDuration, options: (.TransitionFlipFromLeft), completion: nil)
-
-        }
+        let containerView = transitionContext.containerView()!
+        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        let toView = toViewController.view
+        let fromView = fromViewController.view
+        let direction: CGFloat = reverse ? -1 : 1
+        let const: CGFloat = -0.005
+        
+        toView.layer.anchorPoint = CGPointMake(direction == 1 ? 0 : 1, 0.5)
+        fromView.layer.anchorPoint = CGPointMake(direction == 1 ? 1 : 0, 0.5)
+        
+        var viewFromTransform: CATransform3D = CATransform3DMakeRotation(direction * CGFloat(M_PI_2), 0.0, 1.0, 0.0)
+        var viewToTransform: CATransform3D = CATransform3DMakeRotation(-direction * CGFloat(M_PI_2), 0.0, 1.0, 0.0)
+        viewFromTransform.m34 = const
+        viewToTransform.m34 = const
+        
+        containerView.transform = CGAffineTransformMakeTranslation(direction * containerView.frame.size.width / 2.0, 0)
+        toView.layer.transform = viewToTransform
+        containerView.addSubview(toView)
+        
+        UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
+            containerView.transform = CGAffineTransformMakeTranslation(-direction * containerView.frame.size.width / 2.0, 0)
+            fromView.layer.transform = viewFromTransform
+            toView.layer.transform = CATransform3DIdentity
+            }, completion: {
+                finished in
+                containerView.transform = CGAffineTransformIdentity
+                fromView.layer.transform = CATransform3DIdentity
+                toView.layer.transform = CATransform3DIdentity
+                fromView.layer.anchorPoint = CGPointMake(0.5, 0.5)
+                toView.layer.anchorPoint = CGPointMake(0.5, 0.5)
+                
+                if (transitionContext.transitionWasCancelled()) {
+                    toView.removeFromSuperview()
+                } else {
+                    fromView.removeFromSuperview()
+                }
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+        })        
     }
     override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         if let context = storedContext{

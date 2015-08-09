@@ -88,7 +88,7 @@
         <!--Launch Screen-->
         <scene sceneID="5tb-SS-325">
             <objects>
-                <viewController title="Launch Screen" modalTransitionStyle="flipHorizontal" id="OG9-cj-rz6" customClass="LaunchScreenVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Launch Screen" modalTransitionStyle="crossDissolve" id="OG9-cj-rz6" customClass="LaunchScreenVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kdc-xW-44o"/>
                         <viewControllerLayoutGuide type="bottom" id="eDU-AS-rZW"/>
@@ -258,7 +258,7 @@
         <!--Navigation Controller-->
         <scene sceneID="FVm-tt-j9h">
             <objects>
-                <navigationController modalTransitionStyle="flipHorizontal" id="pNB-TU-5op" customClass="NavigationController" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController modalTransitionStyle="crossDissolve" id="pNB-TU-5op" customClass="NavigationController" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jkv-Vl-Nqo" customClass="DishUpNavigationBar" customModule="DishUpApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -278,7 +278,7 @@
         <!--Navigation Controller-->
         <scene sceneID="b5f-Ex-VCj">
             <objects>
-                <navigationController modalTransitionStyle="flipHorizontal" id="Tqq-7n-utK" customClass="NavigationController" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController modalTransitionStyle="crossDissolve" id="Tqq-7n-utK" customClass="NavigationController" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="84j-30-7q0" customClass="DishUpNavigationBar" customModule="DishUpApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -317,7 +317,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="restaurant" id="soG-wG-FFp" customClass="RestaurantCell" customModule="DishUpApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
@@ -421,7 +421,7 @@
                         <viewControllerLayoutGuide type="top" id="Gfb-lv-Qb1"/>
                         <viewControllerLayoutGuide type="bottom" id="fV2-M3-MBQ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3iF-2c-MVI">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="3iF-2c-MVI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -517,12 +517,12 @@
         <!--DishesVC-->
         <scene sceneID="Yqj-eN-GlJ">
             <objects>
-                <viewController id="z7Y-BR-xuT" customClass="DishesVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="z7Y-BR-xuT" customClass="DishesVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S9I-g2-XHI"/>
                         <viewControllerLayoutGuide type="bottom" id="BKj-mc-Ekc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="820-et-aqX" userLabel="Container View">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="820-et-aqX" userLabel="Container View">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -567,7 +567,7 @@
                                     <constraint firstItem="ZSP-ub-Dkc" firstAttribute="leading" secondItem="C19-n6-dHC" secondAttribute="trailing" constant="18" id="vCy-4M-v2c"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a0z-ej-HrB">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a0z-ej-HrB">
                                 <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <color key="backgroundColor" red="0.80392156862745101" green="0.792156862745098" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewLayout key="collectionViewLayout" id="3zc-xs-rRd" customClass="DishesLayout" customModule="DishUpApp" customModuleProvider="target"/>
@@ -771,7 +771,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="MuA-te-xFd" secondAttribute="trailing" id="G3G-QS-Maj"/>
                             <constraint firstAttribute="trailing" secondItem="a0z-ej-HrB" secondAttribute="trailing" id="GQn-1A-vzP"/>
@@ -805,10 +805,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="AscensionBrewingCompany_EdamameHummus.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ozi-bt-asM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AscensionBrewingCompany_EdamameHummus.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ozi-bt-asM">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PsZ-Pa-yxb">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsZ-Pa-yxb">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kv7-Ga-pk3">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
@@ -816,7 +816,7 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cEJ-9b-ld0">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cEJ-9b-ld0">
                                 <rect key="frame" x="0.0" y="20" width="600" height="240"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -859,24 +859,24 @@
                                     <outlet property="delegate" destination="bcw-W3-zAT" id="oOR-uM-arM"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oUG-RL-7rm">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUG-RL-7rm">
                                 <rect key="frame" x="20" y="272" width="560" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="pfG-gW-eA1"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s46-fG-ku6" userLabel="rule">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s46-fG-ku6" userLabel="rule">
                                 <rect key="frame" x="20" y="432" width="560" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="s0a-lo-8U0"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-yB-cBA" userLabel="DishView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-yB-cBA" userLabel="DishView">
                                 <rect key="frame" x="20" y="273" width="560" height="163"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N9t-Za-kf1">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9t-Za-kf1">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="163"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j14-Ty-Nw4" customClass="CosmosView" customModule="Cosmos">
@@ -915,14 +915,14 @@
                                             <constraint firstItem="pMD-wx-Oj8" firstAttribute="leading" secondItem="N9t-Za-kf1" secondAttribute="leading" id="xib-Zv-HYR"/>
                                         </constraints>
                                     </view>
-                                    <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zd-Vi-4I5">
+                                    <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zd-Vi-4I5">
                                         <rect key="frame" x="161" y="10" width="389" height="143"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ef-BU-kCx" userLabel="vRule">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ef-BU-kCx" userLabel="vRule">
                                         <rect key="frame" x="155" y="18" width="1" height="127"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -943,7 +943,7 @@
                                     <constraint firstItem="4Ef-BU-kCx" firstAttribute="leading" secondItem="N9t-Za-kf1" secondAttribute="trailing" constant="5" id="z9A-2t-NcJ"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gu-bp-2R4" userLabel="RestaurantView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gu-bp-2R4" userLabel="RestaurantView">
                                 <rect key="frame" x="20" y="437" width="560" height="163"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKM-wl-CVr">
@@ -974,7 +974,7 @@
                                             <action selector="callTap:" destination="bcw-W3-zAT" eventType="touchUpInside" id="h04-Ia-YsN"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hP0-ix-VXG">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hP0-ix-VXG">
                                         <rect key="frame" x="230" y="109" width="100" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="ngA-HQ-GUg"/>
@@ -1035,7 +1035,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ozi-bt-asM" secondAttribute="trailing" id="0sY-0m-avm"/>
                             <constraint firstAttribute="trailing" secondItem="PsZ-Pa-yxb" secondAttribute="trailing" id="7mr-bS-8J3"/>
@@ -1120,7 +1120,7 @@
         <image name="right-arrow.png" width="79" height="79"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jmd-cn-vvd"/>
+        <segue reference="Fvz-or-EST"/>
         <segue reference="qTT-HZ-QOT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

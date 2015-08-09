@@ -9,10 +9,12 @@
 import UIKit
 import CoreLocation
 
-class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, CLLocationManagerDelegate {
+class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, CLLocationManagerDelegate, UINavigationControllerDelegate {
     let reuseIdentifier = "restaurant"
     var restaurantsArray : [Restaurant] = []
     let locationManager = CLLocationManager()
+    let transition = NavigationFlipTransitionController()
+
 
 
     @IBOutlet weak var restaurants: UICollectionView!
@@ -36,7 +38,7 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         }
         
         // Do any additional setup after loading the view.
-        
+        navigationController?.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,6 +94,11 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
             
             return CGSizeMake(cellWidth, cellHeight)
         }
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.reverse = operation == .Pop
+        return transition
+    }
+
 
     /*
     // MARK: - Navigation
