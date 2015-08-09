@@ -9,10 +9,11 @@
 import UIKit
 import AMPopTip
 
-class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
+class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UINavigationControllerDelegate{
     let reuseIdentifier = "dish_type"
         var dishTypesArray : [DishType] = []
     let popTip = AMPopTip()
+    let transition = NavigationFlipTransitionController()
     
     
     //@IBOutlet var dishTypes: UICollectionView?
@@ -21,16 +22,14 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
     @IBOutlet weak var menuButton: UIButton!
   
     
-    @IBOutlet weak var toolTip: UIView!
     
-    @IBOutlet weak var toolTipLabel: UILabel!
+    
     
     override func viewDidLoad() {
         popTip.popoverColor = UIColor.whiteColor()
         popTip.font = UIFont(name: "SourceSansPro-Regular", size: 17.0)
         popTip.textColor = UIColor(red:1.00, green:0.46, blue:0.42, alpha:1.0)
-        popTip.edgeInsets = UIEdgeInsetsMake(4, 8, 4, 8)
-        
+        popTip.edgeInsets = UIEdgeInsetsMake(2, 8, 2, 8)
 
         Networking.getDishTypes(self, completion: {self.dishTypes!.reloadData()})
         
@@ -42,6 +41,11 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
         }
         
 
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        navigationController?.delegate = self
     }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dishTypesArray.count
@@ -70,7 +74,7 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
         cell.userInteractionEnabled = true
         
         //cell.label.text = dishTypesArray[indexPath.row].name
-        
+        cell.indexPath = indexPath
         return cell
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -82,15 +86,37 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
         }
         
     }
+    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
+        viewController.viewDidAppear(animated)
+    }
     func showToolTip( sender: AnyObject) {
+        
+        
+        
+    
         if sender.state == UIGestureRecognizerState.Began{
-            print("Color: \(popTip.backgroundColor) Font: \(popTip.font) Text color: \(popTip.textColor)")
+            
             let cell = sender.view as! DishTypeCollectionViewCell
-            popTip.showText(cell.dishType!.name.uppercaseString, direction: AMPopTipDirection.Up , maxWidth: 200, inView: self.dishTypes!, fromFrame: cell.frame)
+            let relativeX = cell.frame.origin.x - self.dishTypes.contentOffset.x
+            let relativeY = cell.frame.origin.y - self.dishTypes.contentOffset.y
+            
+            var direction : AMPopTipDirection = .Up
+            
+            if relativeY <= 30{
+                direction = .Down
+            }
+            
+            let relativeFrame = CGRectMake(relativeX, relativeY, cell.frame.width, cell.frame.height)
+            popTip.showText(cell.dishType!.name.uppercaseString, direction: direction , maxWidth: 200, inView: self.view, fromFrame: relativeFrame)
         }else if sender.state == UIGestureRecognizerState.Ended {
             popTip.hide()
         }
         
     }
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+            transition.operation = operation
+            return transition
+           }
 
 }

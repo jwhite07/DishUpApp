@@ -24,7 +24,6 @@
             <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
-            <string>SourceSansPro-Regular</string>
         </mutableArray>
         <mutableArray key="SourceSansPro-Semibold.ttf">
             <string>SourceSansPro-Semibold</string>
@@ -89,12 +88,12 @@
         <!--Launch Screen-->
         <scene sceneID="5tb-SS-325">
             <objects>
-                <viewController title="Launch Screen" id="OG9-cj-rz6" customClass="LaunchScreenVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Launch Screen" modalTransitionStyle="flipHorizontal" id="OG9-cj-rz6" customClass="LaunchScreenVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kdc-xW-44o"/>
                         <viewControllerLayoutGuide type="bottom" id="eDU-AS-rZW"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sOl-8T-Ejr">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="sOl-8T-Ejr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -259,7 +258,7 @@
         <!--Navigation Controller-->
         <scene sceneID="FVm-tt-j9h">
             <objects>
-                <navigationController id="pNB-TU-5op" customClass="NavigationController" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController modalTransitionStyle="flipHorizontal" id="pNB-TU-5op" customClass="NavigationController" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jkv-Vl-Nqo" customClass="DishUpNavigationBar" customModule="DishUpApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -279,7 +278,7 @@
         <!--Navigation Controller-->
         <scene sceneID="b5f-Ex-VCj">
             <objects>
-                <navigationController id="Tqq-7n-utK" customClass="NavigationController" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController modalTransitionStyle="flipHorizontal" id="Tqq-7n-utK" customClass="NavigationController" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="84j-30-7q0" customClass="DishUpNavigationBar" customModule="DishUpApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -299,7 +298,7 @@
         <!--RestaurantsVC-->
         <scene sceneID="AFa-fe-7RG">
             <objects>
-                <viewController id="pTd-nr-APT" customClass="RestaurantsVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="pTd-nr-APT" customClass="RestaurantsVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bug-44-9Zj"/>
                         <viewControllerLayoutGuide type="bottom" id="a1Q-fw-mAz"/>
@@ -417,7 +416,7 @@
         <!--Dish TypesVC-->
         <scene sceneID="emh-JF-At7">
             <objects>
-                <viewController id="W4r-ib-ktJ" customClass="DishTypesVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="W4r-ib-ktJ" customClass="DishTypesVC" customModule="DishUpApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gfb-lv-Qb1"/>
                         <viewControllerLayoutGuide type="bottom" id="fV2-M3-MBQ"/>
@@ -480,30 +479,6 @@
                                     <outlet property="delegate" destination="W4r-ib-ktJ" id="fx7-bA-Rwk"/>
                                 </connections>
                             </collectionView>
-                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dic-69-78N">
-                                <rect key="frame" x="180" y="236" width="115" height="54"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="tooltip.png" translatesAutoresizingMaskIntoConstraints="NO" id="7mI-7V-C9b">
-                                        <rect key="frame" x="0.0" y="0.0" width="115" height="54"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcc-eD-uJX">
-                                        <rect key="frame" x="40" y="8" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                                        <color key="textColor" red="0.94509803920000002" green="0.36470588240000001" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="IlR-eX-ThM"/>
-                                    <constraint firstAttribute="width" constant="114" id="LdA-ZC-6Rd"/>
-                                    <constraint firstItem="vcc-eD-uJX" firstAttribute="centerX" secondItem="dic-69-78N" secondAttribute="centerX" id="SR7-Za-cMB"/>
-                                    <constraint firstItem="vcc-eD-uJX" firstAttribute="top" secondItem="dic-69-78N" secondAttribute="top" constant="8" id="ZQN-4q-Yql"/>
-                                    <constraint firstItem="7mI-7V-C9b" firstAttribute="leading" secondItem="dic-69-78N" secondAttribute="leading" id="ahZ-ce-tMK"/>
-                                    <constraint firstItem="7mI-7V-C9b" firstAttribute="top" secondItem="dic-69-78N" secondAttribute="top" id="hx6-8Y-tF8"/>
-                                    <constraint firstAttribute="bottom" secondItem="7mI-7V-C9b" secondAttribute="bottom" id="vQ5-Q1-aZL"/>
-                                    <constraint firstAttribute="trailing" secondItem="7mI-7V-C9b" secondAttribute="trailing" id="xgQ-ye-EH3"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -521,6 +496,7 @@
                             <constraint firstItem="9Xs-xG-FCh" firstAttribute="leading" secondItem="3iF-2c-MVI" secondAttribute="leading" id="wYo-Pk-noL"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="Tn3-GD-8np">
                         <barButtonItem key="leftBarButtonItem" image="home.png" id="Bh7-cr-x6q">
                             <inset key="imageInsets" minX="12" minY="12" maxX="12" maxY="12"/>
@@ -531,8 +507,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dishTypes" destination="9Xs-xG-FCh" id="AJZ-UH-IIO"/>
-                        <outlet property="toolTip" destination="dic-69-78N" id="7HB-pg-ro3"/>
-                        <outlet property="toolTipLabel" destination="vcc-eD-uJX" id="K9J-1M-DfW"/>
                         <outletCollection property="dishTypes" destination="9Xs-xG-FCh" collectionClass="NSMutableArray" id="34e-Fn-06S"/>
                     </connections>
                 </viewController>
@@ -593,7 +567,7 @@
                                     <constraint firstItem="ZSP-ub-Dkc" firstAttribute="leading" secondItem="C19-n6-dHC" secondAttribute="trailing" constant="18" id="vCy-4M-v2c"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a0z-ej-HrB">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a0z-ej-HrB">
                                 <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <color key="backgroundColor" red="0.80392156862745101" green="0.792156862745098" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewLayout key="collectionViewLayout" id="3zc-xs-rRd" customClass="DishesLayout" customModule="DishUpApp" customModuleProvider="target"/>
@@ -684,7 +658,7 @@
                                                     <color key="backgroundColor" white="0.25" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="4BS-Al-uDU" firstAttribute="centerX" secondItem="8oW-p6-lAx" secondAttribute="centerX" id="1eD-9C-G5l"/>
-                                                        <constraint firstAttribute="height" constant="135" identifier="infoPanelHeight" id="3dq-hn-sYI"/>
+                                                        <constraint firstAttribute="height" constant="135" id="3dq-hn-sYI"/>
                                                         <constraint firstAttribute="trailing" secondItem="ztf-eF-4jq" secondAttribute="trailing" id="O18-e8-ZYT"/>
                                                         <constraint firstItem="ztf-eF-4jq" firstAttribute="top" secondItem="4BS-Al-uDU" secondAttribute="bottom" constant="10" id="Q9i-un-zNR"/>
                                                         <constraint firstItem="ztf-eF-4jq" firstAttribute="leading" secondItem="8oW-p6-lAx" secondAttribute="leading" id="X2x-Zw-W43"/>
@@ -831,10 +805,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AscensionBrewingCompany_EdamameHummus.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ozi-bt-asM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="AscensionBrewingCompany_EdamameHummus.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ozi-bt-asM">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PsZ-Pa-yxb">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PsZ-Pa-yxb">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kv7-Ga-pk3">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
@@ -842,7 +816,7 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cEJ-9b-ld0">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cEJ-9b-ld0">
                                 <rect key="frame" x="0.0" y="20" width="600" height="240"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -885,24 +859,24 @@
                                     <outlet property="delegate" destination="bcw-W3-zAT" id="oOR-uM-arM"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUG-RL-7rm">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oUG-RL-7rm">
                                 <rect key="frame" x="20" y="272" width="560" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="pfG-gW-eA1"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s46-fG-ku6" userLabel="rule">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s46-fG-ku6" userLabel="rule">
                                 <rect key="frame" x="20" y="432" width="560" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="s0a-lo-8U0"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-yB-cBA" userLabel="DishView">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-yB-cBA" userLabel="DishView">
                                 <rect key="frame" x="20" y="273" width="560" height="163"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9t-Za-kf1">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N9t-Za-kf1">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="163"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j14-Ty-Nw4" customClass="CosmosView" customModule="Cosmos">
@@ -941,14 +915,14 @@
                                             <constraint firstItem="pMD-wx-Oj8" firstAttribute="leading" secondItem="N9t-Za-kf1" secondAttribute="leading" id="xib-Zv-HYR"/>
                                         </constraints>
                                     </view>
-                                    <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zd-Vi-4I5">
+                                    <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zd-Vi-4I5">
                                         <rect key="frame" x="161" y="10" width="389" height="143"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ef-BU-kCx" userLabel="vRule">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ef-BU-kCx" userLabel="vRule">
                                         <rect key="frame" x="155" y="18" width="1" height="127"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -969,7 +943,7 @@
                                     <constraint firstItem="4Ef-BU-kCx" firstAttribute="leading" secondItem="N9t-Za-kf1" secondAttribute="trailing" constant="5" id="z9A-2t-NcJ"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gu-bp-2R4" userLabel="RestaurantView">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gu-bp-2R4" userLabel="RestaurantView">
                                 <rect key="frame" x="20" y="437" width="560" height="163"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKM-wl-CVr">
@@ -1000,7 +974,7 @@
                                             <action selector="callTap:" destination="bcw-W3-zAT" eventType="touchUpInside" id="h04-Ia-YsN"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hP0-ix-VXG">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hP0-ix-VXG">
                                         <rect key="frame" x="230" y="109" width="100" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="ngA-HQ-GUg"/>
@@ -1144,11 +1118,10 @@
         <image name="home.png" width="53" height="50"/>
         <image name="left-arrow.png" width="79" height="79"/>
         <image name="right-arrow.png" width="79" height="79"/>
-        <image name="tooltip.png" width="114" height="54"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jmd-cn-vvd"/>
-        <segue reference="aJB-k6-wmT"/>
+        <segue reference="qTT-HZ-QOT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -7,13 +7,14 @@
 //
 
 import UIKit
+
 enum LayoutMode{
     case Single
     case Grid
 }
 var layoutMode  = LayoutMode.Single
 
-class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UINavigationControllerDelegate {
     let reuseIdentifier = "dish"
     @IBOutlet weak var zoomLevel: UIButton!
     @IBOutlet weak var dishes: UICollectionView!
@@ -22,6 +23,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     var restaurant:Restaurant?
     
     var dishesArray : [Dish] = []
+    let transition = NavigationFlipTransitionController()
     
     
     @IBAction func switchToGridView(sender: AnyObject) {
@@ -78,6 +80,11 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         
       
     
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        navigationController?.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -191,6 +198,13 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
 
         }
     }
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            transition.operation = operation
+            return transition
+        
+                    
+    }
+
 
     
 }

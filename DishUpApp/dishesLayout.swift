@@ -95,7 +95,7 @@ class DishesLayout: UICollectionViewLayout {
                                         
                     
                 }else{
-                    if ((frameWidth - spacing - xOffset) < (itemSize.width + 1)) {
+                    if ((frameWidth - spacing - xOffset) < (itemSize.width + 1) && item != numberOfItems - 1)  {
                         increaseRow = true
                         contentWidth = xOffset + itemSize.height + spacing
                         

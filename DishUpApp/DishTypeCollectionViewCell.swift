@@ -10,6 +10,7 @@ import UIKit
 
 class DishTypeCollectionViewCell: UICollectionViewCell {
     weak var dishType : DishType?
+    weak var indexPath : NSIndexPath?
     @IBOutlet weak var imageView: UIImageView!
     //@IBOutlet weak var label: UILabel!
     @IBAction func dishTypeTapped(var sender: AnyObject) {
