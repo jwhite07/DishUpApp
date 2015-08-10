@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AHEasing.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>AMPopTip.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TLLayoutTransitioning.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,12 +47,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2351AF27EF0D3A59BEC7A6D580C4E0FC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2CA3760AA972733C12CCC85E16F5995D</key>
+		<key>09995E4603D4BA2CA8235279C70A06DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,17 +57,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7ED62FC822896B571CD637C121FE9352</key>
+		<key>69327DCF144460FF1754FD8301FA5AB5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B88BD7A26F42D960D579F9133870BC46</key>
+		<key>6D61CBCD52D5DB456E99F408742B3069</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF2A363CD5DCB61744A2C41FFBCAE26E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B9A04D3C9B208813656510FDA8ADAE02</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D55D53C066ACEF62D5A227DF7B056AA9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E40F685A28860EE50C3C051224911305</key>
 		<dict>
 			<key>primary</key>
 			<true/>

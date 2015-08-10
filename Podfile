@@ -11,4 +11,6 @@ target 'DishUpApp' do
 	pod 'Cosmos', '~> 1.0'
 	pod 'AMPopTip'
 	pod 'pop', '~> 1.0'
+	pod 'TLLayoutTransitioning'
+
 end
