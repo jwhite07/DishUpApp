@@ -13,6 +13,7 @@ enum LayoutMode{
     case Grid
 }
 var layoutMode  = LayoutMode.Single
+var layoutButtonImg = UIImage(named: "grid-view.png")
 
 class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     let reuseIdentifier = "dish"
@@ -26,26 +27,39 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     let transition = NavigationFlipTransitionController()
     
     
+    
+    
     @IBAction func switchToGridView(sender: AnyObject) {
         
             let visible = self.dishes.visibleCells() as! [DishCollectionViewCell]
             
             if layoutMode == .Single{
                 layoutMode = .Grid
-                    self.zoomLevel.setImage(UIImage(named: "single-view.png"), forState: UIControlState.Normal)
+                layoutButtonImg = UIImage(named: "single-view.png")
                 
+                self.zoomLevel.setImage(layoutButtonImg, forState: UIControlState.Normal)
+                self.dishes.performBatchUpdates({
                     for c in visible{
                         c.hideForGrid()
                     }
-                    self.dishes.reloadData()
+                    self.dishes.collectionViewLayout.invalidateLayout()
+                    self.dishes.setCollectionViewLayout(DishesGridLayout(), animated: true)
+
+                    }
+                    , completion: nil)
+                                print(self.dishes.layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0)))
+                self.dishes.collectionViewLayout.invalidateLayout()
+                self.dishes.setCollectionViewLayout(DishesGridLayout(), animated: true)
+                
+                
+                
                 
             }else{
                 layoutMode = .Single
-                    self.dishes.reloadData()
-                
+                self.dishes.setCollectionViewLayout(DishesSingleLayout(), animated: true)
                 self.dishes.performBatchUpdates({
-                   
-                    self.zoomLevel.setImage(UIImage(named: "grid-view.png"), forState: UIControlState.Normal)
+                     layoutButtonImg = UIImage(named: "grid-view.png")
+                    self.zoomLevel.setImage(layoutButtonImg, forState: UIControlState.Normal)
                     
                     for c  in visible {
                         c.showForGrid()
@@ -65,6 +79,9 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
         
+        //let gridLayout = dishes.
+        
+        
         print("Screen Width \(screenWidth)")
         print("Screen Height \(screenHeight)")
     
@@ -77,7 +94,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         }else{
             Networking.getDishes(self, urlParent: nil, completion: {self.dishes!.reloadData()})
         }
-        
+        self.zoomLevel.setImage(layoutButtonImg, forState: UIControlState.Normal)
       
     
     }

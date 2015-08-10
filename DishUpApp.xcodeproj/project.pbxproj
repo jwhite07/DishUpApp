@@ -61,6 +61,8 @@
 		0D81A7A41B5861290071EDEE /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81A7A31B5861290071EDEE /* Networking.swift */; };
 		0D81A7A61B5865070071EDEE /* DishTypesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D81A7A51B5865070071EDEE /* DishTypesVC.swift */; };
 		0D8942781B76A30600C811B7 /* tooltip.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8942771B76A30600C811B7 /* tooltip.png */; };
+		0D894E171B77FB8A00576557 /* DishesGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D894E161B77FB8A00576557 /* DishesGridLayout.swift */; };
+		0D894E191B77FB9800576557 /* DishesSingleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D894E181B77FB9800576557 /* DishesSingleLayout.swift */; };
 		0DA365E11B71979500DC12F8 /* grid-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365DE1B71979500DC12F8 /* grid-view.png */; };
 		0DA365E21B71979500DC12F8 /* left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365DF1B71979500DC12F8 /* left-arrow.png */; };
 		0DA365E31B71979500DC12F8 /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365E01B71979500DC12F8 /* right-arrow.png */; };
@@ -154,6 +156,8 @@
 		0D81A7A31B5861290071EDEE /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		0D81A7A51B5865070071EDEE /* DishTypesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishTypesVC.swift; sourceTree = "<group>"; };
 		0D8942771B76A30600C811B7 /* tooltip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tooltip.png; path = ../../../Desktop/tooltip.png; sourceTree = "<group>"; };
+		0D894E161B77FB8A00576557 /* DishesGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesGridLayout.swift; sourceTree = "<group>"; };
+		0D894E181B77FB9800576557 /* DishesSingleLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesSingleLayout.swift; sourceTree = "<group>"; };
 		0DA365DE1B71979500DC12F8 /* grid-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grid-view.png"; sourceTree = "<group>"; };
 		0DA365DF1B71979500DC12F8 /* left-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow.png"; sourceTree = "<group>"; };
 		0DA365E01B71979500DC12F8 /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 		0D0A861A1B58391000DF0C71 /* DishUpApp */ = {
 			isa = PBXGroup;
 			children = (
+				0D894E151B77FB5B00576557 /* Layouts */,
 				0D81A7A21B5861170071EDEE /* Networking */,
 				0D81A79D1B58585E0071EDEE /* Controllers */,
 				0D81A79C1B5858590071EDEE /* Views */,
@@ -309,7 +314,6 @@
 				0D38726E1B59942D00CF931A /* DishTypeCollectionViewCell.swift */,
 				0D2B20711B5E81B2002B87CC /* DishCollectionViewCell.swift */,
 				0D78E92B1B627AEC00AECC90 /* DishesNavigationView.swift */,
-				0D2519B81B665A5E0071AEF0 /* dishesLayout.swift */,
 				0D1530101B680C6000F4B322 /* dishesFlowLayout.swift */,
 				0DD96EDD1B6ACE2700265FE0 /* RestaurantCell.swift */,
 				0D3D82F21B6BC7020031FC18 /* DishpicCell.swift */,
@@ -339,6 +343,16 @@
 				0D81A7A31B5861290071EDEE /* Networking.swift */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		0D894E151B77FB5B00576557 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				0D2519B81B665A5E0071AEF0 /* dishesLayout.swift */,
+				0D894E161B77FB8A00576557 /* DishesGridLayout.swift */,
+				0D894E181B77FB9800576557 /* DishesSingleLayout.swift */,
+			);
+			name = Layouts;
 			sourceTree = "<group>";
 		};
 		1D17FDBDEA8264BDD8A12352 /* Pods */ = {
@@ -569,6 +583,7 @@
 				0D2519B91B665A5E0071AEF0 /* dishesLayout.swift in Sources */,
 				0D81A7A11B585A0F0071EDEE /* DishType.swift in Sources */,
 				0D3AF4561B5E8C37000B1C48 /* coreDataModel.xcdatamodeld in Sources */,
+				0D894E191B77FB9800576557 /* DishesSingleLayout.swift in Sources */,
 				0D3D82F51B6BC70E0031FC18 /* Dishpic.swift in Sources */,
 				0D81A7A61B5865070071EDEE /* DishTypesVC.swift in Sources */,
 				0D70D0C21B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift in Sources */,
@@ -579,6 +594,7 @@
 				0DB64ADE1B58417700BF3181 /* MenuTableVC.swift in Sources */,
 				0D0A86401B58392D00DF0C71 /* SWRevealViewController.m in Sources */,
 				0DD96EE01B6AD10F00265FE0 /* Restaurant.swift in Sources */,
+				0D894E171B77FB8A00576557 /* DishesGridLayout.swift in Sources */,
 				0D2B20741B5E8241002B87CC /* Dish.swift in Sources */,
 				0D2B20721B5E81B2002B87CC /* DishCollectionViewCell.swift in Sources */,
 				0D78E92C1B627AEC00AECC90 /* DishesNavigationView.swift in Sources */,

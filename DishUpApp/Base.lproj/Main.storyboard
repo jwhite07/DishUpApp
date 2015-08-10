@@ -570,7 +570,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a0z-ej-HrB">
                                 <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <color key="backgroundColor" red="0.80392156862745101" green="0.792156862745098" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewLayout key="collectionViewLayout" id="3zc-xs-rRd" customClass="DishesLayout" customModule="DishUpApp" customModuleProvider="target"/>
+                                <collectionViewLayout key="collectionViewLayout" id="3zc-xs-rRd" customClass="DishesSingleLayout" customModule="DishUpApp" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" reuseIdentifier="dishSingle" id="jrc-m9-ftp" customClass="DishCollectionViewCell" customModule="DishUpApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
