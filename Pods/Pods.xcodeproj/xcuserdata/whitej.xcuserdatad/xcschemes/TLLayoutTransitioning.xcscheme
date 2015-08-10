@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "36DFF6CFF1ABD54B3BBEA18D"
-               BuildableName = "AMPopTip.framework"
-               BlueprintName = "AMPopTip"
+               BlueprintIdentifier = "30736EF45A3ECF814B10AF91"
+               BuildableName = "TLLayoutTransitioning.framework"
+               BlueprintName = "TLLayoutTransitioning"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
