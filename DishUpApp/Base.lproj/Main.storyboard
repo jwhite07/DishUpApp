@@ -11,9 +11,9 @@
             <string>SourceSansPro-Light</string>
             <string>SourceSansPro-Light</string>
             <string>SourceSansPro-Light</string>
-            <string>SourceSansPro-Light</string>
         </mutableArray>
         <mutableArray key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
@@ -67,7 +67,7 @@
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ocN-32-UW4" id="7iL-2i-MTy">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -622,7 +622,7 @@
                                                             <accessibility key="accessibilityConfiguration">
                                                                 <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                                             </accessibility>
-                                                            <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="15"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -650,12 +650,12 @@
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="The Yardbird" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztf-eF-4jq">
                                                             <rect key="frame" x="10" y="84" width="580" height="29"/>
-                                                            <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="24"/>
-                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.25" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="4BS-Al-uDU" firstAttribute="centerX" secondItem="8oW-p6-lAx" secondAttribute="centerX" id="1eD-9C-G5l"/>
                                                         <constraint firstAttribute="height" constant="135" id="3dq-hn-sYI"/>
@@ -701,7 +701,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" reuseIdentifier="dishGrid" id="8ng-Cr-hY6" customClass="DishCollectionViewCell" customModule="DishUpApp" customModuleProvider="target">
-                                        <rect key="frame" x="237.5" y="502" width="125" height="125"/>
+                                        <rect key="frame" x="238" y="502" width="125" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
@@ -897,7 +897,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$9.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMD-wx-Oj8">
-                                                <rect key="frame" x="0.0" y="69" width="150" height="17"/>
+                                                <rect key="frame" x="0.0" y="69" width="150" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="13"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import pop
 
 enum LayoutMode{
     case Single
@@ -19,56 +20,70 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     let reuseIdentifier = "dish"
     @IBOutlet weak var zoomLevel: UIButton!
     @IBOutlet weak var dishes: UICollectionView!
-    
+    var transitionLayout : UICollectionViewTransitionLayout?
     var dishType:DishType?
     var restaurant:Restaurant?
     
     var dishesArray : [Dish] = []
     let transition = NavigationFlipTransitionController()
-    
+    let singleLayout = DishesSingleLayout()
+    let gridLayout = DishesGridLayout()
     
     
     
     @IBAction func switchToGridView(sender: AnyObject) {
         
             let visible = self.dishes.visibleCells() as! [DishCollectionViewCell]
-            
+            var toLayout : UICollectionViewLayout
             if layoutMode == .Single{
                 layoutMode = .Grid
                 layoutButtonImg = UIImage(named: "single-view.png")
-                
-                self.zoomLevel.setImage(layoutButtonImg, forState: UIControlState.Normal)
-                self.dishes.performBatchUpdates({
-                    for c in visible{
-                        c.hideForGrid()
-                    }
-                    self.dishes.collectionViewLayout.invalidateLayout()
-                    self.dishes.setCollectionViewLayout(DishesGridLayout(), animated: true)
-
-                    }
-                    , completion: nil)
-                                print(self.dishes.layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0)))
-                self.dishes.collectionViewLayout.invalidateLayout()
-                self.dishes.setCollectionViewLayout(DishesGridLayout(), animated: true)
-                
-                
-                
-                
+                toLayout = gridLayout
             }else{
                 layoutMode = .Single
-                self.dishes.setCollectionViewLayout(DishesSingleLayout(), animated: true)
-                self.dishes.performBatchUpdates({
-                     layoutButtonImg = UIImage(named: "grid-view.png")
-                    self.zoomLevel.setImage(layoutButtonImg, forState: UIControlState.Normal)
-                    
-                    for c  in visible {
-                        c.showForGrid()
-                    }
-                 }, completion: nil)
+                layoutButtonImg = UIImage(named: "grid-view.png")
+                toLayout = singleLayout
 
             }
+        let transition = self.dishes.startInteractiveTransitionToCollectionViewLayout(toLayout, completion: nil)
         
+        let springAnimation = POPSpringAnimation()
+        
+        let property = POPAnimatableProperty.propertyWithName("transitionProgress", initializer:  {
+            (prop) in
+            prop.readBlock = {
+                (obj, values) in
+                values[0] = (obj as! UICollectionViewTransitionLayout).transitionProgress
+            }
+            prop.writeBlock = {
+                (obj, values) in
+                (obj as! UICollectionViewTransitionLayout).transitionProgress = values[0]
+            }
+            prop.threshold = 0.01
+        }) as! POPAnimatableProperty
+        
+        
+        
+        springAnimation.springBounciness = 8
+        springAnimation.property = property
+        springAnimation.fromValue = CGFloat(0)
+        springAnimation.toValue = 1.0
+        springAnimation.completionBlock = {(anim: POPAnimation!, finished: Bool) in
+            if finished {
+                transition.transitionProgress = 1
+                self.dishes.finishInteractiveTransition()
+            }
             
+        }
+        self.zoomLevel.setImage(layoutButtonImg, forState: UIControlState.Normal)
+        
+        for c  in visible {
+            c.showForGrid()
+        }
+
+        transition.pop_addAnimation(springAnimation, forKey: NSStringFromSelector("transitionProgress"))
+
+        
         
     }
     
@@ -211,6 +226,11 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
 
         }
     }
+    func collectionView(collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout {
+        let layout =  DishesTransitionLayout(currentLayout: fromLayout, nextLayout: toLayout)
+        return layout
+    }
+   
     
 
     

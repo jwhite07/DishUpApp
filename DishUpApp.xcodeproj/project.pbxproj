@@ -63,6 +63,7 @@
 		0D8942781B76A30600C811B7 /* tooltip.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8942771B76A30600C811B7 /* tooltip.png */; };
 		0D894E171B77FB8A00576557 /* DishesGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D894E161B77FB8A00576557 /* DishesGridLayout.swift */; };
 		0D894E191B77FB9800576557 /* DishesSingleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D894E181B77FB9800576557 /* DishesSingleLayout.swift */; };
+		0D9205A41B78D41500D29FDF /* DishesTransitionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9205A31B78D41500D29FDF /* DishesTransitionLayout.swift */; };
 		0DA365E11B71979500DC12F8 /* grid-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365DE1B71979500DC12F8 /* grid-view.png */; };
 		0DA365E21B71979500DC12F8 /* left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365DF1B71979500DC12F8 /* left-arrow.png */; };
 		0DA365E31B71979500DC12F8 /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365E01B71979500DC12F8 /* right-arrow.png */; };
@@ -158,6 +159,7 @@
 		0D8942771B76A30600C811B7 /* tooltip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tooltip.png; path = ../../../Desktop/tooltip.png; sourceTree = "<group>"; };
 		0D894E161B77FB8A00576557 /* DishesGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesGridLayout.swift; sourceTree = "<group>"; };
 		0D894E181B77FB9800576557 /* DishesSingleLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesSingleLayout.swift; sourceTree = "<group>"; };
+		0D9205A31B78D41500D29FDF /* DishesTransitionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesTransitionLayout.swift; sourceTree = "<group>"; };
 		0DA365DE1B71979500DC12F8 /* grid-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grid-view.png"; sourceTree = "<group>"; };
 		0DA365DF1B71979500DC12F8 /* left-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow.png"; sourceTree = "<group>"; };
 		0DA365E01B71979500DC12F8 /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				0D2519B81B665A5E0071AEF0 /* dishesLayout.swift */,
 				0D894E161B77FB8A00576557 /* DishesGridLayout.swift */,
 				0D894E181B77FB9800576557 /* DishesSingleLayout.swift */,
+				0D9205A31B78D41500D29FDF /* DishesTransitionLayout.swift */,
 			);
 			name = Layouts;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				0D81A7A11B585A0F0071EDEE /* DishType.swift in Sources */,
 				0D3AF4561B5E8C37000B1C48 /* coreDataModel.xcdatamodeld in Sources */,
 				0D894E191B77FB9800576557 /* DishesSingleLayout.swift in Sources */,
+				0D9205A41B78D41500D29FDF /* DishesTransitionLayout.swift in Sources */,
 				0D3D82F51B6BC70E0031FC18 /* Dishpic.swift in Sources */,
 				0D81A7A61B5865070071EDEE /* DishTypesVC.swift in Sources */,
 				0D70D0C21B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift in Sources */,
