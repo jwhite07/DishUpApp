@@ -55,6 +55,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-DishUpApp/AMPopTip.framework'
   install_framework 'Pods-DishUpApp/Alamofire.framework'
   install_framework 'Pods-DishUpApp/Cosmos.framework'
+  install_framework 'Pods-DishUpApp/SDWebImage.framework'
   install_framework 'Pods-DishUpApp/SwiftyJSON.framework'
   install_framework 'Pods-DishUpApp/pop.framework'
 fi
@@ -62,6 +63,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-DishUpApp/AMPopTip.framework'
   install_framework 'Pods-DishUpApp/Alamofire.framework'
   install_framework 'Pods-DishUpApp/Cosmos.framework'
+  install_framework 'Pods-DishUpApp/SDWebImage.framework'
   install_framework 'Pods-DishUpApp/SwiftyJSON.framework'
   install_framework 'Pods-DishUpApp/pop.framework'
 fi

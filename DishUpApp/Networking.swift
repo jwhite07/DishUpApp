@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import CoreLocation
+//import SDWebImage
+
 
 class Networking {
     
@@ -115,24 +117,29 @@ class Networking {
     static func getImageAtUrl (imageURL : String, completion: ((UIImage) -> ())? = nil) {
         let allowedSet = NSCharacterSet(charactersInString:"=#%<>?@^{|}\"' ").invertedSet
         let escapedUrl = imageURL.stringByAddingPercentEncodingWithAllowedCharacters(allowedSet)!
-        if let imageObj = imageCache[escapedUrl]{
-            
-            
-            completion?(imageObj)
-        }else{
-            print("URL: \(escapedUrl)")
-            Alamofire.request(.GET, escapedUrl).response() { (request, response, data, error) in
-                    if error == nil{
-                        
-                        if let imageObj = UIImage(data: data!){
-                            
-                            imageCache[escapedUrl] = imageObj
-                            completion?(imageObj)
-
-                        }
-                    
-                }
-            }
+        
+        let manager = SDWebImageManager.sharedManager()
+        manager.downloadImageWithURL(escapedUrl, options: 0, progress: 0) { (image, error, cacheType, finished, imageUrl) -> Void in
+            completion?(image)
         }
+//        if let imageObj = imageCache.objectForKey(escapedUrl) as! UIImage?{
+//            
+//            
+//            completion?(imageObj)
+//        }else{
+//            print("URL: \(escapedUrl)")
+//            Alamofire.request(.GET, escapedUrl).response() { (request, response, data, error) in
+//                    if error == nil{
+//                        
+//                        if let imageObj = UIImage(data: data!){
+//                            
+//                            imageCache.setObject(imageObj, forKey: escapedUrl)
+//                            completion?(imageObj)
+//
+//                        }
+//                    
+//                }
+//            }
+//        }
     }
 }
