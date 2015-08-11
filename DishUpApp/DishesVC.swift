@@ -22,6 +22,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     @IBOutlet weak var zoomLevel: UIButton!
     @IBOutlet weak var dishes: UICollectionView!
     var transitionLayout : UICollectionViewTransitionLayout?
+    var transitionInProgress = false
     var dishType:DishType?
     var restaurant:Restaurant?
     
@@ -59,26 +60,37 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         super.viewDidLoad()
         screenWidth = screenSize.width
         screenHeight = screenSize.height
+        if layoutMode == .Single{
+            dishes.setCollectionViewLayout(singleLayout, animated: false)
+        }else{
+            dishes.setCollectionViewLayout(gridLayout, animated: false)
+        }
+        let loadComplete : () -> () = {
+            
+            self.dishes!.reloadData()
+            if layoutMode == .Single{
+                self.infoPanel.hidden = false
+                self.leftArrow.hidden = false
+                self.rightArrow.hidden = false
+                self.setCurrentDish()
+                if let current = self.currentDish{
+                    self.updateDishInfo(current)
+                }
 
+            }else{
+                self.infoPanel.hidden = true
+                self.leftArrow.hidden = true
+                self.rightArrow.hidden = true
+            }
+            
+        }
         
         if let dishTypeId = dishType?.id{
-            Networking.getDishes(self, urlParent: "dish_types/\(dishTypeId)", completion: {
-                self.dishes!.reloadData()
-                self.setCurrentDish()
-                if let current = self.currentDish{
-                    self.updateDishInfo(current)
-                }
-            })
+            Networking.getDishes(self, urlParent: "dish_types/\(dishTypeId)", completion: loadComplete)
         }else if let restaurantId = restaurant?.id{
-            Networking.getDishes(self, urlParent: "restaurants/\(restaurantId)", completion: {
-                self.dishes!.reloadData()
-                self.setCurrentDish()
-                if let current = self.currentDish{
-                    self.updateDishInfo(current)
-                }
-            })
+            Networking.getDishes(self, urlParent: "restaurants/\(restaurantId)", completion: loadComplete)
         }else{
-            Networking.getDishes(self, urlParent: nil, completion: {self.dishes!.reloadData()})
+            Networking.getDishes(self, urlParent: nil, completion: loadComplete)
         }
         self.zoomLevel.setImage(layoutButtonImg, forState: UIControlState.Normal)
         lastContentOffset = dishes.contentOffset.x
@@ -315,58 +327,66 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     @IBAction func switchToGridView(sender: AnyObject) {
-        
-        let visible = self.dishes.visibleCells() as! [DishCollectionViewCell]
-        var toLayout : UICollectionViewLayout
-        var toMode : LayoutMode
-        if layoutMode == .Single{
-            toMode = .Grid
-            layoutButtonImg = UIImage(named: "single-view.png")
-            toLayout = gridLayout
-            infoPanel.hidden = true
-            leftArrow.hidden = true
-            rightArrow.hidden = true
-        }else{
-            toMode = .Single
-            
-            layoutButtonImg = UIImage(named: "grid-view.png")
-            toLayout = singleLayout
-            infoPanel.hidden = false
-            leftArrow.hidden = false
-            rightArrow.hidden = false
+        if !transitionInProgress{
+            let visible = self.dishes.visibleCells() as! [DishCollectionViewCell]
+            var toLayout : UICollectionViewLayout
+            var toMode : LayoutMode
+            if layoutMode == .Single{
+                toMode = .Grid
+                layoutButtonImg = UIImage(named: "single-view.png")
+                toLayout = gridLayout
+                infoPanel.hidden = true
+                leftArrow.hidden = true
+                rightArrow.hidden = true
+            }else{
+                toMode = .Single
+                
+                layoutButtonImg = UIImage(named: "grid-view.png")
+                toLayout = singleLayout
+                infoPanel.hidden = false
+                leftArrow.hidden = false
+                rightArrow.hidden = false
+                
+            }
+            transitionInProgress = true
+            let transition = self.dishes.startInteractiveTransitionToCollectionViewLayout(toLayout, completion: { (completed, finish) -> Void in
+                if finish && completed{
+                    layoutMode = toMode
+                    self.setCurrentDish()
+                    if let current = self.currentDish{
+                        self.updateDishInfo(current)
+                    }
 
+                }
+            })
+            let springAnimation = POPSpringAnimation()
             
-        }
-        let transition = self.dishes.startInteractiveTransitionToCollectionViewLayout(toLayout, completion: nil)
-        
-        let springAnimation = POPSpringAnimation()
-        
-        let property = POPAnimatableProperty.propertyWithName("transitionProgress", initializer:  {
-            (prop) in
-            prop.readBlock = {
-                (obj, values) in
-                values[0] = (obj as! UICollectionViewTransitionLayout).transitionProgress
-            }
-            prop.writeBlock = {
-                (obj, values) in
-                (obj as! UICollectionViewTransitionLayout).transitionProgress = values[0]
-            }
-            prop.threshold = 0.01
-        }) as! POPAnimatableProperty
+            let property = POPAnimatableProperty.propertyWithName("transitionProgress", initializer:  {
+                (prop) in
+                prop.readBlock = {
+                    (obj, values) in
+                    values[0] = (obj as! UICollectionViewTransitionLayout).transitionProgress
+                }
+                prop.writeBlock = {
+                    (obj, values) in
+                    (obj as! UICollectionViewTransitionLayout).transitionProgress = values[0]
+                }
+                prop.threshold = 0.01
+            }) as! POPAnimatableProperty
         
         
         
-        springAnimation.springBounciness = 8
-        springAnimation.property = property
-        springAnimation.fromValue = CGFloat(0)
-        springAnimation.toValue = 1.0
-        springAnimation.completionBlock = {(anim: POPAnimation!, finished: Bool) in
+            springAnimation.springBounciness = 10
+            springAnimation.property = property
+            springAnimation.fromValue = CGFloat(0)
+            springAnimation.toValue = 1.0
+            springAnimation.completionBlock = {(anim: POPAnimation!, finished: Bool) in
             if finished {
                 transition.transitionProgress = 1
+                self.transitionInProgress = false
                 self.dishes.finishInteractiveTransition()
-                self.setCurrentDish()
-                self.updateDishInfo(self.currentDish!)
-                layoutMode = toMode
+                
+                
             }
             
         }
@@ -377,7 +397,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         
         
     }
-
+    }
 
     
 }

@@ -58,7 +58,7 @@ class DishesGridLayout: UICollectionViewLayout {
                 let indexPath = NSIndexPath(forItem: item, inSection: section)
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                 attributes.zIndex = numberOfItems - item
-                print("indexPath Row: \(indexPath.row)")
+               // print("indexPath Row: \(indexPath.row)")
                 var increaseRow = false
                 
                 if ((frameWidth - spacing - xOffset) < (itemSize.width + 1) && item != numberOfItems - 1)  {
@@ -67,7 +67,7 @@ class DishesGridLayout: UICollectionViewLayout {
                     
                 }
                 
-                print("xOffset: \(xOffset) yOffset: \(yOffset) item Width: \(itemSize.width) Item Height: \(itemSize.height)")
+                //print("xOffset: \(xOffset) yOffset: \(yOffset) item Width: \(itemSize.width) Item Height: \(itemSize.height)")
                 attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemSize.width, itemSize.height))
                 
                 cache.append(attributes)
@@ -90,9 +90,9 @@ class DishesGridLayout: UICollectionViewLayout {
             }
             yOffset += itemSize.height
             yOffset += spacing
-            print("xOffset: \(xOffset) yOffset: \(yOffset)")
+            //print("xOffset: \(xOffset) yOffset: \(yOffset)")
             _contentSize = CGSizeMake(contentWidth, yOffset)
-            print("Layout Attributes: \(_layoutAttributes)")
+            //print("Layout Attributes: \(_layoutAttributes)")
             
         }
         

@@ -47,43 +47,25 @@ class DishesSingleLayout: UICollectionViewLayout {
             var yOffset = 0.0 as CGFloat
             var contentWidth : CGFloat = 0
             var itemSize = CGSizeZero
-            
-            
-            
-            
-            
-            
             for var item = 0; item < numberOfItems; item++ {
                 let indexPath = NSIndexPath(forItem: item, inSection: section)
                 let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
                 attributes.zIndex = numberOfItems - item
                 
-                var increaseRow = false
-                
-                
                 itemSize.height = frameHeight
                 itemSize.width = frameWidth
-                    
-                    
-                print("xOffset: \(xOffset) yOffset: \(yOffset) item Width: \(itemSize.width) Item Height: \(itemSize.height)")
+                
                 attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemSize.width, itemSize.height))
-                
                 cache.append(attributes)
-                
                 xOffset += itemSize.width
                 xOffset += spacing
-                
-                
-                
             }
             if contentWidth == 0{
                 contentWidth = xOffset
             }
             yOffset += itemSize.height
             yOffset += spacing
-            print("xOffset: \(xOffset) yOffset: \(yOffset)")
             _contentSize = CGSizeMake(contentWidth, yOffset)
-            print("Layout Attributes: \(_layoutAttributes)")
             
         }
         
