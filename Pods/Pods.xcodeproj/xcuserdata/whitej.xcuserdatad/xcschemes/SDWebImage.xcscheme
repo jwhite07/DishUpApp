@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "70B7069B6E06C8E8FB3F75C3"
-               BuildableName = "AMPopTip.framework"
-               BlueprintName = "AMPopTip"
+               BlueprintIdentifier = "AA08E6B7BEB62864E73E57F5"
+               BuildableName = "SDWebImage.framework"
+               BlueprintName = "SDWebImage"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

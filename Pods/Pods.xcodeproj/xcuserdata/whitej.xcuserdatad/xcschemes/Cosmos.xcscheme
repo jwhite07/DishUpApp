@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "959864DD52834972A1553E9D"
+               BlueprintIdentifier = "68766F51D1CF857174C27120"
                BuildableName = "Cosmos.framework"
                BlueprintName = "Cosmos"
                ReferencedContainer = "container:Pods.xcodeproj">
