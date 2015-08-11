@@ -16,7 +16,7 @@ class DishesGridLayout: UICollectionViewLayout {
     var itemHeight          = 0.0 as CGFloat
     var totalItems          = 0
     var gridSpacing         = 10.0 as CGFloat
-    var maxItemsPerRow      = 4 as CGFloat
+    var itemsPerRow      = 3 as CGFloat
     
     //    var layoutMode          = .Single as LayoutMode
     
@@ -48,34 +48,11 @@ class DishesGridLayout: UICollectionViewLayout {
             var contentWidth : CGFloat = 0
             var itemSize = CGSizeZero
             
-            
             spacing = gridSpacing
             
             xOffset = spacing
             yOffset = spacing
-            itemSize = calculateItemSize(maxItemsPerRow)
-            let maxItems = calculateItemsPerScreen(itemSize)
-            
-            if numberOfItems < maxItems{
-                var itemsPerScreenArray = [Int](count: Int(maxItemsPerRow), repeatedValue: 0)
-                var sizeArray = [CGSize](count: Int(maxItemsPerRow), repeatedValue: CGSizeZero)
-                itemsPerScreenArray[Int(maxItemsPerRow) - 1] = maxItems
-                sizeArray[Int(maxItemsPerRow) - 1] = itemSize
-                for var row = Int(maxItemsPerRow) - 2; row >= 0; row-- {
-                    sizeArray[row] = calculateItemSize(CGFloat(row+1))
-                    itemsPerScreenArray[row] = calculateItemsPerScreen(sizeArray[row])
-                    if itemsPerScreenArray[row] / 2 < numberOfItems {
-                        itemSize = sizeArray[row]
-                        break
-                    }
-                    
-                }
-            }
-                
-            
-            
-            
-            
+            itemSize = calculateItemSize(itemsPerRow)
             
             for var item = 0; item < numberOfItems; item++ {
                 let indexPath = NSIndexPath(forItem: item, inSection: section)
@@ -89,8 +66,6 @@ class DishesGridLayout: UICollectionViewLayout {
                     contentWidth = xOffset + itemSize.height + spacing
                     
                 }
-                
-                    
                 
                 print("xOffset: \(xOffset) yOffset: \(yOffset) item Width: \(itemSize.width) Item Height: \(itemSize.height)")
                 attributes.frame = CGRectIntegral(CGRectMake(xOffset, yOffset, itemSize.width, itemSize.height))
@@ -121,14 +96,6 @@ class DishesGridLayout: UICollectionViewLayout {
             
         }
         
-    }
-    func calculateItemsPerScreen (itemSize: CGSize) -> Int{
-        let size = itemSize.width
-        let columns = Int((frameWidth - gridSpacing) / (size + gridSpacing))
-        
-        let rows = Int(floor((frameHeight - gridSpacing) / (size + gridSpacing)))
-        
-        return columns * rows
     }
     func calculateItemSize ( itemsPerRow: CGFloat) -> CGSize{
         let size : CGFloat

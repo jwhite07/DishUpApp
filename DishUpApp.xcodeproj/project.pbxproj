@@ -77,6 +77,7 @@
 		0DD96EDC1B6ACD2C00265FE0 /* RestaurantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDB1B6ACD2C00265FE0 /* RestaurantsVC.swift */; };
 		0DD96EDE1B6ACE2700265FE0 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDD1B6ACE2700265FE0 /* RestaurantCell.swift */; };
 		0DD96EE01B6AD10F00265FE0 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDF1B6AD10F00265FE0 /* Restaurant.swift */; };
+		0DE875CD1B7A1D39008F4715 /* DishInfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE875CC1B7A1D39008F4715 /* DishInfoPanel.swift */; };
 		0DF554331B75AA1F00E2AB58 /* DishUpNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF554321B75AA1F00E2AB58 /* DishUpNavigationBar.swift */; };
 		0DF554371B75AB3300E2AB58 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF554361B75AB3300E2AB58 /* logo.png */; };
 		0DF554391B75AB7F00E2AB58 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DF554381B75AB7F00E2AB58 /* logo.png */; };
@@ -173,6 +174,7 @@
 		0DD96EDB1B6ACD2C00265FE0 /* RestaurantsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsVC.swift; sourceTree = "<group>"; };
 		0DD96EDD1B6ACE2700265FE0 /* RestaurantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 		0DD96EDF1B6AD10F00265FE0 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		0DE875CC1B7A1D39008F4715 /* DishInfoPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishInfoPanel.swift; sourceTree = "<group>"; };
 		0DF554321B75AA1F00E2AB58 /* DishUpNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishUpNavigationBar.swift; sourceTree = "<group>"; };
 		0DF554361B75AB3300E2AB58 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../Desktop/logo.png; sourceTree = "<group>"; };
 		0DF554381B75AB7F00E2AB58 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../Desktop/logo.png; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				0D1530101B680C6000F4B322 /* dishesFlowLayout.swift */,
 				0DD96EDD1B6ACE2700265FE0 /* RestaurantCell.swift */,
 				0D3D82F21B6BC7020031FC18 /* DishpicCell.swift */,
+				0DE875CC1B7A1D39008F4715 /* DishInfoPanel.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				0D894E191B77FB9800576557 /* DishesSingleLayout.swift in Sources */,
 				0D9205A41B78D41500D29FDF /* DishesTransitionLayout.swift in Sources */,
 				0D3D82F51B6BC70E0031FC18 /* Dishpic.swift in Sources */,
+				0DE875CD1B7A1D39008F4715 /* DishInfoPanel.swift in Sources */,
 				0D81A7A61B5865070071EDEE /* DishTypesVC.swift in Sources */,
 				0D70D0C21B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift in Sources */,
 				0D1530111B680C6000F4B322 /* dishesFlowLayout.swift in Sources */,
