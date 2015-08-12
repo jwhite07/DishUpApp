@@ -146,14 +146,11 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuse, forIndexPath: indexPath) as! DishCollectionViewCell
         
         cell.dish = dish
-        
-        if dish.lead_dishpic_url != nil{
-            cell.dishPic.image = UIImage(named: "placeholder.png")
-            Networking.getImageAtUrl(dish.lead_dishpic_url!, completion:
-                {(imageObj: UIImage) in
-                    cell.dishPic.image = imageObj
-            })
+        if let url = Networking.sanitizeUrlFromString(dish.lead_dishpic_url!){
+            cell.dishPic.sd_setImageWithURL(url, placeholderImage: UIImage(named: "placeholder.png"))
+            
         }
+
         
         cell.indexPath = indexPath
         cell.collectionView = dishes

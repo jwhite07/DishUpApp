@@ -8,6 +8,7 @@
 
 import UIKit
 import AMPopTip
+import SDWebImage
 
 class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UINavigationControllerDelegate{
     let reuseIdentifier = "dish_type"
@@ -50,18 +51,16 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
         return 1
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(20, 20, 20, 20)
+        return UIEdgeInsetsMake(23, 23, 23, 23)
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("dish_type", forIndexPath: indexPath) as! DishTypeCollectionViewCell
         
         print(dishTypesArray[indexPath.row])
         let icon_url = dishTypesArray[indexPath.row].icon_url
-        if icon_url != nil{
-            cell.imageView.image = UIImage(named: "placeholder.png")
-            cell.imageView.tintColor = UIColor.redColor()
+        if let url = Networking.sanitizeUrlFromString(icon_url!){
+            cell.imageView.sd_setImageWithURL(url)
             
-            Networking.getImageAtUrl(icon_url!, completion: {(imageObj: UIImage) in cell.imageView.image = imageObj})
         }
         cell.dishType = dishTypesArray[indexPath.row]
         let longTap = UILongPressGestureRecognizer(target: self, action: Selector("showToolTip:"))

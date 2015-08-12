@@ -58,11 +58,12 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("restaurant", forIndexPath: indexPath) as! RestaurantCell
         
         cell.restaurant = restaurantsArray[indexPath.row]
-        if let logo_url = cell.restaurant?.logo{
-            cell.restaurantImg.image = UIImage(named: "placeholder.png")
+        if let url = Networking.sanitizeUrlFromString(cell.restaurant?.logo){
+            cell.restaurantImg.sd_setImageWithURL(url)
+            cell.backgroundImage.sd_setImageWithURL(url)
             
-            Networking.getImageAtUrl(logo_url, completion: {(imageObj: UIImage) in cell.restaurantImg.image = imageObj})
         }
+        
         if let distance = cell.restaurant?.distance{
             let distanceTrimmed = String(format: "%.1f", distance)
             cell.restaurantDistance.text = "\(distanceTrimmed) mi"

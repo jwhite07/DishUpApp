@@ -23,10 +23,6 @@ final class DishType{
         self.name = json["name"].stringValue
         self.icon_url = json["icon_url"].string
         self.id = json["id"].intValue
-        if (self.icon_url  != nil){
-            
-            Networking.getImageAtUrl( self.icon_url!)
-        }
     }
     
 }

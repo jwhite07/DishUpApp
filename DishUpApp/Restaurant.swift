@@ -41,10 +41,6 @@ final class Restaurant{
         self.website = json["website"].string
         self.distance = json["distance"].float
         self.id = json["id"].intValue
-        if (self.logo  != nil){
-            
-            Networking.getImageAtUrl( self.logo!)
-        }
     }
     
 }

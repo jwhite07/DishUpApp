@@ -21,9 +21,7 @@ class LaunchScreenVC: UIViewController {
     @IBOutlet weak var locationButton: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        cravingButton.layer.borderWidth = 1
-        locationButton.layer.borderWidth = 1
-        cravingButton.layer.borderColor = UIColor.blackColor().CGColor
+        
         // Do any additional setup after loading the view.
         
     }

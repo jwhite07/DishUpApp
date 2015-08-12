@@ -113,33 +113,42 @@ class Networking {
         }
 
     }
-    
-    static func getImageAtUrl (imageURL : String, completion: ((UIImage) -> ())? = nil) {
-        let allowedSet = NSCharacterSet(charactersInString:"=#%<>?@^{|}\"' ").invertedSet
-        let escapedUrl = imageURL.stringByAddingPercentEncodingWithAllowedCharacters(allowedSet)!
-        
-        let manager = SDWebImageManager.sharedManager()
-        manager.downloadImageWithURL(escapedUrl, options: 0, progress: 0) { (image, error, cacheType, finished, imageUrl) -> Void in
-            completion?(image)
+    static func sanitizeUrlFromString(string: String?) -> NSURL?{
+        if let url = string{
+            let allowedSet = NSCharacterSet(charactersInString:"=#%<>?@^{|}\"' ").invertedSet
+            let escapedUrl = url.stringByAddingPercentEncodingWithAllowedCharacters(allowedSet)!
+            return NSURL(string: escapedUrl)
+
+        }else{
+            return nil
         }
-//        if let imageObj = imageCache.objectForKey(escapedUrl) as! UIImage?{
-//            
-//            
-//            completion?(imageObj)
-//        }else{
-//            print("URL: \(escapedUrl)")
-//            Alamofire.request(.GET, escapedUrl).response() { (request, response, data, error) in
-//                    if error == nil{
-//                        
-//                        if let imageObj = UIImage(data: data!){
-//                            
-//                            imageCache.setObject(imageObj, forKey: escapedUrl)
-//                            completion?(imageObj)
-//
-//                        }
-//                    
-//                }
-//            }
-//        }
+        
+        
     }
+//    static func getImageAtUrl (imageURL : String, completion: ((UIImage) -> ())? = nil) {
+//        let allowedSet = NSCharacterSet(charactersInString:"=#%<>?@^{|}\"' ").invertedSet
+//        let escapedUrl = imageURL.stringByAddingPercentEncodingWithAllowedCharacters(allowedSet)!
+//        
+//        let manager = SDWebImageManager.sharedManager()
+//        
+////        if let imageObj = imageCache.objectForKey(escapedUrl) as! UIImage?{
+////            
+////            
+////            completion?(imageObj)
+////        }else{
+////            print("URL: \(escapedUrl)")
+////            Alamofire.request(.GET, escapedUrl).response() { (request, response, data, error) in
+////                    if error == nil{
+////                        
+////                        if let imageObj = UIImage(data: data!){
+////                            
+////                            imageCache.setObject(imageObj, forKey: escapedUrl)
+////                            completion?(imageObj)
+////
+////                        }
+////                    
+////                }
+////            }
+////        }
+//    }
 }

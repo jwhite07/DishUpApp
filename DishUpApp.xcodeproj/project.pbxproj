@@ -13,6 +13,19 @@
 		0D0A86251B58391000DF0C71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D0A86241B58391000DF0C71 /* Images.xcassets */; };
 		0D0A86281B58391000DF0C71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D0A86261B58391000DF0C71 /* LaunchScreen.xib */; };
 		0D0A86401B58392D00DF0C71 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0A863F1B58392D00DF0C71 /* SWRevealViewController.m */; };
+		0D13EC041B7B757C0059FA4E /* iphone6+_Launch Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC031B7B757C0059FA4E /* iphone6+_Launch Screen.png */; };
+		0D13EC111B7B774C0059FA4E /* locationbg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC051B7B774C0059FA4E /* locationbg@3x.png */; };
+		0D13EC121B7B774C0059FA4E /* cravingbg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC061B7B774C0059FA4E /* cravingbg@3x.png */; };
+		0D13EC131B7B774C0059FA4E /* location@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC071B7B774C0059FA4E /* location@3x.png */; };
+		0D13EC141B7B774C0059FA4E /* craving@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC081B7B774C0059FA4E /* craving@3x.png */; };
+		0D13EC151B7B774C0059FA4E /* locationbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC091B7B774C0059FA4E /* locationbg@2x.png */; };
+		0D13EC161B7B774C0059FA4E /* cravingbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC0A1B7B774C0059FA4E /* cravingbg@2x.png */; };
+		0D13EC171B7B774C0059FA4E /* location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC0B1B7B774C0059FA4E /* location@2x.png */; };
+		0D13EC181B7B774C0059FA4E /* craving@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC0C1B7B774C0059FA4E /* craving@2x.png */; };
+		0D13EC191B7B774C0059FA4E /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC0D1B7B774C0059FA4E /* location.png */; };
+		0D13EC1A1B7B774C0059FA4E /* craving.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC0E1B7B774C0059FA4E /* craving.png */; };
+		0D13EC1B1B7B774C0059FA4E /* cravingbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC0F1B7B774C0059FA4E /* cravingbg.png */; };
+		0D13EC1C1B7B774C0059FA4E /* locationbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC101B7B774C0059FA4E /* locationbg.png */; };
 		0D1530111B680C6000F4B322 /* dishesFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1530101B680C6000F4B322 /* dishesFlowLayout.swift */; };
 		0D2519B91B665A5E0071AEF0 /* dishesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2519B81B665A5E0071AEF0 /* dishesLayout.swift */; };
 		0D2B20701B5D8D71002B87CC /* DishesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B206F1B5D8D71002B87CC /* DishesVC.swift */; };
@@ -110,6 +123,19 @@
 		0D0A863D1B58392C00DF0C71 /* DishUpApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DishUpApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		0D0A863E1B58392D00DF0C71 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		0D0A863F1B58392D00DF0C71 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		0D13EC031B7B757C0059FA4E /* iphone6+_Launch Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone6+_Launch Screen.png"; path = "../../../Desktop/dishup assets 8.11.15a/New Launch Screens/iphone6+_Launch Screen.png"; sourceTree = "<group>"; };
+		0D13EC051B7B774C0059FA4E /* locationbg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "locationbg@3x.png"; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/scaled-at-300/locationbg@3x.png"; sourceTree = "<group>"; };
+		0D13EC061B7B774C0059FA4E /* cravingbg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cravingbg@3x.png"; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/scaled-at-300/cravingbg@3x.png"; sourceTree = "<group>"; };
+		0D13EC071B7B774C0059FA4E /* location@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "location@3x.png"; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/scaled-at-300/location@3x.png"; sourceTree = "<group>"; };
+		0D13EC081B7B774C0059FA4E /* craving@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "craving@3x.png"; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/scaled-at-300/craving@3x.png"; sourceTree = "<group>"; };
+		0D13EC091B7B774C0059FA4E /* locationbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "locationbg@2x.png"; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/scaled-at-200/locationbg@2x.png"; sourceTree = "<group>"; };
+		0D13EC0A1B7B774C0059FA4E /* cravingbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cravingbg@2x.png"; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/scaled-at-200/cravingbg@2x.png"; sourceTree = "<group>"; };
+		0D13EC0B1B7B774C0059FA4E /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "location@2x.png"; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/scaled-at-200/location@2x.png"; sourceTree = "<group>"; };
+		0D13EC0C1B7B774C0059FA4E /* craving@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "craving@2x.png"; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/scaled-at-200/craving@2x.png"; sourceTree = "<group>"; };
+		0D13EC0D1B7B774C0059FA4E /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = location.png; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/location.png"; sourceTree = "<group>"; };
+		0D13EC0E1B7B774C0059FA4E /* craving.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = craving.png; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/craving.png"; sourceTree = "<group>"; };
+		0D13EC0F1B7B774C0059FA4E /* cravingbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cravingbg.png; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/cravingbg.png"; sourceTree = "<group>"; };
+		0D13EC101B7B774C0059FA4E /* locationbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = locationbg.png; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/locationbg.png"; sourceTree = "<group>"; };
 		0D1530101B680C6000F4B322 /* dishesFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dishesFlowLayout.swift; sourceTree = "<group>"; };
 		0D2519B81B665A5E0071AEF0 /* dishesLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dishesLayout.swift; sourceTree = "<group>"; };
 		0D2B206F1B5D8D71002B87CC /* DishesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesVC.swift; sourceTree = "<group>"; };
@@ -247,6 +273,19 @@
 		0D0A861B1B58391000DF0C71 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0D13EC051B7B774C0059FA4E /* locationbg@3x.png */,
+				0D13EC061B7B774C0059FA4E /* cravingbg@3x.png */,
+				0D13EC071B7B774C0059FA4E /* location@3x.png */,
+				0D13EC081B7B774C0059FA4E /* craving@3x.png */,
+				0D13EC091B7B774C0059FA4E /* locationbg@2x.png */,
+				0D13EC0A1B7B774C0059FA4E /* cravingbg@2x.png */,
+				0D13EC0B1B7B774C0059FA4E /* location@2x.png */,
+				0D13EC0C1B7B774C0059FA4E /* craving@2x.png */,
+				0D13EC0D1B7B774C0059FA4E /* location.png */,
+				0D13EC0E1B7B774C0059FA4E /* craving.png */,
+				0D13EC0F1B7B774C0059FA4E /* cravingbg.png */,
+				0D13EC101B7B774C0059FA4E /* locationbg.png */,
+				0D13EC031B7B757C0059FA4E /* iphone6+_Launch Screen.png */,
 				0D8942771B76A30600C811B7 /* tooltip.png */,
 				0DF554381B75AB7F00E2AB58 /* logo.png */,
 				0DF554361B75AB3300E2AB58 /* logo.png */,
@@ -469,7 +508,9 @@
 				0DA365E81B7197BC00DC12F8 /* options@2x.png in Resources */,
 				0DA365ED1B7197E100DC12F8 /* left-arrow@3x.png in Resources */,
 				0DA365EE1B7197E100DC12F8 /* options@3x.png in Resources */,
+				0D13EC181B7B774C0059FA4E /* craving@2x.png in Resources */,
 				0DF554391B75AB7F00E2AB58 /* logo.png in Resources */,
+				0D13EC041B7B757C0059FA4E /* iphone6+_Launch Screen.png in Resources */,
 				0D3D83051B6D16440031FC18 /* SourceSansPro-BlackItalic.ttf in Resources */,
 				0D3D83071B6D16440031FC18 /* SourceSansPro-BoldItalic.ttf in Resources */,
 				0D78E92A1B626F2600AECC90 /* line14.png in Resources */,
@@ -483,14 +524,18 @@
 				0DA365E11B71979500DC12F8 /* grid-view.png in Resources */,
 				0D0A86231B58391000DF0C71 /* Main.storyboard in Resources */,
 				0D70D3CA1B704AFB007E49C3 /* home@3x.png in Resources */,
+				0D13EC141B7B774C0059FA4E /* craving@3x.png in Resources */,
 				0D3D830C1B6D16440031FC18 /* SourceSansPro-LightItalic.ttf in Resources */,
 				0D46AB6B1B70E9B9006602C4 /* _.png in Resources */,
+				0D13EC111B7B774C0059FA4E /* locationbg@3x.png in Resources */,
+				0D13EC161B7B774C0059FA4E /* cravingbg@2x.png in Resources */,
 				0D3D830E1B6D16440031FC18 /* SourceSansPro-Semibold.ttf in Resources */,
 				0D3D83171B6D88D80031FC18 /* Craving@2x.png in Resources */,
 				0D3D83111B6D7F4A0031FC18 /* Location.png in Resources */,
 				0D3D830A1B6D16440031FC18 /* SourceSansPro-Italic.ttf in Resources */,
 				0D3D83151B6D7F680031FC18 /* Location@3x.png in Resources */,
 				0D46AB6F1B70E9D2006602C4 /* _@3x.png in Resources */,
+				0D13EC1C1B7B774C0059FA4E /* locationbg.png in Resources */,
 				0DF554371B75AB3300E2AB58 /* logo.png in Resources */,
 				0D3D83131B6D7F550031FC18 /* Location@2x.png in Resources */,
 				0D3872771B5BF4C500CF931A /* placeholder.png in Resources */,
@@ -498,12 +543,19 @@
 				0D70D3C61B704AE4007E49C3 /* home.png in Resources */,
 				0DFFE2A21B72E3FC0082B1C9 /* single-view.png in Resources */,
 				0D3D82F71B6D03E00031FC18 /* AscensionBrewingCompany_EdamameHummus.jpg in Resources */,
+				0D13EC191B7B774C0059FA4E /* location.png in Resources */,
+				0D13EC1B1B7B774C0059FA4E /* cravingbg.png in Resources */,
+				0D13EC171B7B774C0059FA4E /* location@2x.png in Resources */,
 				0D3D830B1B6D16440031FC18 /* SourceSansPro-Light.ttf in Resources */,
+				0D13EC1A1B7B774C0059FA4E /* craving.png in Resources */,
 				0D3D830F1B6D16440031FC18 /* SourceSansPro-SemiboldItalic.ttf in Resources */,
+				0D13EC151B7B774C0059FA4E /* locationbg@2x.png in Resources */,
 				0D3D830D1B6D16440031FC18 /* SourceSansPro-Regular.ttf in Resources */,
+				0D13EC131B7B774C0059FA4E /* location@3x.png in Resources */,
 				0D3D83091B6D16440031FC18 /* SourceSansPro-ExtraLightItalic.ttf in Resources */,
 				0D70D3C41B6FF2BD007E49C3 /* iphone6+.png in Resources */,
 				0DA365E21B71979500DC12F8 /* left-arrow.png in Resources */,
+				0D13EC121B7B774C0059FA4E /* cravingbg@3x.png in Resources */,
 				0DA365EF1B7197E100DC12F8 /* right-arrow@3x.png in Resources */,
 				0D3D83081B6D16440031FC18 /* SourceSansPro-ExtraLight.ttf in Resources */,
 				0DFFE2A41B72E40B0082B1C9 /* single-view@2x.png in Resources */,

@@ -71,17 +71,12 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
     func updateSubViews(dish: Dish) {
         self.dishRating.rating      = dish.rating.doubleValue
         self.dishName.text          = dish.name
-        if dish.lead_dishpic_url != nil{
-            self.largePic.image = UIImage(named: "placeholder.png")
+        if let url = Networking.sanitizeUrlFromString(dish.lead_dishpic_url){
+            self.largePic.sd_setImageWithURL(url)
             
-            
-            Networking.getImageAtUrl(dish.lead_dishpic_url!, completion:
-                {(imageObj: UIImage) in
-                    self.largePic.image = imageObj
-                    
-            })
         }
 
+        
         if dish.price != nil && dish.price != 0 {
             let price = dish.price!
             
@@ -151,13 +146,12 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuse, forIndexPath: indexPath) as! DishpicCell
         print ("IndexPath.row: \(indexPath.section)")
+        if let url = Networking.sanitizeUrlFromString(dishpic.url){
+            cell.imageView.sd_setImageWithURL(url)
+            
+        }
+
         
-        cell.imageView.image = UIImage(named: "placeholder.png")
-        Networking.getImageAtUrl(dishpic.url, completion:
-            {(imageObj: UIImage) in
-                cell.imageView.image = imageObj
-                
-        })
         cell.dishpic = dishpic
 
         
