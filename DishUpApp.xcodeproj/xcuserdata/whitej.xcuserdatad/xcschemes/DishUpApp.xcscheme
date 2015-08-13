@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0D0A86171B58391000DF0C71"
-               BuildableName = "DishUpApp.app"
-               BlueprintName = "DishUpApp"
+               BuildableName = "DishUp.app"
+               BlueprintName = "DishUp"
                ReferencedContainer = "container:DishUpApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,8 +47,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0D0A86171B58391000DF0C71"
-            BuildableName = "DishUpApp.app"
-            BlueprintName = "DishUpApp"
+            BuildableName = "DishUp.app"
+            BlueprintName = "DishUp"
             ReferencedContainer = "container:DishUpApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -70,8 +70,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0D0A86171B58391000DF0C71"
-            BuildableName = "DishUpApp.app"
-            BlueprintName = "DishUpApp"
+            BuildableName = "DishUp.app"
+            BlueprintName = "DishUp"
             ReferencedContainer = "container:DishUpApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -89,8 +89,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0D0A86171B58391000DF0C71"
-            BuildableName = "DishUpApp.app"
-            BlueprintName = "DishUpApp"
+            BuildableName = "DishUp.app"
+            BlueprintName = "DishUp"
             ReferencedContainer = "container:DishUpApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

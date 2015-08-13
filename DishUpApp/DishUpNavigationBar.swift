@@ -22,12 +22,20 @@ class DishUpNavigationBar: UINavigationBar {
     
     func initialise(){
         
-        let logo = UIImage(named: "logo");
+        let logo = UIImage(named: "dishupLogo.png")
         let imageView = UIImageView(image:logo)
-        imageView.frame.size.width = 97;
-        imageView.frame.size.height = 33;
-        imageView.frame.origin = CGPoint(x: 140, y: 5)
+        let logoWidth : CGFloat = 99
+        imageView.frame.size.width = logoWidth
+        
+        imageView.frame.size.height = 33         
+        let xStart = UIScreen.mainScreen().bounds.width / 2 - logoWidth / 2
+        imageView.frame.origin = CGPoint(x: xStart, y: 5)
+        //print("frame width: \(superview!.frame.size.width) logoWidth: \(logoWidth) xStart: \(xStart) frame: \(imageView.frame)")
+
+        
         
         addSubview(imageView)
+//        self.addConstraint(NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.CenterX, relatedBy: .Equal, toItem: self, attribute: NSLayoutAttribute.CenterX, multiplier: 1.0, constant: 0))
     }
+    
 }
