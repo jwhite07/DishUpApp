@@ -17,4 +17,6 @@ struct GlobalConstants{
 var imageCache = NSCache()
 var dishCache : [Int:Dish] = [:]
 var tagCache : [Int:Int] = [:]
-
+let screenSize = UIScreen.mainScreen().bounds
+let screenWidth = screenSize.width
+let screenHeight = screenSize.height

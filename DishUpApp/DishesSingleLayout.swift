@@ -28,6 +28,7 @@ class DishesSingleLayout: UICollectionViewLayout {
     
     
     override func prepareLayout() {
+        cache = []
         super.prepareLayout()
         frameHeight = self.collectionView!.frame.size.height
         frameWidth = self.collectionView!.frame.size.width
@@ -70,6 +71,16 @@ class DishesSingleLayout: UICollectionViewLayout {
         }
         
     }
+//    override func finalizeLayoutTransition() {
+//        if let  att = self.layoutAttributesForItemAtIndexPath(currentIndexPath){
+//            print("final offset: \(att.frame.origin)")
+//            self.collectionView?.contentOffset = att.frame.origin
+//        }
+//
+//        
+//    }
+
+    
     func layoutKeyForIndexPath(indexPath : NSIndexPath) -> String {
         return "\(indexPath.section)_\(indexPath.row)"
     }
@@ -81,6 +92,7 @@ class DishesSingleLayout: UICollectionViewLayout {
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
         for att in cache{
             if att.indexPath == indexPath{
+                //print("indexPath: \(indexPath) att: \(att)")
                 return att
             }
             
@@ -88,7 +100,6 @@ class DishesSingleLayout: UICollectionViewLayout {
         return nil
     }
 
-        
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
         for attributes in cache {

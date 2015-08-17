@@ -26,7 +26,7 @@ class DishesTransitionLayout: UICollectionViewTransitionLayout {
     var _contentSize = CGSizeZero
     var cache = [UICollectionViewLayoutAttributes]()
     override func prepareLayout() {
-        
+        cache = []
         var prog : CGFloat = 0
         
         if layoutMode == .Single{
@@ -34,6 +34,7 @@ class DishesTransitionLayout: UICollectionViewTransitionLayout {
         }else{
             prog = transitionProgress
         }
+        let invProg = 1 - prog
         //print("layoutMode: \(layoutMode) prog: \(prog) transition Progress: \(transitionProgress)")
         frameHeight = self.collectionView!.frame.size.height
         frameWidth = self.collectionView!.frame.size.width
@@ -56,12 +57,13 @@ class DishesTransitionLayout: UICollectionViewTransitionLayout {
             let itemSizeSingle = CGSizeMake(frameWidth, frameHeight)
             
             
+            
             let itemSize = CGSizeMake(
                 (itemSizeSingle.width - itemSizeGrid.width) * prog + itemSizeGrid.width,
                 (itemSizeSingle.height - itemSizeGrid.height) * prog + itemSizeGrid.height
             )
             
-            spacing = gridSpacing * (1 - prog)
+            spacing = gridSpacing * invProg
             
             xOffset = spacing
             yOffset = spacing
@@ -101,7 +103,61 @@ class DishesTransitionLayout: UICollectionViewTransitionLayout {
             _contentSize = CGSizeMake(contentWidth, yOffset)
             //print("Layout Attributes: \(_layoutAttributes)")
             
+
+            
         }
+        let currentObj = cache[currentIndexPath.item]
+        
+        _contentSize.width + frameWidth + currentObj.size.width
+        _contentSize.height + frameHeight + currentObj.size.height
+        let c = _contentSize
+        let oldOffset = self.collectionView!.contentOffset
+        let f = CGSizeMake(frameWidth, frameHeight)
+        let o = currentObj
+        let os = o.size
+        var offset = CGPointMake(0,0)
+        
+        let xfill = f.width - os.width
+        let leadSpace = o.frame.origin.x
+        let trailSpace = c.width - (o.frame.origin.x + os.width)
+        if xfill / 2 > leadSpace{
+            offset.x = 0
+        }else if xfill / 2 > trailSpace{
+            offset.x = c.width - f.width
+        }else{
+            offset.x = o.frame.origin.x - (xfill / 2)
+        }
+        
+        let yfill = f.height - os.height
+        let topSpace = o.frame.origin.y
+        let botSpace = c.height - (o.frame.origin.y + os.height)
+        
+        if yfill / 2 > topSpace{
+            offset.y = 0
+        }else if yfill / 2 > botSpace{
+            offset.y = c.height - f.height
+        }else{
+            offset.y = o.frame.origin.y - (yfill / 2)
+        }
+//        if offset.x != oldOffset.x{
+//            if offset.x > oldOffset.x{
+//                offset.x = oldOffset.x + (offset.x - oldOffset.x) / 2
+//            }else{
+//                offset.x = offset.x + (oldOffset.x - offset.x) / 2
+//            }
+//        }
+//        if offset.y != oldOffset.y{
+//            if offset.y > oldOffset.y{
+//                offset.y = oldOffset.y + (offset.y - oldOffset.y) / 2
+//            }else{
+//                offset.y = offset.y + (oldOffset.y - offset.y) / 2
+//            }
+//        }
+        
+        self.collectionView!.contentOffset = offset;
+        targetGridOffset = offset
+        
+        
     }
     func calculateItemSize ( itemsPerRow: CGFloat) -> CGSize{
         let size : CGFloat
@@ -111,6 +167,9 @@ class DishesTransitionLayout: UICollectionViewTransitionLayout {
     func layoutKeyForIndexPath(indexPath : NSIndexPath) -> String {
         return "\(indexPath.section)_\(indexPath.row)"
     }
+
+
+    
     override func collectionViewContentSize() -> CGSize {
         
         return _contentSize
@@ -123,10 +182,9 @@ class DishesTransitionLayout: UICollectionViewTransitionLayout {
         }
         return nil
     }
-    
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
-        print("rect: \(rect) content size: \(_contentSize)")
+       // print("rect: \(rect) content size: \(_contentSize)")
         for attributes in cache {
             if CGRectIntersectsRect(attributes.frame, rect) {
                 layoutAttributes.append(attributes)

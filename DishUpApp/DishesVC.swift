@@ -16,11 +16,16 @@ enum LayoutMode{
 }
 var layoutMode  = LayoutMode.Single
 var layoutButtonImg = UIImage(named: "grid-view.png")
+var currentIndexPath : NSIndexPath = NSIndexPath(forItem: 0, inSection: 0)
+var targetIndexPath : NSIndexPath = NSIndexPath(forItem: 0, inSection: 0)
+var targetGridOffset = CGPointZero
+let dishesGlobal : UICollectionView? = nil
 
 class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate {
     let reuseIdentifier = "dish"
     @IBOutlet weak var zoomLevel: UIButton!
     @IBOutlet weak var dishes: UICollectionView!
+    
     var transitionLayout : UICollectionViewTransitionLayout?
     var transitionInProgress = false
     var dishType:DishType?
@@ -30,10 +35,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     let transition = NavigationFlipTransitionController()
     let singleLayout = DishesSingleLayout()
     let gridLayout = DishesGridLayout()
-    let screenSize: CGRect = UIScreen.mainScreen().bounds
 
-    var screenWidth : CGFloat = 0.0
-    var screenHeight : CGFloat = 0.0
     
     var lastContentOffset : CGFloat = 0
     var currentDish : Dish?
@@ -54,12 +56,13 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     @IBOutlet weak var nextDishName: UILabel!
     @IBOutlet weak var nextDishRating: CosmosView!
     @IBOutlet weak var nextDishPrice: UILabel!
-    
+    @IBAction func switchToGridView(sender: AnyObject) {
+        targetIndexPath = currentIndexPath
+        transitionSingleGridLayouts()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        screenWidth = screenSize.width
-        screenHeight = screenSize.height
         if layoutMode == .Single{
             dishes.setCollectionViewLayout(singleLayout, animated: false)
         }else{
@@ -72,12 +75,15 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
                 self.infoPanel.hidden = false
                 self.leftArrow.hidden = false
                 self.rightArrow.hidden = false
+                print("call set current dish at line 78")
+
                 self.setCurrentDish()
                 if let current = self.currentDish{
                     self.updateDishInfo(current)
                 }
 
             }else{
+                
                 self.infoPanel.hidden = true
                 self.leftArrow.hidden = true
                 self.rightArrow.hidden = true
@@ -98,25 +104,44 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         
     }
     
+    @IBAction func handleCellPinch(recognizer: UIPinchGestureRecognizer) {
+//        if recognizer.state == UIGestureRecognizerState.Ended{
+//            if !transitionInProgress{
+//                if layoutMode == .Single{
+//                    targetIndexPath = currentIndexPath
+//                    transitionSingleGridLayouts()
+//                }
+//            }
+//
+//        }
+    }
     func setCurrentDish(){
-        if layoutMode == .Single{
+                    //print("dishes: \(dishes.frame) content offset: \(dishes.contentOffset)")
             let point = CGPointMake(dishes.frame.width / 2 + dishes.contentOffset.x, dishes.frame.height / 2 )
             if let indexPath = dishes.indexPathForItemAtPoint(point){
                 currentDish = dishesArray[indexPath.row]
-                if indexPath.row == 0{
-                    leftArrow.alpha = 0
-                    hideLeftArrowCurrent = true
-                }else{
-                    hideLeftArrowCurrent = false
-                }
-                if indexPath.row == dishesArray.count - 1{
-                    rightArrow.alpha = 0
-                    hideRightArrowCurrent = true
-                }else{
-                    hideRightArrowCurrent = false
-                }
-
+                currentIndexPath = indexPath
+                //print("current Dish Name: \(currentDish!.name) current indexPath: \(currentIndexPath)")
+                setArrowsForIndexPath(indexPath)
+                
             }
+       
+
+    }
+    func setArrowsForIndexPath(indexPath: NSIndexPath){
+        if indexPath.row == 0{
+            leftArrow.alpha = 0
+            hideLeftArrowCurrent = true
+        }else{
+            hideLeftArrowCurrent = false
+            leftArrow.alpha = 1
+        }
+        if indexPath.row == dishesArray.count - 1{
+            rightArrow.alpha = 0
+            hideRightArrowCurrent = true
+        }else{
+            hideRightArrowCurrent = false
+            rightArrow.alpha = 1
         }
 
     }
@@ -150,13 +175,19 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
             cell.dishPic.sd_setImageWithURL(url, placeholderImage: UIImage(named: "placeholder.png"))
             
         }
-
-        
         cell.indexPath = indexPath
         cell.collectionView = dishes
-        
+        if let recs = cell.gestureRecognizers{
+            for rec in recs{
+                cell.removeGestureRecognizer(rec)
+            }
+
+        }
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "handleCellTap:")
+        cell.addGestureRecognizer(tapRecognizer)
         return cell
     }
+    
     func updateDishInfo(dish: Dish){
         self.currentDishName.text = dish.name.uppercaseString
         self.currentDishRating.rating = dish.rating.doubleValue
@@ -190,7 +221,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
 
     }
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if layoutMode == .Single{
+        if layoutMode == .Single && !transitionInProgress{
             var point : CGPoint = CGPointMake(0,0)
             var destOffset : CGFloat = 0
             if self.lastContentOffset < scrollView.contentOffset.x{
@@ -202,30 +233,31 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
                 
             }
             let percentage = (scrollView.contentOffset.x - self.lastContentOffset) / (destOffset - self.lastContentOffset)
-            print("scrollViewOffset: \(scrollView.contentOffset.x) lastOffset: \(self.lastContentOffset) destOffset: \(destOffset) percentage: \(percentage)")
+           // print("scrollViewOffset: \(scrollView.contentOffset.x) lastOffset: \(self.lastContentOffset) destOffset: \(destOffset) percentage: \(percentage)")
 
-            let indexPath : NSIndexPath = dishes.indexPathForItemAtPoint(point)!
-            if nextDish == nil{
-                nextDish = dishesArray[indexPath.row]
-                updateNextDish(nextDish!)
-                
-            }else if nextDish!.name != dishesArray[indexPath.row].name{
-                nextDish = dishesArray[indexPath.row]
-                updateNextDish(nextDish!)
+            if let indexPath : NSIndexPath = dishes.indexPathForItemAtPoint(point){
+                if nextDish == nil{
+                    nextDish = dishesArray[indexPath.row]
+                    updateNextDish(nextDish!)
+                    
+                }else if nextDish!.name != dishesArray[indexPath.row].name{
+                    nextDish = dishesArray[indexPath.row]
+                    updateNextDish(nextDish!)
+                }
+                if indexPath.row == 0{
+                    hideLeftArrowNext = true
+                }else{
+                    hideLeftArrowNext = false
+                }
+                if indexPath.row == dishesArray.count - 1{
+                    hideRightArrowNext = true
+                }else{
+                    hideRightArrowNext = false
+                }
+                scrollViewDidScrolltoPercentageOffset(percentage)
             }
-            if indexPath.row == 0{
-                hideLeftArrowNext = true
-            }else{
-                hideLeftArrowNext = false
-            }
-            if indexPath.row == dishesArray.count - 1{
-                hideRightArrowNext = true
-            }else{
-                hideRightArrowNext = false
-            }
-            scrollViewDidScrolltoPercentageOffset(percentage)
-            print("offset: \(scrollView.contentOffset.x) ")
-            print("current Dish: \(currentDish?.name) next Dish: \(nextDish?.name)")
+            //print("offset: \(scrollView.contentOffset.x) ")
+            //print("current Dish: \(currentDish?.name) next Dish: \(nextDish?.name)")
         }
         
         
@@ -259,6 +291,8 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         if layoutMode == .Single{
             self.lastContentOffset = dishes.contentOffset.x
+            print("call set current dish at line 269")
+
             setCurrentDish()
             updateDishInfo(currentDish!)
             
@@ -269,6 +303,8 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         if layoutMode == .Single{
             if !decelerate{
                 self.lastContentOffset = dishes.contentOffset.x
+                print("call set current dish at line 279")
+
                 setCurrentDish()
                 updateDishInfo(currentDish!)
             }
@@ -278,9 +314,30 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
         if layoutMode == .Single{
             self.lastContentOffset = dishes.contentOffset.x
+            print("call set current dish at line 288")
+
             setCurrentDish()
             updateDishInfo(currentDish!)
 
+        }
+    }
+    func handleCellTap(recognizer: UITapGestureRecognizer) {
+        if !transitionInProgress{
+            let tapPoint = recognizer.locationOfTouch(0, inView: dishes)
+            if let indexPath = dishes.indexPathForItemAtPoint(tapPoint){
+                if layoutMode == .Single{
+                    let cell =  self.dishes.cellForItemAtIndexPath(indexPath)
+                    
+                    performSegueWithIdentifier("showDishDetailSegue", sender:cell)
+                    
+                }else{
+                    currentIndexPath = indexPath
+                    targetIndexPath = currentIndexPath
+                    transitionSingleGridLayouts()
+                    
+                }
+
+            }
         }
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -308,22 +365,39 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     @IBAction func tapLeftArrow(sender: AnyObject) {
         let point = CGPointMake(dishes.frame.width / 2 + dishes.contentOffset.x, dishes.frame.height / 2 )
         let indexPath : NSIndexPath = dishes.indexPathForItemAtPoint(point)!
-        self.dishes!.scrollToItemAtIndexPath(NSIndexPath(forItem: indexPath.row - 1, inSection: indexPath.section),
-            atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally,
-            animated: true)
+        if indexPath != 0{
+            self.dishes!.scrollToItemAtIndexPath(NSIndexPath(forItem: indexPath.row - 1, inSection: indexPath.section),
+                atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally,
+                animated: true)
+
+        }
         
     }
     @IBAction func tapRightArrow(sender: AnyObject) {
         let point = CGPointMake(dishes.frame.width / 2 + dishes.contentOffset.x, dishes.frame.height / 2 )
         let indexPath : NSIndexPath = dishes.indexPathForItemAtPoint(point)!
-        self.dishes!.scrollToItemAtIndexPath(NSIndexPath(forItem: indexPath.row + 1, inSection: indexPath.section),
-            atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally,
-            animated: true)
+        if indexPath != dishesArray.count - 1{
+            self.dishes!.scrollToItemAtIndexPath(NSIndexPath(forItem: indexPath.row + 1, inSection: indexPath.section),
+                atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally,
+                animated: true)
+
+        }
         
         
     }
-    
-    @IBAction func switchToGridView(sender: AnyObject) {
+    func popAnimationForAxis(fromValue: CGFloat, toValue: CGFloat) -> POPAnimation{
+        let animation = POPSpringAnimation()
+        
+        let property = POPAnimatableProperty.propertyWithName(kPOPLayoutConstraintConstant) as! POPAnimatableProperty
+        animation.springBounciness = 10
+        animation.property = property
+        animation.fromValue = fromValue
+        animation.toValue = toValue
+       // animation.springSpeed = 200
+        return animation
+    }
+
+    func transitionSingleGridLayouts(){
         if !transitionInProgress{
             let visible = self.dishes.visibleCells() as! [DishCollectionViewCell]
             var toLayout : UICollectionViewLayout
@@ -332,28 +406,33 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
                 toMode = .Grid
                 layoutButtonImg = UIImage(named: "single-view.png")
                 toLayout = gridLayout
-                infoPanel.hidden = true
-                leftArrow.hidden = true
-                rightArrow.hidden = true
             }else{
                 toMode = .Single
-                
                 layoutButtonImg = UIImage(named: "grid-view.png")
                 toLayout = singleLayout
-                infoPanel.hidden = false
-                leftArrow.hidden = false
-                rightArrow.hidden = false
-                
             }
             transitionInProgress = true
+            if layoutMode == .Grid{
+                print("Before - leftArrow alpha: \(leftArrow.alpha) leftArrow hidden: \(leftArrow.hidden)")
+                setArrowsForIndexPath(targetIndexPath)
+                print("After - leftArrow alpha: \(leftArrow.alpha) leftArrow hidden: \(leftArrow.hidden)")
+                self.updateDishInfo(dishesArray[targetIndexPath.item])
+            }
             let transition = self.dishes.startInteractiveTransitionToCollectionViewLayout(toLayout, completion: { (completed, finish) -> Void in
                 if finish && completed{
                     layoutMode = toMode
-                    self.setCurrentDish()
-                    if let current = self.currentDish{
-                        self.updateDishInfo(current)
+                    self.transitionInProgress = false
+                    if layoutMode == .Single{
+                        self.dishes.pagingEnabled = true
+                        self.dishes.contentOffset = CGPointMake( CGFloat(targetIndexPath.row) * screenWidth,  0)
+                        self.setCurrentDish()
+                        
+                        
+                    }else{
+                        self.dishes.pagingEnabled = false
+                        self.dishes.contentOffset = targetGridOffset
                     }
-
+                    print("call set current dish at line 379")
                 }
             })
             let springAnimation = POPSpringAnimation()
@@ -367,34 +446,69 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
                 prop.writeBlock = {
                     (obj, values) in
                     (obj as! UICollectionViewTransitionLayout).transitionProgress = values[0]
+                    
                 }
                 prop.threshold = 0.01
             }) as! POPAnimatableProperty
-        
-        
-        
             springAnimation.springBounciness = 10
             springAnimation.property = property
             springAnimation.fromValue = CGFloat(0)
             springAnimation.toValue = 1.0
+           // springAnimation.springSpeed = 10
             springAnimation.completionBlock = {(anim: POPAnimation!, finished: Bool) in
-            if finished {
-                transition.transitionProgress = 1
-                self.transitionInProgress = false
-                self.dishes.finishInteractiveTransition()
-                
+                if finished {
+                    transition.transitionProgress = 1
+                    
+                    self.dishes.finishInteractiveTransition()
+                }
+            }
+            self.zoomLevel.setImage(layoutButtonImg, forState: UIControlState.Normal)
+            transition.pop_addAnimation(springAnimation, forKey: NSStringFromSelector("transitionProgress"))
+            
+            if layoutMode == .Single {
+                for const in rightArrow.constraintsAffectingLayoutForAxis(UILayoutConstraintAxis.Horizontal){
+                    if const.firstAttribute == NSLayoutAttribute.TrailingMargin{
+                        const.pop_addAnimation(popAnimationForAxis(const.constant, toValue: -rightArrow.frame.width - 20), forKey: "kPopLayoutConstraintConstant")
+                    }
+                    
+                }
+                for const in leftArrow.constraintsAffectingLayoutForAxis(UILayoutConstraintAxis.Horizontal){
+                    if const.firstAttribute == NSLayoutAttribute.Leading{
+                        const.pop_addAnimation(popAnimationForAxis(const.constant, toValue: -leftArrow.frame.width - 20), forKey: "kPopLayoutConstraintConstant")
+                    }
+                    
+                }
+                for const in infoPanel.constraintsAffectingLayoutForAxis(UILayoutConstraintAxis.Vertical){
+                    if const.firstAttribute == NSLayoutAttribute.Top{
+                        const.pop_addAnimation(popAnimationForAxis(const.constant, toValue: -infoPanel.frame.height), forKey: "kPopLayoutConstraintConstant")
+                    }
+                }
+            }else{
+                for const in rightArrow.constraintsAffectingLayoutForAxis(UILayoutConstraintAxis.Horizontal){
+                    if const.firstAttribute == NSLayoutAttribute.TrailingMargin{
+                        const.pop_addAnimation(popAnimationForAxis(const.constant, toValue: 0), forKey: "kPopLayoutConstraintConstant")
+                    }
+                    
+                }
+                for const in leftArrow.constraintsAffectingLayoutForAxis(UILayoutConstraintAxis.Horizontal){
+                    if const.firstAttribute == NSLayoutAttribute.Leading{
+                        const.pop_addAnimation(popAnimationForAxis(const.constant, toValue: 0), forKey: "kPopLayoutConstraintConstant")
+                    }
+                    
+                }
+                for const in infoPanel.constraintsAffectingLayoutForAxis(UILayoutConstraintAxis.Vertical){
+                    if const.firstAttribute == NSLayoutAttribute.Top{
+                        const.pop_addAnimation(popAnimationForAxis(const.constant, toValue: 0), forKey: "kPopLayoutConstraintConstant")
+                    }
+                    
+                }
+
                 
             }
             
+            
+            
         }
-        self.zoomLevel.setImage(layoutButtonImg, forState: UIControlState.Normal)
         
-        transition.pop_addAnimation(springAnimation, forKey: NSStringFromSelector("transitionProgress"))
-        
-        
-        
-    }
-    }
-
-    
+            }
 }

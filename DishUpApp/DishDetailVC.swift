@@ -31,10 +31,16 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
     @IBOutlet weak var restaurantAddress: UILabel!
     @IBOutlet weak var restaurantCityStZip: UILabel!
 
+    @IBOutlet weak var restaurantLogo: UIImageView!
+    
     
     @IBOutlet weak var largePic: UIImageView!
     
-    @IBAction func mapTap(sender: AnyObject) {
+    @IBOutlet weak var callButton: UIView!
+    @IBOutlet weak var mapButton: UIView!
+    @IBOutlet weak var websiteButton: UIView!
+    
+    func mapTap(sender: AnyObject) {
         let allowedSet = NSCharacterSet(charactersInString:"=#%<>?@^{|}\"'").invertedSet
         
         
@@ -46,10 +52,10 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         UIApplication.sharedApplication().openURL(NSURL(string: mapUrl)!)
     }
     
-    @IBAction func websiteTap(sender: AnyObject) {
+    func websiteTap(sender: AnyObject) {
         UIApplication.sharedApplication().openURL(NSURL(string: website!)!)
     }
-    @IBAction func callTap(sender: AnyObject) {
+    func callTap(sender: AnyObject) {
         let phoneStripped = "".join(phone!.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet))
         let phoneUrl = NSURL(string: "tel://\(phoneStripped)")
         UIApplication.sharedApplication().openURL(phoneUrl!)
@@ -66,11 +72,20 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
                 self.updateSubViews(self.dish!)
             })
         }
+        let mapTapRecognizer = UITapGestureRecognizer(target: self, action: Selector("mapTap:"))
+        let callTapRecognizer = UITapGestureRecognizer(target: self, action: Selector("callTap:"))
+        let websiteTapRecognizer = UITapGestureRecognizer(target: self, action: Selector("websiteTap:"))
+        
+        self.mapButton.addGestureRecognizer(mapTapRecognizer)
+        self.callButton.addGestureRecognizer(callTapRecognizer)
+        self.websiteButton.addGestureRecognizer(websiteTapRecognizer)
+
+        
     }
    
     func updateSubViews(dish: Dish) {
         self.dishRating.rating      = dish.rating.doubleValue
-        self.dishName.text          = dish.name
+        self.dishName.text          = dish.name.uppercaseString
         if let url = Networking.sanitizeUrlFromString(dish.lead_dishpic_url){
             self.largePic.sd_setImageWithURL(url)
             
@@ -89,8 +104,9 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         }
 
         self.dishDesc.text          = dish.description
+        self.dishDesc.scrollRangeToVisible(NSMakeRange(0, 1))
         
-        self.restarauntName.text    = dish.restaurant?.name
+        self.restarauntName.text    = dish.restaurant?.name.uppercaseString
         self.restaurantAddress.text = dish.restaurant?.address
         if let rest = dish.restaurant{
             var postal_code = ""
@@ -100,7 +116,14 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
             }
             self.restaurantCityStZip.text = "\(rest.city), \(rest.state) \(postal_code)"
             location = "\(rest.name) \(rest.address) \(rest.city) \(rest.state) \(postal_code)"
+            
+            
         }
+        if let url = Networking.sanitizeUrlFromString(dish.restaurant?.logo){
+            self.restaurantLogo.sd_setImageWithURL(url)
+        }
+
+        
         website = dish.restaurant?.website
         phone = dish.restaurant?.phone_number
         
@@ -135,7 +158,9 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(135, 240)
+        let height = self.dishpics.frame.size.height
+        let width = height / 16 * 9
+        return CGSizeMake(width, height)
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -145,19 +170,33 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuse, forIndexPath: indexPath) as! DishpicCell
+        
         print ("IndexPath.row: \(indexPath.section)")
         if let url = Networking.sanitizeUrlFromString(dishpic.url){
             cell.imageView.sd_setImageWithURL(url)
             
         }
-
+        cell.dish = self.dish
         
         cell.dishpic = dishpic
-
+        cell.indexPath = indexPath
         
         
         return cell
     }
+//    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+//        let cell = dishpics.cellForItemAtIndexPath(indexPath)
+//        let rect = CGRectMake(cell!.bounds.origin.x+10, cell!.bounds.origin.y+10, 50, 30)
+//        UIPopoverController().presentPopoverFromRect(rect, inView: cell!, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let cell = sender as! DishpicCell
+        let dishpicVC = segue.destinationViewController as! DishPicsVC
+        dishpicVC.dish = cell.dish
+        dishpicVC.startIndex = cell.indexPath
+        
+    }
+
 
 
 }
