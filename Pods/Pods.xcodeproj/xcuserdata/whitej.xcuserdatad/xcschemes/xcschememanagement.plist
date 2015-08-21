@@ -19,7 +19,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-DishUpApp.xcscheme</key>
+		<key>Pods-DishUp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,22 +42,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1A56BC2F331AD15598262AAEBE482687</key>
+		<key>24A4693DD87F76DA2F6E8E574114BFFD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3007A33A3F46C5B3D89A9DF690E81DB1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3B0864AF9A0BCF2044DF0E8A3C33BEAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>3DA374BB5346C86BB9E37D7D8A3F9705</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>43BAA2DB49AAC4486506A55AAB6E1793</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>951011EFC1A8BCEB0BAE7E260F6412B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E6A34F9990555A584043466E39628419</key>
+		<key>DBDF2404AC45155D020B1A99F5F96836</key>
 		<dict>
 			<key>primary</key>
 			<true/>

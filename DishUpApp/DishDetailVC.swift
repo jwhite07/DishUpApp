@@ -42,23 +42,21 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
     
     func mapTap(sender: AnyObject) {
         let allowedSet = NSCharacterSet(charactersInString:"=#%<>?@^{|}\"'").invertedSet
-        
-        
         let cleanLocation = location!.stringByReplacingOccurrencesOfString(" ", withString: "+").stringByAddingPercentEncodingWithAllowedCharacters(allowedSet)!
-       
-
-        
         let mapUrl = "http://maps.apple.com/?q=\(cleanLocation)"
         UIApplication.sharedApplication().openURL(NSURL(string: mapUrl)!)
     }
     
     func websiteTap(sender: AnyObject) {
+        
         UIApplication.sharedApplication().openURL(NSURL(string: website!)!)
     }
     func callTap(sender: AnyObject) {
-        let phoneStripped = "".join(phone!.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet))
-        let phoneUrl = NSURL(string: "tel://\(phoneStripped)")
-        UIApplication.sharedApplication().openURL(phoneUrl!)
+        if phone != nil && phone != ""{
+            let phoneStripped = "".join(phone!.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet))
+            let phoneUrl = NSURL(string: "tel://\(phoneStripped)")
+            UIApplication.sharedApplication().openURL(phoneUrl!)
+        }
     }
     
     
@@ -126,9 +124,6 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         
         website = dish.restaurant?.website
         phone = dish.restaurant?.phone_number
-        
-        
-        
     
     }
     override func didReceiveMemoryWarning() {

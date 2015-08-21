@@ -69,7 +69,7 @@
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ocN-32-UW4" id="7iL-2i-MTy">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -103,12 +103,12 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECP-9U-nfn">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="I4P-39-2sB">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="light"/>
+                                <blurEffect style="dark"/>
                             </visualEffectView>
                             <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginHeader.png" translatesAutoresizingMaskIntoConstraints="NO" id="zlk-pJ-g5Q">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="140"/>
@@ -116,31 +116,52 @@
                             <view opaque="NO" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="axi-bC-xND" userLabel="Content View">
                                 <rect key="frame" x="0.0" y="140" width="600" height="460"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFk-gn-3Uf" userLabel="facebookLogin">
-                                        <rect key="frame" x="164" y="15" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="8En-lM-tfn"/>
-                                            <constraint firstAttribute="height" constant="44" id="jqq-QE-gQ9"/>
-                                        </constraints>
-                                        <state key="normal" image="facebookLogin.png"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jw2-Hu-VzL" userLabel="dishupLogin">
-                                        <rect key="frame" x="238" y="-30" width="125" height="125"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="125" id="Olb-eG-8oE"/>
-                                            <constraint firstAttribute="height" constant="125" id="qkn-gV-hg9"/>
-                                        </constraints>
-                                        <inset key="contentEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
-                                        <state key="normal" title="Button" image="avatarDefault.png" backgroundImage="avatarBorder.png"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uF-2h-072" userLabel="twitterLogin">
-                                        <rect key="frame" x="393" y="15" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="IeE-L3-g0c"/>
-                                            <constraint firstAttribute="width" constant="44" id="y8Q-cT-6dD"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="twitterLogin.png"/>
-                                    </button>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLj-VU-Bnx">
+                                        <rect key="frame" x="0.0" y="-30" width="600" height="125"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5l1-7J-67g">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="125"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFk-gn-3Uf" userLabel="facebookLogin">
+                                                    <rect key="frame" x="168" y="42" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="8En-lM-tfn"/>
+                                                        <constraint firstAttribute="height" constant="44" id="jqq-QE-gQ9"/>
+                                                    </constraints>
+                                                    <state key="normal" image="facebookLogin.png"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jw2-Hu-VzL" userLabel="dishupLogin">
+                                                    <rect key="frame" x="237" y="2" width="125" height="125"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="Olb-eG-8oE"/>
+                                                        <constraint firstAttribute="height" constant="125" id="qkn-gV-hg9"/>
+                                                    </constraints>
+                                                    <inset key="contentEdgeInsets" minX="25" minY="25" maxX="25" maxY="25"/>
+                                                    <state key="normal" title="Button" image="avatarDefault.png" backgroundImage="avatarBorder.png"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uF-2h-072" userLabel="twitterLogin">
+                                                    <rect key="frame" x="337" y="66" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="IeE-L3-g0c"/>
+                                                        <constraint firstAttribute="width" constant="44" id="y8Q-cT-6dD"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="twitterLogin.png"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7uF-2h-072" firstAttribute="leading" secondItem="jw2-Hu-VzL" secondAttribute="trailing" constant="25" id="AvQ-be-okd"/>
+                                                <constraint firstItem="jw2-Hu-VzL" firstAttribute="leading" secondItem="sFk-gn-3Uf" secondAttribute="trailing" constant="25" id="Tb6-Dy-eWV"/>
+                                                <constraint firstAttribute="bottom" secondItem="jw2-Hu-VzL" secondAttribute="bottom" id="UCg-CW-HfE"/>
+                                                <constraint firstItem="sFk-gn-3Uf" firstAttribute="centerY" secondItem="5l1-7J-67g" secondAttribute="centerY" id="Xy0-22-cdF"/>
+                                                <constraint firstItem="7uF-2h-072" firstAttribute="centerY" secondItem="5l1-7J-67g" secondAttribute="centerY" id="i1T-lY-DQJ"/>
+                                                <constraint firstItem="jw2-Hu-VzL" firstAttribute="centerX" secondItem="5l1-7J-67g" secondAttribute="centerX" id="p7L-Vu-yuz"/>
+                                                <constraint firstItem="jw2-Hu-VzL" firstAttribute="top" secondItem="5l1-7J-67g" secondAttribute="top" id="wSY-ce-3BL"/>
+                                            </constraints>
+                                        </view>
+                                        <vibrancyEffect>
+                                            <blurEffect style="dark"/>
+                                        </vibrancyEffect>
+                                    </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin by choosing how you want to browse." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Egh-rc-FTW">
                                         <rect key="frame" x="20" y="178" width="560" height="19"/>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="15"/>
@@ -241,22 +262,19 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="fVh-E2-OwG" firstAttribute="top" secondItem="Egh-rc-FTW" secondAttribute="bottom" constant="20" id="040-bn-dqJ"/>
-                                    <constraint firstItem="7uF-2h-072" firstAttribute="top" secondItem="axi-bC-xND" secondAttribute="top" constant="15" id="0qA-kb-GSO"/>
-                                    <constraint firstItem="ICw-Vh-hZn" firstAttribute="top" secondItem="jw2-Hu-VzL" secondAttribute="bottom" constant="25" id="BUF-v0-8VL"/>
-                                    <constraint firstItem="jw2-Hu-VzL" firstAttribute="leading" secondItem="sFk-gn-3Uf" secondAttribute="trailing" constant="30" id="Bw5-xz-f9Y"/>
                                     <constraint firstItem="fVh-E2-OwG" firstAttribute="leading" secondItem="axi-bC-xND" secondAttribute="leading" id="Ckb-eK-gqi"/>
+                                    <constraint firstAttribute="trailing" secondItem="nLj-VU-Bnx" secondAttribute="trailing" id="Djm-WQ-PCQ"/>
                                     <constraint firstItem="ICw-Vh-hZn" firstAttribute="leading" secondItem="axi-bC-xND" secondAttribute="leading" constant="20" id="EUp-U0-4cR"/>
-                                    <constraint firstItem="7uF-2h-072" firstAttribute="leading" secondItem="jw2-Hu-VzL" secondAttribute="trailing" constant="30" id="Enh-oA-yce"/>
+                                    <constraint firstItem="nLj-VU-Bnx" firstAttribute="leading" secondItem="axi-bC-xND" secondAttribute="leading" id="H6E-gT-unR"/>
                                     <constraint firstItem="89c-uY-zKS" firstAttribute="leading" secondItem="fVh-E2-OwG" secondAttribute="trailing" id="KF7-ek-nAA"/>
                                     <constraint firstItem="89c-uY-zKS" firstAttribute="height" secondItem="fVh-E2-OwG" secondAttribute="height" id="Sez-kX-Wgc"/>
                                     <constraint firstItem="89c-uY-zKS" firstAttribute="width" secondItem="fVh-E2-OwG" secondAttribute="width" id="SiJ-c3-Gc2"/>
-                                    <constraint firstItem="jw2-Hu-VzL" firstAttribute="centerX" secondItem="axi-bC-xND" secondAttribute="centerX" id="Zt7-bu-OwT"/>
                                     <constraint firstItem="Egh-rc-FTW" firstAttribute="leading" secondItem="axi-bC-xND" secondAttribute="leading" constant="20" id="ZzN-X2-Hn7"/>
                                     <constraint firstItem="89c-uY-zKS" firstAttribute="top" secondItem="Egh-rc-FTW" secondAttribute="bottom" constant="20" id="gQe-q7-E2v"/>
-                                    <constraint firstItem="sFk-gn-3Uf" firstAttribute="top" secondItem="axi-bC-xND" secondAttribute="top" constant="15" id="hU2-9c-yPT"/>
+                                    <constraint firstItem="nLj-VU-Bnx" firstAttribute="top" secondItem="axi-bC-xND" secondAttribute="top" constant="-30" id="ghe-Gj-8Rw"/>
                                     <constraint firstAttribute="trailing" secondItem="Egh-rc-FTW" secondAttribute="trailing" constant="20" id="hgb-Vl-4tZ"/>
+                                    <constraint firstItem="ICw-Vh-hZn" firstAttribute="top" secondItem="nLj-VU-Bnx" secondAttribute="bottom" constant="25" id="j28-1a-yqB"/>
                                     <constraint firstAttribute="trailing" secondItem="89c-uY-zKS" secondAttribute="trailing" id="lKr-S6-yq4"/>
-                                    <constraint firstItem="jw2-Hu-VzL" firstAttribute="top" secondItem="axi-bC-xND" secondAttribute="top" constant="-30" id="nxU-4H-dl2"/>
                                     <constraint firstItem="Egh-rc-FTW" firstAttribute="top" secondItem="ICw-Vh-hZn" secondAttribute="bottom" constant="20" id="qQ2-yR-qgJ"/>
                                     <constraint firstAttribute="trailing" secondItem="ICw-Vh-hZn" secondAttribute="trailing" constant="20" id="qqV-bW-XNI"/>
                                 </constraints>
@@ -278,13 +296,13 @@
                             <constraint firstItem="eDU-AS-rZW" firstAttribute="top" secondItem="axi-bC-xND" secondAttribute="bottom" id="Fq2-K7-Vab"/>
                             <constraint firstItem="zlk-pJ-g5Q" firstAttribute="leading" secondItem="sOl-8T-Ejr" secondAttribute="leading" id="Ple-mH-UhL"/>
                             <constraint firstAttribute="bottom" secondItem="Q1V-O3-hW9" secondAttribute="bottom" id="SoI-hS-bmL"/>
-                            <constraint firstItem="Q1V-O3-hW9" firstAttribute="top" secondItem="Kdc-xW-44o" secondAttribute="bottom" id="Vvm-Ms-vko"/>
+                            <constraint firstItem="ECP-9U-nfn" firstAttribute="top" secondItem="sOl-8T-Ejr" secondAttribute="top" id="VTj-Xz-MGG"/>
                             <constraint firstItem="Q1V-O3-hW9" firstAttribute="leading" secondItem="sOl-8T-Ejr" secondAttribute="leading" id="Vzd-We-gNh"/>
                             <constraint firstItem="uYd-rg-6ma" firstAttribute="top" secondItem="Kdc-xW-44o" secondAttribute="bottom" constant="20" id="XRn-Ae-HZR"/>
                             <constraint firstItem="ECP-9U-nfn" firstAttribute="leading" secondItem="sOl-8T-Ejr" secondAttribute="leading" id="Zus-Gf-HjJ"/>
-                            <constraint firstItem="ECP-9U-nfn" firstAttribute="top" secondItem="Kdc-xW-44o" secondAttribute="bottom" id="dsD-yi-cw7"/>
                             <constraint firstAttribute="trailing" secondItem="zlk-pJ-g5Q" secondAttribute="trailing" id="g8e-Ix-d4o"/>
                             <constraint firstItem="zlk-pJ-g5Q" firstAttribute="top" secondItem="sOl-8T-Ejr" secondAttribute="top" id="gDq-Xx-aIU"/>
+                            <constraint firstItem="Q1V-O3-hW9" firstAttribute="top" secondItem="Kdc-xW-44o" secondAttribute="bottom" id="h0b-OB-AOI"/>
                             <constraint firstItem="axi-bC-xND" firstAttribute="leading" secondItem="sOl-8T-Ejr" secondAttribute="leading" id="hIe-4s-p90"/>
                             <constraint firstItem="zlk-pJ-g5Q" firstAttribute="bottom" secondItem="Kdc-xW-44o" secondAttribute="bottom" constant="120" id="uOe-bo-Jiv"/>
                             <constraint firstItem="uYd-rg-6ma" firstAttribute="centerX" secondItem="sOl-8T-Ejr" secondAttribute="centerX" id="wmm-zC-7eU"/>
@@ -502,7 +520,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AscensionBrewingCompany_EdamameHummus.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fPv-w7-jb5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VinsettaGarage_The3AM.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fPv-w7-jb5">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtm-xO-E5J">
@@ -510,65 +528,87 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zIB-LH-VE9">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1d-a7-eLu">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zkM-an-yUt">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Xs-xG-FCh" userLabel="DishTypes">
+                                                        <rect key="frame" x="8" y="8" width="584" height="564"/>
+                                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <gestureRecognizers/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="pvG-U2-A3h">
+                                                            <size key="itemSize" width="75" height="75"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dish_type" id="2HX-WA-HVE" customClass="DishTypeCollectionViewCell" customModule="DishUp" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hamburger3.png" translatesAutoresizingMaskIntoConstraints="NO" id="4OR-br-109">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <accessibility key="accessibilityConfiguration">
+                                                                                <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                                            </accessibility>
+                                                                            <gestureRecognizers/>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </view>
+                                                                <gestureRecognizers/>
+                                                                <connections>
+                                                                    <outlet property="imageView" destination="4OR-br-109" id="iUY-sA-mI4"/>
+                                                                    <segue destination="z7Y-BR-xuT" kind="show" identifier="dishTypeToDishSegue" id="aJB-k6-wmT"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="W4r-ib-ktJ" id="zzT-yh-Fja"/>
+                                                            <outlet property="delegate" destination="W4r-ib-ktJ" id="fx7-bA-Rwk"/>
+                                                        </connections>
+                                                    </collectionView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="9Xs-xG-FCh" firstAttribute="leading" secondItem="zkM-an-yUt" secondAttribute="leading" id="4zb-Ix-zNp"/>
+                                                    <constraint firstAttribute="bottom" secondItem="9Xs-xG-FCh" secondAttribute="bottom" id="JUW-HJ-Utb"/>
+                                                    <constraint firstItem="9Xs-xG-FCh" firstAttribute="top" secondItem="zkM-an-yUt" secondAttribute="top" id="OJE-7p-krV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9Xs-xG-FCh" secondAttribute="trailing" id="tRZ-TV-ZI1"/>
+                                                </constraints>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="dark"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="K1d-a7-eLu" secondAttribute="bottom" id="J5x-pD-45S"/>
+                                        <constraint firstItem="K1d-a7-eLu" firstAttribute="top" secondItem="zIB-LH-VE9" secondAttribute="top" id="U7r-Ti-O7O"/>
+                                        <constraint firstItem="K1d-a7-eLu" firstAttribute="leading" secondItem="zIB-LH-VE9" secondAttribute="leading" id="hP9-P9-eoz"/>
+                                        <constraint firstAttribute="trailing" secondItem="K1d-a7-eLu" secondAttribute="trailing" id="w1n-FT-rfH"/>
+                                    </constraints>
                                 </view>
-                                <blurEffect style="light"/>
+                                <blurEffect style="dark"/>
                             </visualEffectView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Xs-xG-FCh" userLabel="DishTypes">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="pvG-U2-A3h">
-                                    <size key="itemSize" width="75" height="75"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dish_type" id="2HX-WA-HVE" customClass="DishTypeCollectionViewCell" customModule="DishUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hamburger3.png" translatesAutoresizingMaskIntoConstraints="NO" id="4OR-br-109">
-                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
-                                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <accessibility key="accessibilityConfiguration">
-                                                        <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                                    </accessibility>
-                                                    <gestureRecognizers/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outlet property="imageView" destination="4OR-br-109" id="iUY-sA-mI4"/>
-                                            <segue destination="z7Y-BR-xuT" kind="show" identifier="dishTypeToDishSegue" id="aJB-k6-wmT"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="W4r-ib-ktJ" id="zzT-yh-Fja"/>
-                                    <outlet property="delegate" destination="W4r-ib-ktJ" id="fx7-bA-Rwk"/>
-                                </connections>
-                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rtm-xO-E5J" firstAttribute="top" secondItem="Gfb-lv-Qb1" secondAttribute="bottom" id="Eih-tL-O4V"/>
-                            <constraint firstItem="9Xs-xG-FCh" firstAttribute="top" secondItem="Gfb-lv-Qb1" secondAttribute="bottom" id="IDy-gU-DdH"/>
-                            <constraint firstItem="fV2-M3-MBQ" firstAttribute="top" secondItem="9Xs-xG-FCh" secondAttribute="bottom" id="LhT-me-KPA"/>
                             <constraint firstAttribute="trailing" secondItem="rtm-xO-E5J" secondAttribute="trailing" id="Ovq-HK-fIy"/>
                             <constraint firstItem="rtm-xO-E5J" firstAttribute="leading" secondItem="3iF-2c-MVI" secondAttribute="leading" id="OxG-0t-hfq"/>
                             <constraint firstAttribute="trailing" secondItem="fPv-w7-jb5" secondAttribute="trailing" id="YvB-US-V7B"/>
-                            <constraint firstAttribute="trailing" secondItem="9Xs-xG-FCh" secondAttribute="trailing" id="eWG-Zk-Bsg"/>
                             <constraint firstItem="fV2-M3-MBQ" firstAttribute="top" secondItem="rtm-xO-E5J" secondAttribute="bottom" id="eX1-ia-eAp"/>
                             <constraint firstItem="fPv-w7-jb5" firstAttribute="top" secondItem="Gfb-lv-Qb1" secondAttribute="bottom" id="fXe-yB-w5R"/>
                             <constraint firstItem="fPv-w7-jb5" firstAttribute="leading" secondItem="3iF-2c-MVI" secondAttribute="leading" id="g2q-mh-FXP"/>
                             <constraint firstItem="fV2-M3-MBQ" firstAttribute="top" secondItem="fPv-w7-jb5" secondAttribute="bottom" id="lLa-wN-9kl"/>
-                            <constraint firstItem="9Xs-xG-FCh" firstAttribute="leading" secondItem="3iF-2c-MVI" secondAttribute="leading" id="wYo-Pk-noL"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -677,7 +717,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" reuseIdentifier="dishGrid" id="8ng-Cr-hY6" customClass="DishCollectionViewCell" customModule="DishUp" customModuleProvider="target">
-                                        <rect key="frame" x="238" y="502" width="125" height="125"/>
+                                        <rect key="frame" x="237.5" y="502" width="125" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
@@ -952,7 +992,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="580"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="light"/>
+                                <blurEffect style="dark"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPJ-eK-GV1" userLabel="AddButton">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
@@ -981,7 +1021,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" reuseIdentifier="dishpic" id="iDp-lY-zjN" customClass="DishpicCell" customModule="DishUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-33" width="135" height="240"/>
+                                        <rect key="frame" x="0.0" y="-32.5" width="135" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="135" height="240"/>
@@ -1086,7 +1126,7 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mmc-Fu-90b">
                                         <rect key="frame" x="123" y="8" width="429" height="109"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" ambiguous="YES" misplaced="YES" text="Troy, MI 48083" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNV-1o-JGD">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" ambiguous="YES" text="Troy, MI 48083" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNV-1o-JGD">
                                                 <rect key="frame" x="8" y="46" width="413" height="16"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1343,7 +1383,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dishpic" id="duh-R8-Qfp" customClass="DishPicZoomableCell" customModule="DishUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-2" width="600" height="583"/>
+                                        <rect key="frame" x="0.0" y="-1.5" width="600" height="583"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="583"/>
@@ -1448,7 +1488,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AscensionBrewingCompany_EdamameHummus.jpg" width="2048" height="1365"/>
+        <image name="AscensionBrewingCompany_EdamameHummus.jpg" width="618" height="1098"/>
+        <image name="VinsettaGarage_The3AM.jpg" width="750" height="1000"/>
         <image name="avatarBorder.png" width="342" height="342"/>
         <image name="avatarDefault.png" width="190" height="184"/>
         <image name="backbtn.png" width="79" height="28"/>
@@ -1471,8 +1512,8 @@
         <image name="website.png" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fvz-or-EST"/>
-        <segue reference="qTT-HZ-QOT"/>
+        <segue reference="jmd-cn-vvd"/>
+        <segue reference="aJB-k6-wmT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

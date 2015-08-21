@@ -27,6 +27,7 @@
 		0D13EC1B1B7B774C0059FA4E /* cravingbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC0F1B7B774C0059FA4E /* cravingbg.png */; };
 		0D13EC1C1B7B774C0059FA4E /* locationbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC101B7B774C0059FA4E /* locationbg.png */; };
 		0D1530111B680C6000F4B322 /* dishesFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1530101B680C6000F4B322 /* dishesFlowLayout.swift */; };
+		0D1B1DEA1B82C65100FAF68A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D1B1DE91B82C65100FAF68A /* Settings.bundle */; };
 		0D2519B91B665A5E0071AEF0 /* dishesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2519B81B665A5E0071AEF0 /* dishesLayout.swift */; };
 		0D29CE621B7E2D9600822F78 /* DishPicZoomableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D29CE611B7E2D9600822F78 /* DishPicZoomableCell.swift */; };
 		0D2B20701B5D8D71002B87CC /* DishesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B206F1B5D8D71002B87CC /* DishesVC.swift */; };
@@ -72,6 +73,7 @@
 		0D46AB6B1B70E9B9006602C4 /* _.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D46AB6A1B70E9B9006602C4 /* _.png */; };
 		0D46AB6D1B70E9C3006602C4 /* _@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D46AB6C1B70E9C3006602C4 /* _@2x.png */; };
 		0D46AB6F1B70E9D2006602C4 /* _@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D46AB6E1B70E9D2006602C4 /* _@3x.png */; };
+		0D68BD9A1B82AD2B007DF033 /* VinsettaGarage_The3AM.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D68BD991B82AD2B007DF033 /* VinsettaGarage_The3AM.jpg */; };
 		0D70D0C21B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D70D0C11B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift */; };
 		0D70D3C41B6FF2BD007E49C3 /* iphone6+.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D70D3C31B6FF2BD007E49C3 /* iphone6+.png */; };
 		0D70D3C61B704AE4007E49C3 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D70D3C51B704AE4007E49C3 /* home.png */; };
@@ -127,10 +129,11 @@
 		0DEF10CC1B7CD73500117CE4 /* uploadCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DEF10CB1B7CD73500117CE4 /* uploadCamera.png */; };
 		0DF554331B75AA1F00E2AB58 /* DishUpNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF554321B75AA1F00E2AB58 /* DishUpNavigationBar.swift */; };
 		0DFC27A91B751A3D00AA2D7E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DFC27A81B751A3D00AA2D7E /* CoreLocation.framework */; };
+		0DFDB0B11B827B2800619BE8 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFDB0B01B827B2800619BE8 /* OnboardingController.swift */; };
 		0DFFE2A21B72E3FC0082B1C9 /* single-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE2A11B72E3FC0082B1C9 /* single-view.png */; };
 		0DFFE2A41B72E40B0082B1C9 /* single-view@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE2A31B72E40B0082B1C9 /* single-view@2x.png */; };
 		0DFFE2A61B72E41D0082B1C9 /* single-view@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE2A51B72E41D0082B1C9 /* single-view@3x.png */; };
-		DEC8215B2E8114DB7F606118 /* Pods_DishUpApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F51F2C1B82B4373E690F17F9 /* Pods_DishUpApp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D72C07850EF9C6916392864E /* Pods_DishUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA085EEC2121DF3176BACF5 /* Pods_DishUp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +147,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		029A642AC2EEDB15808F8C52 /* Pods-DishUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DishUp/Pods-DishUp.debug.xcconfig"; sourceTree = "<group>"; };
 		0D0A86181B58391000DF0C71 /* DishUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DishUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0A861C1B58391000DF0C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D0A861D1B58391000DF0C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 		0D13EC0F1B7B774C0059FA4E /* cravingbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cravingbg.png; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/cravingbg.png"; sourceTree = "<group>"; };
 		0D13EC101B7B774C0059FA4E /* locationbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = locationbg.png; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/locationbg.png"; sourceTree = "<group>"; };
 		0D1530101B680C6000F4B322 /* dishesFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dishesFlowLayout.swift; sourceTree = "<group>"; };
+		0D1B1DE91B82C65100FAF68A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		0D2519B81B665A5E0071AEF0 /* dishesLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dishesLayout.swift; sourceTree = "<group>"; };
 		0D29CE611B7E2D9600822F78 /* DishPicZoomableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishPicZoomableCell.swift; sourceTree = "<group>"; };
 		0D2B206F1B5D8D71002B87CC /* DishesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesVC.swift; sourceTree = "<group>"; };
@@ -214,6 +219,7 @@
 		0D46AB6A1B70E9B9006602C4 /* _.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _.png; sourceTree = "<group>"; };
 		0D46AB6C1B70E9C3006602C4 /* _@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "_@2x.png"; sourceTree = "<group>"; };
 		0D46AB6E1B70E9D2006602C4 /* _@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "_@3x.png"; sourceTree = "<group>"; };
+		0D68BD991B82AD2B007DF033 /* VinsettaGarage_The3AM.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = VinsettaGarage_The3AM.jpg; sourceTree = "<group>"; };
 		0D70D0C11B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationFlipTransitionController.swift; sourceTree = "<group>"; };
 		0D70D3C31B6FF2BD007E49C3 /* iphone6+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone6+.png"; sourceTree = "<group>"; };
 		0D70D3C51B704AE4007E49C3 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -269,12 +275,12 @@
 		0DEF10CB1B7CD73500117CE4 /* uploadCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uploadCamera.png; sourceTree = "<group>"; };
 		0DF554321B75AA1F00E2AB58 /* DishUpNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishUpNavigationBar.swift; sourceTree = "<group>"; };
 		0DFC27A81B751A3D00AA2D7E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		0DFDB0B01B827B2800619BE8 /* OnboardingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		0DFFE2A11B72E3FC0082B1C9 /* single-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-view.png"; sourceTree = "<group>"; };
 		0DFFE2A31B72E40B0082B1C9 /* single-view@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-view@2x.png"; sourceTree = "<group>"; };
 		0DFFE2A51B72E41D0082B1C9 /* single-view@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-view@3x.png"; sourceTree = "<group>"; };
-		ECCBAF1B59C9594F3B0731AE /* Pods-DishUpApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishUpApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DishUpApp/Pods-DishUpApp.debug.xcconfig"; sourceTree = "<group>"; };
-		F51F2C1B82B4373E690F17F9 /* Pods_DishUpApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DishUpApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F79526C3DD3248A625E580D7 /* Pods-DishUpApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishUpApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DishUpApp/Pods-DishUpApp.release.xcconfig"; sourceTree = "<group>"; };
+		CEA085EEC2121DF3176BACF5 /* Pods_DishUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DishUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED2144F958F3DF4BD4A15B8E /* Pods-DishUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DishUp/Pods-DishUp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DFC27A91B751A3D00AA2D7E /* CoreLocation.framework in Frameworks */,
-				DEC8215B2E8114DB7F606118 /* Pods_DishUpApp.framework in Frameworks */,
+				D72C07850EF9C6916392864E /* Pods_DishUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,10 +306,11 @@
 		0D0A860F1B58391000DF0C71 = {
 			isa = PBXGroup;
 			children = (
+				0D1B1DE91B82C65100FAF68A /* Settings.bundle */,
 				0D0A861A1B58391000DF0C71 /* DishUpApp */,
 				0D0A86191B58391000DF0C71 /* Products */,
-				1D17FDBDEA8264BDD8A12352 /* Pods */,
 				E733D5152CD3DE779F3CC6CB /* Frameworks */,
+				BFC1C109CE4E48DC540515C8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -424,6 +431,7 @@
 				0D3D83031B6D16440031FC18 /* SourceSansPro-SemiboldItalic.ttf */,
 				0D78E9291B626F2600AECC90 /* line14.png */,
 				0D3D82F61B6D03E00031FC18 /* AscensionBrewingCompany_EdamameHummus.jpg */,
+				0D68BD991B82AD2B007DF033 /* VinsettaGarage_The3AM.jpg */,
 				0D3872761B5BF4C500CF931A /* placeholder.png */,
 				0D0A863E1B58392D00DF0C71 /* SWRevealViewController.h */,
 				0D0A863F1B58392D00DF0C71 /* SWRevealViewController.m */,
@@ -473,6 +481,7 @@
 				0DF554321B75AA1F00E2AB58 /* DishUpNavigationBar.swift */,
 				0D70D0C11B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift */,
 				0DE2236D1B7D547A0072822F /* DishPicsVC.swift */,
+				0DFDB0B01B827B2800619BE8 /* OnboardingController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -496,11 +505,11 @@
 			name = Layouts;
 			sourceTree = "<group>";
 		};
-		1D17FDBDEA8264BDD8A12352 /* Pods */ = {
+		BFC1C109CE4E48DC540515C8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				ECCBAF1B59C9594F3B0731AE /* Pods-DishUpApp.debug.xcconfig */,
-				F79526C3DD3248A625E580D7 /* Pods-DishUpApp.release.xcconfig */,
+				029A642AC2EEDB15808F8C52 /* Pods-DishUp.debug.xcconfig */,
+				ED2144F958F3DF4BD4A15B8E /* Pods-DishUp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -509,7 +518,7 @@
 			isa = PBXGroup;
 			children = (
 				0DFC27A81B751A3D00AA2D7E /* CoreLocation.framework */,
-				F51F2C1B82B4373E690F17F9 /* Pods_DishUpApp.framework */,
+				CEA085EEC2121DF3176BACF5 /* Pods_DishUp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -521,12 +530,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D0A86371B58391000DF0C71 /* Build configuration list for PBXNativeTarget "DishUp" */;
 			buildPhases = (
-				12D2422CF01B7027A4A8AD7C /* Check Pods Manifest.lock */,
+				89A3E597FF7C1C665EE1083D /* Check Pods Manifest.lock */,
 				0D0A86141B58391000DF0C71 /* Sources */,
 				0D0A86151B58391000DF0C71 /* Frameworks */,
 				0D0A86161B58391000DF0C71 /* Resources */,
-				714494A23BAA792F9E962F24 /* Embed Pods Frameworks */,
-				EC9CA92A72BCD9E768607388 /* Copy Pods Resources */,
+				B4F8853D8C0C37478EE4D680 /* Embed Pods Frameworks */,
+				EED57CC702BEECDD00543C51 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -625,6 +634,7 @@
 				0D46AB6D1B70E9C3006602C4 /* _@2x.png in Resources */,
 				0D3D83191B6D88E00031FC18 /* Craving@3x.png in Resources */,
 				0D3D83061B6D16440031FC18 /* SourceSansPro-Bold.ttf in Resources */,
+				0D1B1DEA1B82C65100FAF68A /* Settings.bundle in Resources */,
 				0D70D3C81B704AEF007E49C3 /* home@2x.png in Resources */,
 				0D361A441B7BE10700C32319 /* twitterLogin@3x.png in Resources */,
 				0DA365E11B71979500DC12F8 /* grid-view.png in Resources */,
@@ -666,6 +676,7 @@
 				0D13EC171B7B774C0059FA4E /* location@2x.png in Resources */,
 				0D3D830B1B6D16440031FC18 /* SourceSansPro-Light.ttf in Resources */,
 				0D13EC1A1B7B774C0059FA4E /* craving.png in Resources */,
+				0D68BD9A1B82AD2B007DF033 /* VinsettaGarage_The3AM.jpg in Resources */,
 				0DDBABD91B7BD48200B4CA26 /* backbtn@3x.png in Resources */,
 				0D3D830F1B6D16440031FC18 /* SourceSansPro-SemiboldItalic.ttf in Resources */,
 				0DEF10CA1B7CCB5A00117CE4 /* website@3x.png in Resources */,
@@ -704,7 +715,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		12D2422CF01B7027A4A8AD7C /* Check Pods Manifest.lock */ = {
+		89A3E597FF7C1C665EE1083D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -719,7 +730,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		714494A23BAA792F9E962F24 /* Embed Pods Frameworks */ = {
+		B4F8853D8C0C37478EE4D680 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -731,10 +742,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DishUpApp/Pods-DishUpApp-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DishUp/Pods-DishUp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EC9CA92A72BCD9E768607388 /* Copy Pods Resources */ = {
+		EED57CC702BEECDD00543C51 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -746,7 +757,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DishUpApp/Pods-DishUpApp-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DishUp/Pods-DishUp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -784,6 +795,7 @@
 				0DD96EE01B6AD10F00265FE0 /* Restaurant.swift in Sources */,
 				0D894E171B77FB8A00576557 /* DishesGridLayout.swift in Sources */,
 				0D2B20741B5E8241002B87CC /* Dish.swift in Sources */,
+				0DFDB0B11B827B2800619BE8 /* OnboardingController.swift in Sources */,
 				0D2B20721B5E81B2002B87CC /* DishCollectionViewCell.swift in Sources */,
 				0D78E92C1B627AEC00AECC90 /* DishesNavigationView.swift in Sources */,
 				0D81A7A41B5861290071EDEE /* Networking.swift in Sources */,
@@ -914,7 +926,7 @@
 		};
 		0D0A86381B58391000DF0C71 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECCBAF1B59C9594F3B0731AE /* Pods-DishUpApp.debug.xcconfig */;
+			baseConfigurationReference = 029A642AC2EEDB15808F8C52 /* Pods-DishUp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -932,7 +944,7 @@
 		};
 		0D0A86391B58391000DF0C71 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F79526C3DD3248A625E580D7 /* Pods-DishUpApp.release.xcconfig */;
+			baseConfigurationReference = ED2144F958F3DF4BD4A15B8E /* Pods-DishUp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

@@ -41,7 +41,13 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         navigationController?.delegate = self
-
+        onboarding.displayOnboardingPopTip(
+            "Choose the food you're craving. Press and hold any icon to see it's name.",
+            direction: AMPopTipDirection.None,
+            inView: self.view,
+            fromFrame: self.view.frame,
+            key: "DishTypesIntro"
+        )
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -57,10 +63,11 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("dish_type", forIndexPath: indexPath) as! DishTypeCollectionViewCell
         
         print(dishTypesArray[indexPath.row])
-        let icon_url = dishTypesArray[indexPath.row].icon_url
-        if let url = Networking.sanitizeUrlFromString(icon_url!){
-            cell.imageView.sd_setImageWithURL(url)
-            
+        if let icon_url = dishTypesArray[indexPath.row].icon_url{
+            if let url = Networking.sanitizeUrlFromString(icon_url){
+                cell.imageView.sd_setImageWithURL(url)
+                
+            }
         }
         cell.dishType = dishTypesArray[indexPath.row]
         let longTap = UILongPressGestureRecognizer(target: self, action: Selector("showToolTip:"))
@@ -84,7 +91,7 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
         }
         
     }
-        func showToolTip( sender: AnyObject) {
+    func showToolTip( sender: AnyObject) {
         
         
         

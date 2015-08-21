@@ -9,7 +9,7 @@
 import Foundation
 struct GlobalConstants{
     struct API {
-        static let url = "https://dishupapp.herokuapp.com/api/"
+        static let url = "http://localhost:3000/api/"
         static let key = "abc"
     }
     
@@ -20,3 +20,11 @@ var tagCache : [Int:Int] = [:]
 let screenSize = UIScreen.mainScreen().bounds
 let screenWidth = screenSize.width
 let screenHeight = screenSize.height
+func delay(delay:Double, closure:()->()) {
+    
+    dispatch_after(
+        dispatch_time( DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), closure)
+    
+    
+}
+

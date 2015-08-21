@@ -94,7 +94,7 @@ class Networking {
             params["longitude"] = coordinates.longitude.description
         }
         print(params)
-        Alamofire.request(.GET, "\(GlobalConstants.API.url)restaurants", parameters: params)
+        Alamofire.request(.GET, "\(GlobalConstants.API.url)locations", parameters: params)
             .responseJSON {(request, response, json)in
                 print(json)
                 if json.isSuccess{
@@ -102,7 +102,7 @@ class Networking {
                     
                     var jsonObj = JSON(jsonData!)
 
-                    if let restaurants = jsonObj["restaurants"].arrayValue as [JSON]?{
+                    if let restaurants = jsonObj["locations"].arrayValue as [JSON]?{
                         
                         let restaurantsArray =  restaurants.map({ Restaurant(json: $0) })
                         requester.restaurantsArray = restaurantsArray

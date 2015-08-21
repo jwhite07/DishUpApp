@@ -9,6 +9,7 @@
 import UIKit
 import pop
 import Cosmos
+import AMPopTip
 
 enum LayoutMode{
     case Single
@@ -90,6 +91,16 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
             }
             
         }
+        
+        let relativeFrame = CGRectMake(screenWidth - 52, self.zoomLevel.frame.origin.y + 64, self.zoomLevel.frame.width, self.zoomLevel.frame.height)
+        onboarding.displayOnboardingPopTip(
+            "Tap to see all dishes",
+            direction: AMPopTipDirection.Down,
+            inView: self.view,
+            fromFrame: relativeFrame,
+            key: "zoomLevelIntro"
+        )
+        
         
         if let dishTypeId = dishType?.id{
             Networking.getDishes(self, urlParent: "dish_types/\(dishTypeId)", completion: loadComplete)

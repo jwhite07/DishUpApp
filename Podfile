@@ -3,8 +3,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 
-target 'DishUpApp' do
-	
+target 'DishUp' do
 	pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git', :branch => 'xcode7'
 	pod 'Alamofire', :git => 'https://github.com/Alamofire/Alamofire.git', :branch => 'swift-2.0'
 
@@ -12,5 +11,6 @@ target 'DishUpApp' do
 	pod 'AMPopTip'
 	pod 'pop', '~> 1.0'
 	pod 'SDWebImage', '~> 3.7'
-
+	
+	
 end

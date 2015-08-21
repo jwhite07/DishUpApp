@@ -7,9 +7,9 @@
 //
 
 import UIKit
+let onboarding = OnboardingController()
 
 class LaunchScreenVC: UIViewController {
-
     @IBAction func tapLocation(sender: AnyObject) {
         
     }
