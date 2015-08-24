@@ -9,22 +9,15 @@
 import UIKit
 import CoreLocation
 
-class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, CLLocationManagerDelegate, UINavigationControllerDelegate {
+class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,  UINavigationControllerDelegate {
     let reuseIdentifier = "restaurant"
     var restaurantsArray : [Restaurant] = []
-    let locationManager = CLLocationManager()
-    let transition = NavigationFlipTransitionController()
+        let transition = NavigationFlipTransitionController()
 
 
 
     @IBOutlet weak var restaurants: UICollectionView!
     override func viewDidLoad() {
-        super.viewDidLoad()
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-        locationManager.startUpdatingLocation()
         let location = locationManager.location
         
         

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="f8w-Mg-NRI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="f8w-Mg-NRI">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -233,7 +233,7 @@
                                                     <constraint firstAttribute="width" constant="80" id="7gi-xU-ZMW" userLabel="width = 80"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMk-7Z-GIo">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESTAURANT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMk-7Z-GIo">
                                                 <rect key="frame" x="0.0" y="170" width="300" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="19" id="KVg-Kd-mT6"/>
@@ -494,7 +494,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="XCn-t4-HwL">
                         <barButtonItem key="leftBarButtonItem" image="backbtn.png" id="kVz-Aj-qgU">
-                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                            <inset key="imageInsets" minX="12" minY="4" maxX="12" maxY="4"/>
                             <connections>
                                 <segue destination="OG9-cj-rz6" kind="showDetail" id="Fvz-or-EST"/>
                             </connections>
@@ -1126,7 +1126,7 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mmc-Fu-90b">
                                         <rect key="frame" x="123" y="8" width="429" height="109"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" ambiguous="YES" text="Troy, MI 48083" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNV-1o-JGD">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" ambiguous="YES" misplaced="YES" text="Troy, MI 48083" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNV-1o-JGD">
                                                 <rect key="frame" x="8" y="46" width="413" height="16"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1512,8 +1512,8 @@
         <image name="website.png" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jmd-cn-vvd"/>
-        <segue reference="aJB-k6-wmT"/>
+        <segue reference="Fvz-or-EST"/>
+        <segue reference="qTT-HZ-QOT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

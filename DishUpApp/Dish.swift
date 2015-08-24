@@ -47,7 +47,7 @@ final class Dish {
             prefetch.prefetchURLs(dishpics.map({$0["url"].stringValue}))
         }//
     
-        if let restaurantJson = json["restaurant"] as JSON?{
+        if let restaurantJson = json["location"] as JSON?{
             
                 self.restaurant = Restaurant(json: restaurantJson)
             

@@ -14,6 +14,12 @@ import SDWebImage
 
 
 class Networking {
+    static var params : [String:String] = [:]
+    static func setParams(){
+        params["latitude"] = locationManager.location?.coordinate.latitude.description
+        params["longitude"] = locationManager.location?.coordinate.longitude.description
+        print("params: \(params)")
+    }
     
     // static let manager = Manager.sharedInstance
     // Add API key header to all requests make with this manager (i.e., the whole session)
@@ -22,11 +28,11 @@ class Networking {
     
     static func getDishTypes(requester: DishTypesVC, completion: (() -> ())? = nil){
         //
-        Alamofire.request(.GET, "\(GlobalConstants.API.url)dish_types")
+        Alamofire.request(.GET, "\(GlobalConstants.API.url)dish_types", parameters: params)
             .responseJSON {(request, response, json)in
                 if json.isSuccess{
                     let jsonData = json.value
-                    
+                    print("dish type json: \(json.value)")
                     var jsonObj = JSON(jsonData!)
                     if let dishtypes = jsonObj["dish_types"].arrayValue as [JSON]?{
                         
@@ -41,6 +47,7 @@ class Networking {
     }
     static func getDishes(requester: DishesVC, urlParent: String?, completion: (() -> ())? = nil){
         //
+        setParams()
         var requestUrl : String
         requestUrl = GlobalConstants.API.url
         
@@ -49,13 +56,14 @@ class Networking {
         }
         requestUrl += "/dishes"
         print("Dishes Request url: \(requestUrl)")
-        Alamofire.request(.GET, requestUrl)
+        Alamofire.request(.GET, requestUrl, parameters: params)
             .responseJSON {(request, response, json)in
                 if json.isSuccess{
+                    print("dish json: \(json.value)")
                     let jsonData = json.value
                     
                     var jsonObj = JSON(jsonData!)
-                    if let dishes = jsonObj["dishes"].arrayValue as [JSON]?{
+                    if let dishes = jsonObj["dish_previews"].arrayValue as [JSON]?{
                         let dishesArray = dishes.map({Dish(json: $0)})
                         requester.dishesArray = dishesArray
                         completion?()
@@ -69,12 +77,13 @@ class Networking {
     static func getDishDetails(requester: DishDetailVC, dishId: Int, completion: (() -> ())? = nil){
         var requestUrl : String
         requestUrl = "\(GlobalConstants.API.url)dishes/\(dishId)"
-        
+        setParams()
        
-        Alamofire.request(.GET, requestUrl)
+        Alamofire.request(.GET, requestUrl, parameters: params)
             .responseJSON {(request, response, json)in
+                print("dish details json: \(json.value)")
                 if json.isSuccess{
-                    print(json)
+                    
                     let jsonData = json.value
                     
                     var jsonObj = JSON(jsonData!)
@@ -88,15 +97,11 @@ class Networking {
         }
     }
     static func getRestaurants(requester: RestaurantsVC, location: CLLocation?, completion: (() -> ())? = nil){
-        var params : [String:String] = [:]
-        if let coordinates = location?.coordinate{
-            params["latitude"] = coordinates.latitude.description
-            params["longitude"] = coordinates.longitude.description
-        }
-        print(params)
+        setParams()
+        
         Alamofire.request(.GET, "\(GlobalConstants.API.url)locations", parameters: params)
             .responseJSON {(request, response, json)in
-                print(json)
+                print("get restaurantsjson: \(json.value)")
                 if json.isSuccess{
                     let jsonData = json.value
                     

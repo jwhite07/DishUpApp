@@ -82,12 +82,25 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
                 if let current = self.currentDish{
                     self.updateDishInfo(current)
                 }
-
             }else{
                 
-                self.infoPanel.hidden = true
-                self.leftArrow.hidden = true
-                self.rightArrow.hidden = true
+                for const in self.rightArrow.constraintsAffectingLayoutForAxis(UILayoutConstraintAxis.Horizontal){
+                    if const.firstAttribute == NSLayoutAttribute.TrailingMargin{
+                        const.constant =  -self.rightArrow.frame.width - 20
+                    }
+                    
+                }
+                for const in self.leftArrow.constraintsAffectingLayoutForAxis(UILayoutConstraintAxis.Horizontal){
+                    if const.firstAttribute == NSLayoutAttribute.Leading{
+                        const.constant = -self.leftArrow.frame.width - 20
+                    }
+                    
+                }
+                for const in self.infoPanel.constraintsAffectingLayoutForAxis(UILayoutConstraintAxis.Vertical){
+                    if const.firstAttribute == NSLayoutAttribute.Top{
+                        const.constant =  -self.infoPanel.frame.height
+                    }
+                }
             }
             
         }
@@ -104,7 +117,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         
         if let dishTypeId = dishType?.id{
             Networking.getDishes(self, urlParent: "dish_types/\(dishTypeId)", completion: loadComplete)
-        }else if let restaurantId = restaurant?.id{
+        }else if let restaurantId = restaurant?.restaurant_id{
             Networking.getDishes(self, urlParent: "restaurants/\(restaurantId)", completion: loadComplete)
         }else{
             Networking.getDishes(self, urlParent: nil, completion: loadComplete)

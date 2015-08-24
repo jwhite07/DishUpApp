@@ -9,7 +9,7 @@
 import Foundation
 struct GlobalConstants{
     struct API {
-        static let url = "http://localhost:3000/api/"
+        static let url = "https://dishupapp.herokuapp.com/api/"
         static let key = "abc"
     }
     

@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
+
 let onboarding = OnboardingController()
+let locationManager = CLLocationManager()
 
 class LaunchScreenVC: UIViewController {
     @IBAction func tapLocation(sender: AnyObject) {
@@ -16,12 +19,17 @@ class LaunchScreenVC: UIViewController {
     @IBAction func tapCraving(sender: AnyObject) {
         
     }
-    
+    let locationManager = CLLocationManager()
     @IBOutlet weak var cravingButton: UIView!
     @IBOutlet weak var locationButton: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.viewDidLoad()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
+        locationManager.startUpdatingLocation()
+
         // Do any additional setup after loading the view.
         
     }
