@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (2.0.0-beta.1)
+  - Alamofire (2.0.0-beta.3)
   - AMPopTip (0.9.12)
   - Cosmos (1.0.16)
   - pop (1.0.7)
@@ -26,14 +26,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Alamofire:
-    :commit: 97531ad0137a335653c83bb911bae33c67621f1e
+    :commit: 1bc35abfa7c167ba54af4e87158af7945cc9984e
     :git: https://github.com/Alamofire/Alamofire.git
   SwiftyJSON:
     :commit: d2455075224731f0449366c71e1a08d10d718e6d
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 96feccc1e48a735edb92395cf023ba4ed52bdb45
+  Alamofire: 39dddb7d3725d1771b1d2f7099c8bd45bd83ffbb
   AMPopTip: 3c98a9b38148868366b57765064bd9565f653038
   Cosmos: 5b59d6c82399836a040db23f9edeb0c16314b1de
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923

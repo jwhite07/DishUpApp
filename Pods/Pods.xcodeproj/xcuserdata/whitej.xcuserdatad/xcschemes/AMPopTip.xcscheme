@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "730CD477257D6553B4BB1EFA"
+               BlueprintIdentifier = "2A033BE9054A8B41DBF05E78"
                BuildableName = "AMPopTip.framework"
                BlueprintName = "AMPopTip"
                ReferencedContainer = "container:Pods.xcodeproj">
