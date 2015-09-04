@@ -414,12 +414,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DishUpApp/Networking.swift"
-            timestampString = "462762711.341035"
+            timestampString = "462934272.426229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "loginUser(_:createAccount:userID:password:password_confirmation:token:completion:)"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "sanitizeUrlFromString(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -430,28 +430,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DishUpApp/Networking.swift"
-            timestampString = "462762711.341035"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "loginUser(_:createAccount:userID:password:password_confirmation:token:completion:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DishUpApp/Networking.swift"
-            timestampString = "462762711.341035"
+            timestampString = "462934272.426229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
             endingLineNumber = "129"
-            landmarkName = "loginUser(_:createAccount:userID:password:password_confirmation:token:completion:)"
+            landmarkName = "sanitizeUrlFromString(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -462,12 +446,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DishUpApp/Networking.swift"
-            timestampString = "462762711.341035"
+            timestampString = "462934272.426229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "loginUser(_:createAccount:userID:password:password_confirmation:token:completion:)"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "sanitizeUrlFromString(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -478,12 +462,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DishUpApp/Networking.swift"
-            timestampString = "462762711.341035"
+            timestampString = "462934272.426229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "loginUser(_:createAccount:userID:password:password_confirmation:token:completion:)"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "Networking"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DishUpApp/Networking.swift"
+            timestampString = "462934272.426229"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "sanitizeUrlFromString(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -564,6 +564,150 @@
             startingLineNumber = "58"
             endingLineNumber = "58"
             landmarkName = "callTap(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DishUpApp/Networking.swift"
+            timestampString = "462934272.426229"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "getRestaurants(_:location:completion:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static DishUp.Networking.(getRestaurants (DishUp.Networking.Type) -&gt; (DishUp.RestaurantsVC, location : Swift.Optional&lt;ObjectiveC.CLLocation&gt;, completion : Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "DishUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/whitej/Documents/DishUpApp/DishUpApp/Networking.swift"
+                  timestampString = "462931142.830946"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "2985">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static DishUp.Networking.(getRestaurants (DishUp.Networking.Type) -&gt; (DishUp.RestaurantsVC, location : Swift.Optional&lt;ObjectiveC.CLLocation&gt;, completion : Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "DishUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/whitej/Documents/DishUpApp/DishUpApp/Networking.swift"
+                  timestampString = "462931142.831174"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "2997">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DishUpApp/Networking.swift"
+            timestampString = "462934272.426229"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "getRestaurants(_:location:completion:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DishUpApp/Networking.swift"
+            timestampString = "462934272.426229"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "getDishes(_:urlParent:completion:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DishUpApp/Networking.swift"
+            timestampString = "462934272.426229"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "getDishes(_:urlParent:completion:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static DishUp.Networking.(getDishes (DishUp.Networking.Type) -&gt; (DishUp.DishesVC, urlParent : Swift.Optional&lt;Swift.String&gt;, completion : Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "DishUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/whitej/Documents/DishUpApp/DishUpApp/Networking.swift"
+                  timestampString = "462933395.526455"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "2970">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static DishUp.Networking.(getDishes (DishUp.Networking.Type) -&gt; (DishUp.DishesVC, urlParent : Swift.Optional&lt;Swift.String&gt;, completion : Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "DishUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/whitej/Documents/DishUpApp/DishUpApp/Networking.swift"
+                  timestampString = "462933395.526633"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "2982">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DishUpApp/Networking.swift"
+            timestampString = "462934272.426229"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "getDishes(_:urlParent:completion:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

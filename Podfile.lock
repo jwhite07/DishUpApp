@@ -29,7 +29,7 @@ CHECKOUT OPTIONS:
     :commit: 1bc35abfa7c167ba54af4e87158af7945cc9984e
     :git: https://github.com/Alamofire/Alamofire.git
   SwiftyJSON:
-    :commit: d2455075224731f0449366c71e1a08d10d718e6d
+    :commit: f269523ac572979245baa99c8475eab73caf1e9b
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:

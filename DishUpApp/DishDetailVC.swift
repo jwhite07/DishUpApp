@@ -53,8 +53,9 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
     }
     func callTap(sender: AnyObject) {
         if phone != nil && phone != ""{
-            let phoneStripped = "".join(phone!.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet))
-            let phoneUrl = NSURL(string: "tel://\(phoneStripped)")
+            let phoneStripped = phone!.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+            let sep = ""
+            let phoneUrl = NSURL(string: "tel://\(phoneStripped.joinWithSeparator(sep))")
             UIApplication.sharedApplication().openURL(phoneUrl!)
         }
     }
