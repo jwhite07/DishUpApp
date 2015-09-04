@@ -67,7 +67,7 @@
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ocN-32-UW4" id="7iL-2i-MTy">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -114,7 +114,7 @@
                             <view opaque="NO" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="axi-bC-xND" userLabel="Content View">
                                 <rect key="frame" x="0.0" y="140" width="600" height="460"/>
                                 <subviews>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLj-VU-Bnx">
+                                    <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLj-VU-Bnx">
                                         <rect key="frame" x="0.0" y="-30" width="600" height="125"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5l1-7J-67g">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="125"/>
@@ -670,7 +670,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" reuseIdentifier="dishGrid" id="8ng-Cr-hY6" customClass="DishCollectionViewCell" customModule="DishUp" customModuleProvider="target">
-                                        <rect key="frame" x="237.5" y="502" width="125" height="125"/>
+                                        <rect key="frame" x="238" y="502" width="125" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
@@ -974,7 +974,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" reuseIdentifier="dishpic" id="iDp-lY-zjN" customClass="DishpicCell" customModule="DishUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-32.5" width="135" height="240"/>
+                                        <rect key="frame" x="0.0" y="-33" width="135" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="135" height="240"/>
@@ -1336,7 +1336,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dishpic" id="duh-R8-Qfp" customClass="DishPicZoomableCell" customModule="DishUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-1.5" width="600" height="583"/>
+                                        <rect key="frame" x="0.0" y="-2" width="600" height="583"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="583"/>
