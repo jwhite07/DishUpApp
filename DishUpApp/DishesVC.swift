@@ -73,9 +73,9 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
             
             self.dishes!.reloadData()
             if layoutMode == .Single{
-                self.infoPanel.hidden = false
-                self.leftArrow.hidden = false
-                self.rightArrow.hidden = false
+//                self.infoPanel.hidden = false
+//                self.leftArrow.hidden = false
+//                self.rightArrow.hidden = false
                 print("call set current dish at line 78")
 
                 self.setCurrentDish()
@@ -117,8 +117,8 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         
         if let dishTypeId = dishType?.id{
             Networking.getDishes(self, urlParent: "dish_types/\(dishTypeId)", completion: loadComplete)
-        }else if let restaurantId = restaurant?.restaurant_id{
-            Networking.getDishes(self, urlParent: "restaurants/\(restaurantId)", completion: loadComplete)
+        }else if let menuId = restaurant?.menu_id{
+            Networking.getDishes(self, urlParent: "menus/\(menuId)", completion: loadComplete)
         }else{
             Networking.getDishes(self, urlParent: nil, completion: loadComplete)
         }
@@ -195,9 +195,12 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuse, forIndexPath: indexPath) as! DishCollectionViewCell
         
         cell.dish = dish
-        if let url = Networking.sanitizeUrlFromString(dish.lead_dishpic_url!){
-            cell.dishPic.sd_setImageWithURL(url, placeholderImage: UIImage(named: "placeholder.png"))
-            
+        if let dishpic = dish.lead_dishpic_url{
+            if let url = Networking.sanitizeUrlFromString(dish.lead_dishpic_url!){
+                cell.dishPic.sd_setImageWithURL(url, placeholderImage: UIImage(named: "placeholder.png"))
+                
+            }
+
         }
         cell.indexPath = indexPath
         cell.collectionView = dishes
@@ -214,7 +217,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     
     func updateDishInfo(dish: Dish){
         self.currentDishName.text = dish.name.uppercaseString
-        self.currentDishRating.rating = dish.rating.doubleValue
+       // self.currentDishRating.rating = dish.rating.doubleValue
         if dish.price != nil && dish.price != 0 {
             let price = dish.price!
             let formatter = NSNumberFormatter()
@@ -225,15 +228,16 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         }
         currentDishName.alpha = 1
         currentDishPrice.alpha = 1
-        currentDishRating.alpha = 1
+        //disabling ratings for now
+        //currentDishRating.alpha = 1
         nextDishName.alpha = 0
         nextDishPrice.alpha = 0
-        nextDishRating.alpha = 0
+       // nextDishRating.alpha = 0
 
     }
     func updateNextDish(dish: Dish){
         self.nextDishName.text = dish.name.uppercaseString
-        self.nextDishRating.rating = dish.rating.doubleValue
+       // self.nextDishRating.rating = dish.rating.doubleValue
         if dish.price != nil && dish.price != 0 {
             let price = dish.price!
             let formatter = NSNumberFormatter()
@@ -291,10 +295,10 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         let inv = 1 - perc
         currentDishName.alpha = inv
         currentDishPrice.alpha = inv
-        currentDishRating.alpha = inv
+        //currentDishRating.alpha = inv
         nextDishName.alpha = perc
         nextDishPrice.alpha = perc
-        nextDishRating.alpha = perc
+        //nextDishRating.alpha = perc
         
         
         if hideRightArrowNext == true{
@@ -368,6 +372,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         let cell = sender as! DishCollectionViewCell
         let dishDetailVC = segue.destinationViewController as! DishDetailVC
         dishDetailVC.dish = cell.dish
+        dishDetailVC.restaurant = self.restaurant
     }
     func dishPicTap( sender: AnyObject) {
         if let imageView = sender.view as! UIImageView?{

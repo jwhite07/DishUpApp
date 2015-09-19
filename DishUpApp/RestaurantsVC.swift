@@ -12,16 +12,23 @@ import CoreLocation
 class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,  UINavigationControllerDelegate {
     let reuseIdentifier = "restaurant"
     var restaurantsArray : [Restaurant] = []
-        let transition = NavigationFlipTransitionController()
+    let transition = NavigationFlipTransitionController()
+    var specialEvent : SpecialEvent?
 
 
 
     @IBOutlet weak var restaurants: UICollectionView!
     override func viewDidLoad() {
         let location = locationManager.location
+        var urlParent : String?
         
+        if let s = specialEvent{
+            urlParent = "special_events/\(s.id)"
+        }else{
+            
+        }
         
-        Networking.getRestaurants(self, location: location, completion: {self.restaurants!.reloadData()})
+        Networking.getRestaurants(self, urlParent: urlParent, location: location, completion: {self.restaurants!.reloadData()})
         
         if self.revealViewController() != nil {
             

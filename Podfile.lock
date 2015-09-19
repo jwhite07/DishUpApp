@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (2.0.0-beta.3)
+  - Alamofire (2.0.0)
   - AMPopTip (0.9.12)
-  - Cosmos (1.0.16)
+  - Cosmos (1.0.22)
   - pop (1.0.7)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
@@ -9,7 +9,7 @@ PODS:
   - SwiftyJSON (2.2.1)
 
 DEPENDENCIES:
-  - Alamofire (from `https://github.com/Alamofire/Alamofire.git`, branch `swift-2.0`)
+  - Alamofire
   - AMPopTip
   - Cosmos (~> 1.0)
   - pop (~> 1.0)
@@ -17,25 +17,19 @@ DEPENDENCIES:
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`, branch `xcode7`)
 
 EXTERNAL SOURCES:
-  Alamofire:
-    :branch: swift-2.0
-    :git: https://github.com/Alamofire/Alamofire.git
   SwiftyJSON:
     :branch: xcode7
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
-  Alamofire:
-    :commit: 1bc35abfa7c167ba54af4e87158af7945cc9984e
-    :git: https://github.com/Alamofire/Alamofire.git
   SwiftyJSON:
-    :commit: f269523ac572979245baa99c8475eab73caf1e9b
+    :commit: d4df13c66146a8e9c8d96c852746a08363003d36
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 39dddb7d3725d1771b1d2f7099c8bd45bd83ffbb
+  Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
   AMPopTip: 3c98a9b38148868366b57765064bd9565f653038
-  Cosmos: 5b59d6c82399836a040db23f9edeb0c16314b1de
+  Cosmos: 85d6e39fbc7930d9d857e5c2460aad966d7c732c
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33

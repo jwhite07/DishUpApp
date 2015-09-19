@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "871F65193951F7229D0DA444"
+               BlueprintIdentifier = "13CBA302ED35A486D290513E"
                BuildableName = "Pods_DishUp.framework"
                BlueprintName = "Pods-DishUp"
                ReferencedContainer = "container:Pods.xcodeproj">

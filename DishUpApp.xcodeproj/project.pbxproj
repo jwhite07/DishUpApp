@@ -33,6 +33,7 @@
 		0D2B20701B5D8D71002B87CC /* DishesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B206F1B5D8D71002B87CC /* DishesVC.swift */; };
 		0D2B20721B5E81B2002B87CC /* DishCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B20711B5E81B2002B87CC /* DishCollectionViewCell.swift */; };
 		0D2B20741B5E8241002B87CC /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B20731B5E8241002B87CC /* Dish.swift */; };
+		0D3221731BA3CFC2001ABE44 /* DRW_Transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3221721BA3CFC2001ABE44 /* DRW_Transparent.png */; settings = {ASSET_TAGS = (); }; };
 		0D361A431B7BE10700C32319 /* avatarBorder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D361A371B7BE10700C32319 /* avatarBorder@3x.png */; };
 		0D361A441B7BE10700C32319 /* twitterLogin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D361A381B7BE10700C32319 /* twitterLogin@3x.png */; };
 		0D361A451B7BE10700C32319 /* avatarDefault@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D361A391B7BE10700C32319 /* avatarDefault@3x.png */; };
@@ -93,6 +94,8 @@
 		0D894E171B77FB8A00576557 /* DishesGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D894E161B77FB8A00576557 /* DishesGridLayout.swift */; };
 		0D894E191B77FB9800576557 /* DishesSingleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D894E181B77FB9800576557 /* DishesSingleLayout.swift */; };
 		0D9205A41B78D41500D29FDF /* DishesTransitionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9205A31B78D41500D29FDF /* DishesTransitionLayout.swift */; };
+		0DA0E3C31B9A447A00D2334E /* SpecialEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA0E3C21B9A447A00D2334E /* SpecialEvent.swift */; settings = {ASSET_TAGS = (); }; };
+		0DA0E3C71B9B5F5200D2334E /* SpecialEventButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA0E3C61B9B5F5200D2334E /* SpecialEventButtonView.swift */; settings = {ASSET_TAGS = (); }; };
 		0DA365E11B71979500DC12F8 /* grid-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365DE1B71979500DC12F8 /* grid-view.png */; };
 		0DA365E21B71979500DC12F8 /* left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365DF1B71979500DC12F8 /* left-arrow.png */; };
 		0DA365E31B71979500DC12F8 /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365E01B71979500DC12F8 /* right-arrow.png */; };
@@ -174,6 +177,7 @@
 		0D2B206F1B5D8D71002B87CC /* DishesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesVC.swift; sourceTree = "<group>"; };
 		0D2B20711B5E81B2002B87CC /* DishCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishCollectionViewCell.swift; sourceTree = "<group>"; };
 		0D2B20731B5E8241002B87CC /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		0D3221721BA3CFC2001ABE44 /* DRW_Transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DRW_Transparent.png; sourceTree = "<group>"; };
 		0D361A371B7BE10700C32319 /* avatarBorder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatarBorder@3x.png"; sourceTree = "<group>"; };
 		0D361A381B7BE10700C32319 /* twitterLogin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitterLogin@3x.png"; sourceTree = "<group>"; };
 		0D361A391B7BE10700C32319 /* avatarDefault@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatarDefault@3x.png"; sourceTree = "<group>"; };
@@ -234,6 +238,8 @@
 		0D894E161B77FB8A00576557 /* DishesGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesGridLayout.swift; sourceTree = "<group>"; };
 		0D894E181B77FB9800576557 /* DishesSingleLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesSingleLayout.swift; sourceTree = "<group>"; };
 		0D9205A31B78D41500D29FDF /* DishesTransitionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesTransitionLayout.swift; sourceTree = "<group>"; };
+		0DA0E3C21B9A447A00D2334E /* SpecialEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialEvent.swift; sourceTree = "<group>"; };
+		0DA0E3C61B9B5F5200D2334E /* SpecialEventButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialEventButtonView.swift; sourceTree = "<group>"; };
 		0DA365DE1B71979500DC12F8 /* grid-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grid-view.png"; sourceTree = "<group>"; };
 		0DA365DF1B71979500DC12F8 /* left-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow.png"; sourceTree = "<group>"; };
 		0DA365E01B71979500DC12F8 /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
@@ -348,6 +354,7 @@
 				0DEF10BD1B7CCB5A00117CE4 /* phone@2x.png */,
 				0DEF10BE1B7CCB5A00117CE4 /* phone@3x.png */,
 				0DEF10BF1B7CCB5A00117CE4 /* website.png */,
+				0D3221721BA3CFC2001ABE44 /* DRW_Transparent.png */,
 				0DEF10C01B7CCB5A00117CE4 /* website@2x.png */,
 				0DEF10C11B7CCB5A00117CE4 /* website@3x.png */,
 				0D7313181B7CB61B008140C1 /* call_dishup.png */,
@@ -447,6 +454,7 @@
 				0D2B20731B5E8241002B87CC /* Dish.swift */,
 				0DD96EDF1B6AD10F00265FE0 /* Restaurant.swift */,
 				0D3D82F41B6BC70E0031FC18 /* Dishpic.swift */,
+				0DA0E3C21B9A447A00D2334E /* SpecialEvent.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -462,6 +470,7 @@
 				0D3D82F21B6BC7020031FC18 /* DishpicCell.swift */,
 				0DE875CC1B7A1D39008F4715 /* DishInfoPanel.swift */,
 				0D29CE611B7E2D9600822F78 /* DishPicZoomableCell.swift */,
+				0DA0E3C61B9B5F5200D2334E /* SpecialEventButtonView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -617,6 +626,7 @@
 				0D1B1DEA1B82C65100FAF68A /* Settings.bundle in Resources */,
 				0D70D3C81B704AEF007E49C3 /* home@2x.png in Resources */,
 				0D361A441B7BE10700C32319 /* twitterLogin@3x.png in Resources */,
+				0D3221731BA3CFC2001ABE44 /* DRW_Transparent.png in Resources */,
 				0DA365E11B71979500DC12F8 /* grid-view.png in Resources */,
 				0DEF10C61B7CCB5A00117CE4 /* phone@2x.png in Resources */,
 				0D0A86231B58391000DF0C71 /* Main.storyboard in Resources */,
@@ -752,12 +762,14 @@
 				0DF554331B75AA1F00E2AB58 /* DishUpNavigationBar.swift in Sources */,
 				0D3D82F31B6BC7020031FC18 /* DishpicCell.swift in Sources */,
 				0D2519B91B665A5E0071AEF0 /* dishesLayout.swift in Sources */,
+				0DA0E3C31B9A447A00D2334E /* SpecialEvent.swift in Sources */,
 				0D81A7A11B585A0F0071EDEE /* DishType.swift in Sources */,
 				0D3AF4561B5E8C37000B1C48 /* coreDataModel.xcdatamodeld in Sources */,
 				0D894E191B77FB9800576557 /* DishesSingleLayout.swift in Sources */,
 				0DD18CD41B97C2DE00444A43 /* LoadingOverlay.swift in Sources */,
 				0D9205A41B78D41500D29FDF /* DishesTransitionLayout.swift in Sources */,
 				0D3D82F51B6BC70E0031FC18 /* Dishpic.swift in Sources */,
+				0DA0E3C71B9B5F5200D2334E /* SpecialEventButtonView.swift in Sources */,
 				0DE875CD1B7A1D39008F4715 /* DishInfoPanel.swift in Sources */,
 				0D81A7A61B5865070071EDEE /* DishTypesVC.swift in Sources */,
 				0D70D0C21B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift in Sources */,

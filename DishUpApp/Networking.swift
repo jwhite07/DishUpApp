@@ -48,6 +48,33 @@ class Networking {
         }
 
     }
+    static func getSpecialEvents(requester: LaunchScreenVC, completion: (() -> ())? = nil){
+        //
+        
+        Alamofire.request(.GET, "\(GlobalConstants.API.url)special_events", parameters: params)
+            .responseJSON {(request, response, json)in
+                if json.isSuccess{
+                    let jsonData = json.value
+                    print("dish type json: \(json.value)")
+                    var jsonObj = JSON(jsonData!)
+                    if let specialevents = jsonObj["special_events"].arrayValue as [JSON]?{
+                        
+                        let specialEvent =  SpecialEvent(json: specialevents[0])
+                        print(specialevents)
+                        if specialevents.count > 0{
+                            requester.specialEvent = specialEvent
+                            requester.specialEventButton!.hidden = false
+                            //requester.specialEventButton!.setTitle(specialEvent.name, forState: UIControlState.Normal)
+                            requester.specialEventButton?.specialEvent = specialEvent
+                        }
+                        
+                        completion?()
+                    }
+                }
+        }
+        
+    }
+
     static func getDishes(requester: DishesVC, urlParent: String?, completion: (() -> ())? = nil){
         //
         setParams()
@@ -78,10 +105,13 @@ class Networking {
         
     }
 
-    static func getDishDetails(requester: DishDetailVC, dishId: Int, completion: (() -> ())? = nil){
+    static func getDishDetails(requester: DishDetailVC, dishId: Int, location: Restaurant?, completion: (() -> ())? = nil){
         var requestUrl : String
         requestUrl = "\(GlobalConstants.API.url)dishes/\(dishId)"
         setParams()
+        if let loc = location{
+            params["location_id"] = loc.id.description
+        }
       // LoadingOverlay.shared.showOverlay(requester.view)
         Alamofire.request(.GET, requestUrl, parameters: params)
             .responseJSON {(request, response, json)in
@@ -100,11 +130,21 @@ class Networking {
                 }
         }
     }
-    static func getRestaurants(requester: RestaurantsVC, location: CLLocation?, completion: (() -> ())? = nil){
+    static func getRestaurants(requester: RestaurantsVC, urlParent: String?, location: CLLocation?, completion: (() -> ())? = nil){
         setParams()
         LoadingOverlay.shared.showOverlay(requester.view)
-        Alamofire.request(.GET, "\(GlobalConstants.API.url)locations", parameters: params)
+        var requestUrl : String
+        requestUrl = GlobalConstants.API.url
+        
+        if let u = urlParent{
+            requestUrl += "\(u)/"
+        }
+        requestUrl += "locations"
+        print("Request URL: \(requestUrl)")
+        
+        Alamofire.request(.GET, requestUrl, parameters: params)
             .responseJSON {(request, response, json)in
+                
                 print("get restaurantsjson: \(json.value)")
                 if json.isSuccess{
                     let jsonData = json.value

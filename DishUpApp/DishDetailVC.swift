@@ -13,6 +13,7 @@ import Cosmos
 class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     let reuseIdentifier = "dish"
     var dish:Dish?
+    var restaurant:Restaurant?
     var website : String?
     var location : String?
     var phone : String?
@@ -66,7 +67,7 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         super.viewDidLoad()
         if let dishSafe = self.dish{
             updateSubViews(dishSafe)
-            Networking.getDishDetails(self, dishId: dishSafe.id, completion: {
+            Networking.getDishDetails(self, dishId: dishSafe.id, location: restaurant, completion: {
                 self.dishpics.reloadData()
                 self.updateSubViews(self.dish!)
             })
