@@ -67,7 +67,7 @@
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ocN-32-UW4" id="7iL-2i-MTy">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -162,11 +162,11 @@
                                         </vibrancyEffect>
                                     </visualEffectView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="560" translatesAutoresizingMaskIntoConstraints="NO" id="ICw-Vh-hZn">
-                                        <rect key="frame" x="20" y="20" width="560" height="125"/>
+                                        <rect key="frame" x="20" y="20" width="560" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="125" id="wf3-EE-dEO"/>
+                                            <constraint firstAttribute="height" constant="100" id="wf3-EE-dEO"/>
                                         </constraints>
-                                        <string key="text">Thanks so much for trying out dishup! We’re really excited to be able to share this early stage demo of our app with you. Please enjoy and let us know if you have any problems/feedback/suggestions at info@dishupapp.com.</string>
+                                        <string key="text">Thanks so much for trying out dishup! We’re really excited to be able to share this app with you. Please enjoy and let us know if you have any problems/feedback/suggestions at info@dishupapp.com.</string>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -308,12 +308,12 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="ncr-mC-6St" userLabel="CravingTap">
                     <connections>
-                        <segue destination="pNB-TU-5op" kind="show" id="vdi-Z0-D0j"/>
+                        <segue destination="pNB-TU-5op" kind="show" identifier="cravingSegue" id="vdi-Z0-D0j"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="6zj-4y-0P9" userLabel="LocationTap">
                     <connections>
-                        <segue destination="Tqq-7n-utK" kind="show" id="bWq-PB-aOe"/>
+                        <segue destination="Tqq-7n-utK" kind="show" identifier="restaurantSegue" id="bWq-PB-aOe"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -381,7 +381,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="restaurant" id="soG-wG-FFp" customClass="RestaurantCell" customModule="DishUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
@@ -605,7 +605,7 @@
                         <barButtonItem key="leftBarButtonItem" image="backbtn.png" id="Bh7-cr-x6q">
                             <inset key="imageInsets" minX="12" minY="4" maxX="12" maxY="4"/>
                             <connections>
-                                <segue destination="OG9-cj-rz6" kind="showDetail" id="jmd-cn-vvd"/>
+                                <segue destination="OG9-cj-rz6" kind="showDetail" id="lmP-Zl-p8t"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -706,7 +706,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" reuseIdentifier="dishGrid" id="8ng-Cr-hY6" customClass="DishCollectionViewCell" customModule="DishUp" customModuleProvider="target">
-                                        <rect key="frame" x="237.5" y="502" width="125" height="125"/>
+                                        <rect key="frame" x="238" y="502" width="125" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
@@ -986,7 +986,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPJ-eK-GV1" userLabel="AddButton">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadCamera.png" translatesAutoresizingMaskIntoConstraints="NO" id="nrm-4O-8Z2">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uploadCamera.png" translatesAutoresizingMaskIntoConstraints="NO" id="nrm-4O-8Z2">
                                         <rect key="frame" x="8" y="12" width="584" height="20"/>
                                     </imageView>
                                 </subviews>
@@ -1010,7 +1010,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="250" reuseIdentifier="dishpic" id="iDp-lY-zjN" customClass="DishpicCell" customModule="DishUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-32.5" width="135" height="240"/>
+                                        <rect key="frame" x="0.0" y="-33" width="135" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="135" height="240"/>
@@ -1372,7 +1372,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dishpic" id="duh-R8-Qfp" customClass="DishPicZoomableCell" customModule="DishUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="30.5" width="600" height="583"/>
+                                        <rect key="frame" x="0.0" y="-2" width="600" height="583"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="583"/>
@@ -1500,9 +1500,9 @@
         <image name="website.png" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="bWq-PB-aOe"/>
+        <segue reference="lmP-Zl-p8t"/>
         <segue reference="qTT-HZ-QOT"/>
-        <segue reference="dbJ-7e-MPs"/>
-        <segue reference="Fvz-or-EST"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

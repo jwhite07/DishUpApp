@@ -8,6 +8,10 @@
 
 import UIKit
 import CoreLocation
+import Mixpanel
+import AMPopTip
+
+
 
 let onboarding = OnboardingController()
 let locationManager = CLLocationManager()
@@ -37,6 +41,15 @@ class LaunchScreenVC: UIViewController {
         
         locationManager.startUpdatingLocation()
         Networking.getSpecialEvents(self)
+        onboarding.displayOnboardingPopTip(
+            "Begin by selecting how you want to browse",
+            direction: AMPopTipDirection.None,
+            inView: self.view,
+            fromFrame: self.view.frame,
+            key: "LaunchScreenInfo",
+            onDismiss: nil
+        )
+
         // Do any additional setup after loading the view.
         
     }
@@ -46,14 +59,17 @@ class LaunchScreenVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "specialEventSegue" {
-            if let button = sender!.view as? SpecialEventButtonView{
-                let restaurantsVC = (segue.destinationViewController as! UINavigationController).viewControllers.first as! RestaurantsVC
-                restaurantsVC.specialEvent = button.specialEvent
-
+        if let id = segue.identifier{
+            Mixpanel.sharedInstance().track("Segue From Launch Screen ", properties: [NSString(string: "Identifier") : id])
+            if id == "specialEventSegue" {
+                if let button = sender!.view as? SpecialEventButtonView{
+                    let restaurantsVC = (segue.destinationViewController as! UINavigationController).viewControllers.first as! RestaurantsVC
+                    restaurantsVC.specialEvent = button.specialEvent
+                    
+                }
             }
-         }
-        
+
+        }
     }
 
 

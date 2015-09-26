@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Mixpanel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-DishUp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,7 +47,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>24A4693DD87F76DA2F6E8E574114BFFD</key>
+		<key>10DACF56C375FCC98834ED4077623715</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>29EA49619D697ADCA919F5A22FA01D50</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,12 +62,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7F658EA8F6C19FAEC9CEA610F3A0BA00</key>
+		<key>720C38C883E290DEE3F0ABBA044435A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F9559DC88B39C9E4643A2BB0FB5C7E9</key>
+		<key>7655A30F03072FB03A361B5F999B63C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,7 +77,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B26CCC24CC194B68BF316A605BA839B2</key>
+		<key>9FAC3E99B3CEF8A87AE2CB703E200991</key>
 		<dict>
 			<key>primary</key>
 			<true/>

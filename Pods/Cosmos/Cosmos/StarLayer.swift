@@ -27,34 +27,14 @@ struct StarLayer {
     lineWidth: Double, fillColor: UIColor, strokeColor: UIColor) -> CALayer {
       
     let containerLayer = createContainerLayer(size)
-    let path = createStarPath(starPoints, size: size)
+    let path = createStarPath(starPoints, size: size, lineWidth: lineWidth)
       
     let shapeLayer = createShapeLayer(path.CGPath, lineWidth: lineWidth,
-      fillColor: fillColor, strokeColor: strokeColor)
+      fillColor: fillColor, strokeColor: strokeColor, size: size)
       
-    let maskLayer = createMaskLayer(path.CGPath)
-    
-    containerLayer.mask = maskLayer
     containerLayer.addSublayer(shapeLayer)
     
     return containerLayer
-  }
-  
-  /**
-  
-  Creates a mask layer with the given path shape. The purpose of the mask layer is to prevent the shape's stroke to go over the shape's edges.
-  
-  - parameter path: The star shape path.
-  
-  - returns: New mask layer.
-
-  */
-  static func createMaskLayer(path: CGPath) -> CALayer {
-    let layer = CAShapeLayer()
-    layer.anchorPoint = CGPoint()
-    layer.contentsScale = UIScreen.mainScreen().scale
-    layer.path = path
-    return layer
   }
   
   /**
@@ -72,14 +52,19 @@ struct StarLayer {
   - returns: New shape layer.
   
   */
-  static func createShapeLayer(path: CGPath, lineWidth: Double, fillColor: UIColor, strokeColor: UIColor) -> CALayer {
+  static func createShapeLayer(path: CGPath, lineWidth: Double, fillColor: UIColor,
+    strokeColor: UIColor, size: Double) -> CALayer {
+      
     let layer = CAShapeLayer()
     layer.anchorPoint = CGPoint()
     layer.contentsScale = UIScreen.mainScreen().scale
     layer.strokeColor = strokeColor.CGColor
     layer.fillColor = fillColor.CGColor
     layer.lineWidth = CGFloat(lineWidth)
+    layer.bounds.size = CGSize(width: size, height: size)
+    layer.masksToBounds = true
     layer.path = path
+    layer.opaque = true
     return layer
   }
   
@@ -96,6 +81,7 @@ struct StarLayer {
     layer.anchorPoint = CGPoint()
     layer.masksToBounds = true
     layer.bounds.size = CGSize(width: size, height: size)
+    layer.opaque = true
     return layer
   }
   
@@ -110,8 +96,11 @@ struct StarLayer {
   - returns: New shape path.
   
   */
-  static func createStarPath(starPoints: [CGPoint], size: Double) -> UIBezierPath {
-    let points = scaleStar(starPoints, factor: size / 100)
+  static func createStarPath(starPoints: [CGPoint], size: Double, var lineWidth: Double) -> UIBezierPath {
+    lineWidth += ceil(lineWidth * 0.3)
+    let sizeWithoutLineWidth = size - lineWidth * 2
+    
+    let points = scaleStar(starPoints, factor: sizeWithoutLineWidth / 100, lineWidth: lineWidth)
     let path = UIBezierPath()
     path.moveToPoint(points[0])
     let remainingPoints = Array(points[1..<points.count])
@@ -135,9 +124,12 @@ struct StarLayer {
   - returns: The scaled shape.
   
   */
-  static func scaleStar(starPoints: [CGPoint], factor: Double) -> [CGPoint] {
+  static func scaleStar(starPoints: [CGPoint], factor: Double, lineWidth: Double) -> [CGPoint] {
     return starPoints.map { point in
-      return CGPoint(x: point.x * CGFloat(factor), y: point.y * CGFloat(factor))
+      return CGPoint(
+        x: point.x * CGFloat(factor) + CGFloat(lineWidth),
+        y: point.y * CGFloat(factor) + CGFloat(lineWidth)
+      )
     }
   }
 }

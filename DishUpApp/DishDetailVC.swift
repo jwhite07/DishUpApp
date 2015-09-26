@@ -8,6 +8,7 @@
 
 import UIKit
 import Cosmos
+import Mixpanel
 
 
 class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -45,18 +46,36 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         let allowedSet = NSCharacterSet(charactersInString:"=#%<>?@^{|}\"'").invertedSet
         let cleanLocation = location!.stringByReplacingOccurrencesOfString(" ", withString: "+").stringByAddingPercentEncodingWithAllowedCharacters(allowedSet)!
         let mapUrl = "http://maps.apple.com/?q=\(cleanLocation)"
+        Mixpanel.sharedInstance().track("Dish Detail Action Tap", properties:
+            [
+                "Button" : "Map",
+                "Restaurant" : restarauntName.text!,
+                "Dish"      : dishName.text!
+            ])
         UIApplication.sharedApplication().openURL(NSURL(string: mapUrl)!)
     }
     
     func websiteTap(sender: AnyObject) {
-        
+        Mixpanel.sharedInstance().track("Dish Detail Action Tap", properties:
+            [
+                "Button" : "Website",
+                "Restaurant" : restarauntName.text!,
+                "Dish"      : dishName.text!
+            ])
         UIApplication.sharedApplication().openURL(NSURL(string: website!)!)
     }
     func callTap(sender: AnyObject) {
         if phone != nil && phone != ""{
             let phoneStripped = phone!.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
             let sep = ""
+            
             let phoneUrl = NSURL(string: "tel://\(phoneStripped.joinWithSeparator(sep))")
+            Mixpanel.sharedInstance().track("Dish Detail Action Tap", properties:
+                [
+                    "Button" : "Phone",
+                    "Restaurant" : restarauntName.text!,
+                    "Dish"      : dishName.text!
+                ])
             UIApplication.sharedApplication().openURL(phoneUrl!)
         }
     }
