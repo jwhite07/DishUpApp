@@ -24,6 +24,7 @@ final class Dish {
     let lead_dishpic_url: String?
     var dishpics: [Dishpic]
     var restaurant: Restaurant?
+    var restaurant_name: String?
     
     
     required init( json: JSON) {
@@ -36,6 +37,7 @@ final class Dish {
         self.dishTypeIds    = json["dish_type_ids"].arrayValue.map({$0.intValue})
         self.menuIds        = json["menu_ids"].arrayValue.map({$0.intValue})
         self.lead_dishpic_url = json["lead_dishpic_url"].string
+        self.restaurant_name = json["restaurant_name"].string
         let prefetch = SDWebImagePrefetcher()
        
             prefetch.prefetchURLs([json["lead_dishpic_url"].stringValue])

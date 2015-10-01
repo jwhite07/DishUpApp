@@ -11,7 +11,7 @@ import AMPopTip
 
 class OnboardingController {
     
-    func displayOnboardingPopTip(text: String, direction: AMPopTipDirection, inView: UIView, fromFrame: CGRect, key: String){
+    func displayOnboardingPopTip(text: String, direction: AMPopTipDirection, inView: UIView, fromFrame: CGRect, key: String, onDismiss: (() -> Void)?){
         if shouldDisplay(key){
             print("from Frame: \(fromFrame)")
             let popTip = AMPopTip()
@@ -22,10 +22,12 @@ class OnboardingController {
             popTip.font = UIFont(name: "SourceSansPro-Regular", size: 17.0)
             popTip.textColor = UIColor(red:1.00, green:0.46, blue:0.42, alpha:1.0)
             popTip.edgeInsets = UIEdgeInsetsMake(2, 8, 2, 8)
-            //popTip.shouldDismissOnTap = true
+            popTip.shouldDismissOnTap = true
 
             popTip.showText(text, direction: direction, maxWidth: 200, inView: inView, fromFrame: fromFrame, duration: 5)
             //delay(5){popTip.hide()}
+            popTip.dismissHandler = onDismiss
+            
         }
     }
     func shouldDisplay(key: String) -> Bool{

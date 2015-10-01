@@ -23,7 +23,7 @@ final class Restaurant{
     let website: String?
     let distance: Float?
     let restaurant_id : Int
-    
+    let menu_id : Int
     let id: Int
     
     
@@ -43,6 +43,7 @@ final class Restaurant{
         self.distance = json["distance"].float
         self.id = json["id"].intValue
         self.restaurant_id = json["restaurant"]["id"].intValue
+        self.menu_id = json["menu_id"].intValue
     }
     
 }

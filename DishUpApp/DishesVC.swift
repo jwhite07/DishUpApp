@@ -10,6 +10,7 @@ import UIKit
 import pop
 import Cosmos
 import AMPopTip
+import Mixpanel
 
 enum LayoutMode{
     case Single
@@ -69,13 +70,16 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         }else{
             dishes.setCollectionViewLayout(gridLayout, animated: false)
         }
+        
+
         let loadComplete : () -> () = {
             
             self.dishes!.reloadData()
+            let relativeFrame = CGRectMake(screenWidth - 52, self.zoomLevel.frame.origin.y + 64, self.zoomLevel.frame.width, self.zoomLevel.frame.height)
             if layoutMode == .Single{
-                self.infoPanel.hidden = false
-                self.leftArrow.hidden = false
-                self.rightArrow.hidden = false
+//                self.infoPanel.hidden = false
+//                self.leftArrow.hidden = false
+//                self.rightArrow.hidden = false
                 print("call set current dish at line 78")
 
                 self.setCurrentDish()
@@ -102,23 +106,41 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
                     }
                 }
             }
-            
+            onboarding.displayOnboardingPopTip(
+                "Tap to see all dishes",
+                direction: AMPopTipDirection.Down,
+                inView: self.view,
+                fromFrame: relativeFrame,
+                key: "zoomLevelIntro",
+                onDismiss: {
+                    onboarding.displayOnboardingPopTip(
+                        "Tap any image to see more detail about the dish",
+                        direction: AMPopTipDirection.None,
+                        inView: self.view,
+                        fromFrame: self.view.frame,
+                        key: "tapForDishDetails",
+                        onDismiss: {
+                            onboarding.displayOnboardingPopTip(
+                                "Tap or swipe to browse the menu",
+                                direction: AMPopTipDirection.None,
+                                inView: self.view,
+                                fromFrame: self.view.frame,
+                                key: "swipeInstructions",
+                                onDismiss: nil
+                            )
+                        }
+                    )
+                }
+            )
+
         }
         
-        let relativeFrame = CGRectMake(screenWidth - 52, self.zoomLevel.frame.origin.y + 64, self.zoomLevel.frame.width, self.zoomLevel.frame.height)
-        onboarding.displayOnboardingPopTip(
-            "Tap to see all dishes",
-            direction: AMPopTipDirection.Down,
-            inView: self.view,
-            fromFrame: relativeFrame,
-            key: "zoomLevelIntro"
-        )
         
         
         if let dishTypeId = dishType?.id{
             Networking.getDishes(self, urlParent: "dish_types/\(dishTypeId)", completion: loadComplete)
-        }else if let restaurantId = restaurant?.restaurant_id{
-            Networking.getDishes(self, urlParent: "restaurants/\(restaurantId)", completion: loadComplete)
+        }else if let menuId = restaurant?.menu_id{
+            Networking.getDishes(self, urlParent: "menus/\(menuId)", completion: loadComplete)
         }else{
             Networking.getDishes(self, urlParent: nil, completion: loadComplete)
         }
@@ -195,9 +217,12 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellReuse, forIndexPath: indexPath) as! DishCollectionViewCell
         
         cell.dish = dish
-        if let url = Networking.sanitizeUrlFromString(dish.lead_dishpic_url!){
-            cell.dishPic.sd_setImageWithURL(url, placeholderImage: UIImage(named: "placeholder.png"))
-            
+        if let dishpic = dish.lead_dishpic_url{
+            if let url = Networking.sanitizeUrlFromString(dish.lead_dishpic_url!){
+                cell.dishPic.sd_setImageWithURL(url, placeholderImage: UIImage(named: "placeholder.png"))
+                
+            }
+
         }
         cell.indexPath = indexPath
         cell.collectionView = dishes
@@ -214,7 +239,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     
     func updateDishInfo(dish: Dish){
         self.currentDishName.text = dish.name.uppercaseString
-        self.currentDishRating.rating = dish.rating.doubleValue
+       // self.currentDishRating.rating = dish.rating.doubleValue
         if dish.price != nil && dish.price != 0 {
             let price = dish.price!
             let formatter = NSNumberFormatter()
@@ -225,15 +250,16 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         }
         currentDishName.alpha = 1
         currentDishPrice.alpha = 1
-        currentDishRating.alpha = 1
+        //disabling ratings for now
+        //currentDishRating.alpha = 1
         nextDishName.alpha = 0
         nextDishPrice.alpha = 0
-        nextDishRating.alpha = 0
+       // nextDishRating.alpha = 0
 
     }
     func updateNextDish(dish: Dish){
         self.nextDishName.text = dish.name.uppercaseString
-        self.nextDishRating.rating = dish.rating.doubleValue
+       // self.nextDishRating.rating = dish.rating.doubleValue
         if dish.price != nil && dish.price != 0 {
             let price = dish.price!
             let formatter = NSNumberFormatter()
@@ -291,10 +317,10 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         let inv = 1 - perc
         currentDishName.alpha = inv
         currentDishPrice.alpha = inv
-        currentDishRating.alpha = inv
+        //currentDishRating.alpha = inv
         nextDishName.alpha = perc
         nextDishPrice.alpha = perc
-        nextDishRating.alpha = perc
+        //nextDishRating.alpha = perc
         
         
         if hideRightArrowNext == true{
@@ -365,9 +391,24 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         }
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cell = sender as! DishCollectionViewCell
-        let dishDetailVC = segue.destinationViewController as! DishDetailVC
-        dishDetailVC.dish = cell.dish
+        if let id = segue.identifier{
+            var props : [NSObject : AnyObject] = [:]
+            if segue.identifier == "showDishDetailSegue" {
+                let cell = sender as! DishCollectionViewCell
+                let dishDetailVC = segue.destinationViewController as! DishDetailVC
+                dishDetailVC.dish = cell.dish
+                dishDetailVC.restaurant = self.restaurant
+                
+                props[NSString(string: "Dish")] = cell.dish?.name
+                props["Restaurant"] = cell.dish?.restaurant_name
+                props["Craving"] = self.dishType?.name
+                
+                
+            }
+            props[NSString(string: "Identifier")] = id
+            Mixpanel.sharedInstance().track("Segue From Dishes Screen ", properties: props)
+        }
+
     }
     func dishPicTap( sender: AnyObject) {
         if let imageView = sender.view as! UIImageView?{
@@ -423,19 +464,29 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
 
     func transitionSingleGridLayouts(){
         if !transitionInProgress{
+            
             let visible = self.dishes.visibleCells() as! [DishCollectionViewCell]
             var toLayout : UICollectionViewLayout
             var toMode : LayoutMode
+            var direction : String = ""
+            
             if layoutMode == .Single{
                 toMode = .Grid
                 layoutButtonImg = UIImage(named: "single-view.png")
                 toLayout = gridLayout
+                direction = "Grid"
             }else{
                 toMode = .Single
                 layoutButtonImg = UIImage(named: "grid-view.png")
                 toLayout = singleLayout
+                direction = "Single"
             }
             transitionInProgress = true
+            Mixpanel.sharedInstance().track("Toggle dishes single grid views", properties:
+                [
+                    "Direction" : direction
+                ])
+
             if layoutMode == .Grid{
                 print("Before - leftArrow alpha: \(leftArrow.alpha) leftArrow hidden: \(leftArrow.hidden)")
                 setArrowsForIndexPath(targetIndexPath)

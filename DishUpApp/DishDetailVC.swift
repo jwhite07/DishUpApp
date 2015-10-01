@@ -8,11 +8,13 @@
 
 import UIKit
 import Cosmos
+import Mixpanel
 
 
 class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     let reuseIdentifier = "dish"
     var dish:Dish?
+    var restaurant:Restaurant?
     var website : String?
     var location : String?
     var phone : String?
@@ -44,17 +46,36 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         let allowedSet = NSCharacterSet(charactersInString:"=#%<>?@^{|}\"'").invertedSet
         let cleanLocation = location!.stringByReplacingOccurrencesOfString(" ", withString: "+").stringByAddingPercentEncodingWithAllowedCharacters(allowedSet)!
         let mapUrl = "http://maps.apple.com/?q=\(cleanLocation)"
+        Mixpanel.sharedInstance().track("Dish Detail Action Tap", properties:
+            [
+                "Button" : "Map",
+                "Restaurant" : restarauntName.text!,
+                "Dish"      : dishName.text!
+            ])
         UIApplication.sharedApplication().openURL(NSURL(string: mapUrl)!)
     }
     
     func websiteTap(sender: AnyObject) {
-        
+        Mixpanel.sharedInstance().track("Dish Detail Action Tap", properties:
+            [
+                "Button" : "Website",
+                "Restaurant" : restarauntName.text!,
+                "Dish"      : dishName.text!
+            ])
         UIApplication.sharedApplication().openURL(NSURL(string: website!)!)
     }
     func callTap(sender: AnyObject) {
         if phone != nil && phone != ""{
-            let phoneStripped = "".join(phone!.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet))
-            let phoneUrl = NSURL(string: "tel://\(phoneStripped)")
+            let phoneStripped = phone!.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+            let sep = ""
+            
+            let phoneUrl = NSURL(string: "tel://\(phoneStripped.joinWithSeparator(sep))")
+            Mixpanel.sharedInstance().track("Dish Detail Action Tap", properties:
+                [
+                    "Button" : "Phone",
+                    "Restaurant" : restarauntName.text!,
+                    "Dish"      : dishName.text!
+                ])
             UIApplication.sharedApplication().openURL(phoneUrl!)
         }
     }
@@ -65,7 +86,7 @@ class DishDetailVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColl
         super.viewDidLoad()
         if let dishSafe = self.dish{
             updateSubViews(dishSafe)
-            Networking.getDishDetails(self, dishId: dishSafe.id, completion: {
+            Networking.getDishDetails(self, dishId: dishSafe.id, location: restaurant, completion: {
                 self.dishpics.reloadData()
                 self.updateSubViews(self.dish!)
             })

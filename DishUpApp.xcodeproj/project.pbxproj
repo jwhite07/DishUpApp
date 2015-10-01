@@ -33,6 +33,7 @@
 		0D2B20701B5D8D71002B87CC /* DishesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B206F1B5D8D71002B87CC /* DishesVC.swift */; };
 		0D2B20721B5E81B2002B87CC /* DishCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B20711B5E81B2002B87CC /* DishCollectionViewCell.swift */; };
 		0D2B20741B5E8241002B87CC /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B20731B5E8241002B87CC /* Dish.swift */; };
+		0D3221731BA3CFC2001ABE44 /* DRW_Transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3221721BA3CFC2001ABE44 /* DRW_Transparent.png */; settings = {ASSET_TAGS = (); }; };
 		0D361A431B7BE10700C32319 /* avatarBorder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D361A371B7BE10700C32319 /* avatarBorder@3x.png */; };
 		0D361A441B7BE10700C32319 /* twitterLogin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D361A381B7BE10700C32319 /* twitterLogin@3x.png */; };
 		0D361A451B7BE10700C32319 /* avatarDefault@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D361A391B7BE10700C32319 /* avatarDefault@3x.png */; };
@@ -93,6 +94,8 @@
 		0D894E171B77FB8A00576557 /* DishesGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D894E161B77FB8A00576557 /* DishesGridLayout.swift */; };
 		0D894E191B77FB9800576557 /* DishesSingleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D894E181B77FB9800576557 /* DishesSingleLayout.swift */; };
 		0D9205A41B78D41500D29FDF /* DishesTransitionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9205A31B78D41500D29FDF /* DishesTransitionLayout.swift */; };
+		0DA0E3C31B9A447A00D2334E /* SpecialEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA0E3C21B9A447A00D2334E /* SpecialEvent.swift */; settings = {ASSET_TAGS = (); }; };
+		0DA0E3C71B9B5F5200D2334E /* SpecialEventButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA0E3C61B9B5F5200D2334E /* SpecialEventButtonView.swift */; settings = {ASSET_TAGS = (); }; };
 		0DA365E11B71979500DC12F8 /* grid-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365DE1B71979500DC12F8 /* grid-view.png */; };
 		0DA365E21B71979500DC12F8 /* left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365DF1B71979500DC12F8 /* left-arrow.png */; };
 		0DA365E31B71979500DC12F8 /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365E01B71979500DC12F8 /* right-arrow.png */; };
@@ -109,6 +112,12 @@
 		0DBBFAB11B7BBCD200A47AEB /* dishupLogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DBBFAAE1B7BBCD200A47AEB /* dishupLogo@3x.png */; };
 		0DBBFAB21B7BBCD200A47AEB /* dishupLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DBBFAAF1B7BBCD200A47AEB /* dishupLogo@2x.png */; };
 		0DBBFAB31B7BBCD200A47AEB /* dishupLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DBBFAB01B7BBCD200A47AEB /* dishupLogo.png */; };
+		0DD18CD01B97B80900444A43 /* du_restaurant_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CCF1B97B80800444A43 /* du_restaurant_img.png */; settings = {ASSET_TAGS = (); }; };
+		0DD18CD21B97B80F00444A43 /* du_craving_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CD11B97B80F00444A43 /* du_craving_img.png */; settings = {ASSET_TAGS = (); }; };
+		0DD18CD41B97C2DE00444A43 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD18CD31B97C2DE00444A43 /* LoadingOverlay.swift */; settings = {ASSET_TAGS = (); }; };
+		0DD18CD61B97C7D500444A43 /* Mug.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CD51B97C7D500444A43 /* Mug.png */; settings = {ASSET_TAGS = (); }; };
+		0DD18CD81B97C7E000444A43 /* Mug@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CD71B97C7E000444A43 /* Mug@2x.png */; settings = {ASSET_TAGS = (); }; };
+		0DD18CDA1B97C7F300444A43 /* Mug@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CD91B97C7F300444A43 /* Mug@3x.png */; settings = {ASSET_TAGS = (); }; };
 		0DD96EDC1B6ACD2C00265FE0 /* RestaurantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDB1B6ACD2C00265FE0 /* RestaurantsVC.swift */; };
 		0DD96EDE1B6ACE2700265FE0 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDD1B6ACE2700265FE0 /* RestaurantCell.swift */; };
 		0DD96EE01B6AD10F00265FE0 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDF1B6AD10F00265FE0 /* Restaurant.swift */; };
@@ -136,16 +145,6 @@
 		D72C07850EF9C6916392864E /* Pods_DishUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA085EEC2121DF3176BACF5 /* Pods_DishUp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		0D0A862E1B58391000DF0C71 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0D0A86101B58391000DF0C71 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0D0A86171B58391000DF0C71;
-			remoteInfo = DishUpApp;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		029A642AC2EEDB15808F8C52 /* Pods-DishUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DishUp/Pods-DishUp.debug.xcconfig"; sourceTree = "<group>"; };
 		0D0A86181B58391000DF0C71 /* DishUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DishUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,7 +154,6 @@
 		0D0A86221B58391000DF0C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D0A86241B58391000DF0C71 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0D0A86271B58391000DF0C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		0D0A862D1B58391000DF0C71 /* DishUpAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DishUpAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0A863D1B58392C00DF0C71 /* DishUpApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DishUpApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		0D0A863E1B58392D00DF0C71 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		0D0A863F1B58392D00DF0C71 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -179,6 +177,7 @@
 		0D2B206F1B5D8D71002B87CC /* DishesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesVC.swift; sourceTree = "<group>"; };
 		0D2B20711B5E81B2002B87CC /* DishCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishCollectionViewCell.swift; sourceTree = "<group>"; };
 		0D2B20731B5E8241002B87CC /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		0D3221721BA3CFC2001ABE44 /* DRW_Transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DRW_Transparent.png; sourceTree = "<group>"; };
 		0D361A371B7BE10700C32319 /* avatarBorder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatarBorder@3x.png"; sourceTree = "<group>"; };
 		0D361A381B7BE10700C32319 /* twitterLogin@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitterLogin@3x.png"; sourceTree = "<group>"; };
 		0D361A391B7BE10700C32319 /* avatarDefault@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatarDefault@3x.png"; sourceTree = "<group>"; };
@@ -239,6 +238,8 @@
 		0D894E161B77FB8A00576557 /* DishesGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesGridLayout.swift; sourceTree = "<group>"; };
 		0D894E181B77FB9800576557 /* DishesSingleLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesSingleLayout.swift; sourceTree = "<group>"; };
 		0D9205A31B78D41500D29FDF /* DishesTransitionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesTransitionLayout.swift; sourceTree = "<group>"; };
+		0DA0E3C21B9A447A00D2334E /* SpecialEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialEvent.swift; sourceTree = "<group>"; };
+		0DA0E3C61B9B5F5200D2334E /* SpecialEventButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialEventButtonView.swift; sourceTree = "<group>"; };
 		0DA365DE1B71979500DC12F8 /* grid-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grid-view.png"; sourceTree = "<group>"; };
 		0DA365DF1B71979500DC12F8 /* left-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow.png"; sourceTree = "<group>"; };
 		0DA365E01B71979500DC12F8 /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
@@ -255,6 +256,12 @@
 		0DBBFAAE1B7BBCD200A47AEB /* dishupLogo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dishupLogo@3x.png"; sourceTree = "<group>"; };
 		0DBBFAAF1B7BBCD200A47AEB /* dishupLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dishupLogo@2x.png"; sourceTree = "<group>"; };
 		0DBBFAB01B7BBCD200A47AEB /* dishupLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dishupLogo.png; sourceTree = "<group>"; };
+		0DD18CCF1B97B80800444A43 /* du_restaurant_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = du_restaurant_img.png; sourceTree = "<group>"; };
+		0DD18CD11B97B80F00444A43 /* du_craving_img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = du_craving_img.png; sourceTree = "<group>"; };
+		0DD18CD31B97C2DE00444A43 /* LoadingOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
+		0DD18CD51B97C7D500444A43 /* Mug.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mug.png; sourceTree = "<group>"; };
+		0DD18CD71B97C7E000444A43 /* Mug@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mug@2x.png"; sourceTree = "<group>"; };
+		0DD18CD91B97C7F300444A43 /* Mug@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mug@3x.png"; sourceTree = "<group>"; };
 		0DD96EDB1B6ACD2C00265FE0 /* RestaurantsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantsVC.swift; sourceTree = "<group>"; };
 		0DD96EDD1B6ACE2700265FE0 /* RestaurantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantCell.swift; sourceTree = "<group>"; };
 		0DD96EDF1B6AD10F00265FE0 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -293,13 +300,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0D0A862A1B58391000DF0C71 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -318,7 +318,6 @@
 			isa = PBXGroup;
 			children = (
 				0D0A86181B58391000DF0C71 /* DishUp.app */,
-				0D0A862D1B58391000DF0C71 /* DishUpAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -346,12 +345,16 @@
 			children = (
 				0DEF10CB1B7CD73500117CE4 /* uploadCamera.png */,
 				0DEF10B91B7CCB5A00117CE4 /* maps.png */,
+				0DD18CD71B97C7E000444A43 /* Mug@2x.png */,
+				0DD18CD51B97C7D500444A43 /* Mug.png */,
+				0DD18CD91B97C7F300444A43 /* Mug@3x.png */,
 				0DEF10BA1B7CCB5A00117CE4 /* maps@2x.png */,
 				0DEF10BB1B7CCB5A00117CE4 /* maps@3x.png */,
 				0DEF10BC1B7CCB5A00117CE4 /* phone.png */,
 				0DEF10BD1B7CCB5A00117CE4 /* phone@2x.png */,
 				0DEF10BE1B7CCB5A00117CE4 /* phone@3x.png */,
 				0DEF10BF1B7CCB5A00117CE4 /* website.png */,
+				0D3221721BA3CFC2001ABE44 /* DRW_Transparent.png */,
 				0DEF10C01B7CCB5A00117CE4 /* website@2x.png */,
 				0DEF10C11B7CCB5A00117CE4 /* website@3x.png */,
 				0D7313181B7CB61B008140C1 /* call_dishup.png */,
@@ -387,8 +390,10 @@
 				0D13EC0A1B7B774C0059FA4E /* cravingbg@2x.png */,
 				0D13EC0B1B7B774C0059FA4E /* location@2x.png */,
 				0D13EC0C1B7B774C0059FA4E /* craving@2x.png */,
+				0DD18CD11B97B80F00444A43 /* du_craving_img.png */,
 				0D13EC0D1B7B774C0059FA4E /* location.png */,
 				0D13EC0E1B7B774C0059FA4E /* craving.png */,
+				0DD18CCF1B97B80800444A43 /* du_restaurant_img.png */,
 				0D13EC0F1B7B774C0059FA4E /* cravingbg.png */,
 				0D13EC101B7B774C0059FA4E /* locationbg.png */,
 				0D13EC031B7B757C0059FA4E /* iphone6+_Launch Screen.png */,
@@ -449,6 +454,7 @@
 				0D2B20731B5E8241002B87CC /* Dish.swift */,
 				0DD96EDF1B6AD10F00265FE0 /* Restaurant.swift */,
 				0D3D82F41B6BC70E0031FC18 /* Dishpic.swift */,
+				0DA0E3C21B9A447A00D2334E /* SpecialEvent.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -464,6 +470,7 @@
 				0D3D82F21B6BC7020031FC18 /* DishpicCell.swift */,
 				0DE875CC1B7A1D39008F4715 /* DishInfoPanel.swift */,
 				0D29CE611B7E2D9600822F78 /* DishPicZoomableCell.swift */,
+				0DA0E3C61B9B5F5200D2334E /* SpecialEventButtonView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -490,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				0D81A7A31B5861290071EDEE /* Networking.swift */,
+				0DD18CD31B97C2DE00444A43 /* LoadingOverlay.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -546,24 +554,6 @@
 			productReference = 0D0A86181B58391000DF0C71 /* DishUp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0D0A862C1B58391000DF0C71 /* DishUpAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0D0A863A1B58391000DF0C71 /* Build configuration list for PBXNativeTarget "DishUpAppTests" */;
-			buildPhases = (
-				0D0A86291B58391000DF0C71 /* Sources */,
-				0D0A862A1B58391000DF0C71 /* Frameworks */,
-				0D0A862B1B58391000DF0C71 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0D0A862F1B58391000DF0C71 /* PBXTargetDependency */,
-			);
-			name = DishUpAppTests;
-			productName = DishUpAppTests;
-			productReference = 0D0A862D1B58391000DF0C71 /* DishUpAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -578,10 +568,6 @@
 					0D0A86171B58391000DF0C71 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = E3Q967B23Q;
-					};
-					0D0A862C1B58391000DF0C71 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 0D0A86171B58391000DF0C71;
 					};
 				};
 			};
@@ -599,7 +585,6 @@
 			projectRoot = "";
 			targets = (
 				0D0A86171B58391000DF0C71 /* DishUp */,
-				0D0A862C1B58391000DF0C71 /* DishUpAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -612,6 +597,8 @@
 				0D73131F1B7CB61B008140C1 /* website_dishup.png in Resources */,
 				0D73131C1B7CB61B008140C1 /* call_dishup.png in Resources */,
 				0DEF10C21B7CCB5A00117CE4 /* maps.png in Resources */,
+				0DD18CD61B97C7D500444A43 /* Mug.png in Resources */,
+				0DD18CD81B97C7E000444A43 /* Mug@2x.png in Resources */,
 				0DEF10C91B7CCB5A00117CE4 /* website@2x.png in Resources */,
 				0DBBFAB11B7BBCD200A47AEB /* dishupLogo@3x.png in Resources */,
 				0D3D831B1B6D88E90031FC18 /* Craving.png in Resources */,
@@ -622,6 +609,7 @@
 				0D13EC041B7B757C0059FA4E /* iphone6+_Launch Screen.png in Resources */,
 				0D3D83051B6D16440031FC18 /* SourceSansPro-BlackItalic.ttf in Resources */,
 				0D3D83071B6D16440031FC18 /* SourceSansPro-BoldItalic.ttf in Resources */,
+				0DD18CD01B97B80900444A43 /* du_restaurant_img.png in Resources */,
 				0D78E92A1B626F2600AECC90 /* line14.png in Resources */,
 				0DFFE2A61B72E41D0082B1C9 /* single-view@3x.png in Resources */,
 				0D8942781B76A30600C811B7 /* tooltip.png in Resources */,
@@ -631,12 +619,14 @@
 				0DEF10C81B7CCB5A00117CE4 /* website.png in Resources */,
 				0DBBFAAD1B7BBB6800A47AEB /* loginHeader.png in Resources */,
 				0DA365E71B7197BC00DC12F8 /* left-arrow@2x.png in Resources */,
+				0DD18CDA1B97C7F300444A43 /* Mug@3x.png in Resources */,
 				0D46AB6D1B70E9C3006602C4 /* _@2x.png in Resources */,
 				0D3D83191B6D88E00031FC18 /* Craving@3x.png in Resources */,
 				0D3D83061B6D16440031FC18 /* SourceSansPro-Bold.ttf in Resources */,
 				0D1B1DEA1B82C65100FAF68A /* Settings.bundle in Resources */,
 				0D70D3C81B704AEF007E49C3 /* home@2x.png in Resources */,
 				0D361A441B7BE10700C32319 /* twitterLogin@3x.png in Resources */,
+				0D3221731BA3CFC2001ABE44 /* DRW_Transparent.png in Resources */,
 				0DA365E11B71979500DC12F8 /* grid-view.png in Resources */,
 				0DEF10C61B7CCB5A00117CE4 /* phone@2x.png in Resources */,
 				0D0A86231B58391000DF0C71 /* Main.storyboard in Resources */,
@@ -680,6 +670,7 @@
 				0DDBABD91B7BD48200B4CA26 /* backbtn@3x.png in Resources */,
 				0D3D830F1B6D16440031FC18 /* SourceSansPro-SemiboldItalic.ttf in Resources */,
 				0DEF10CA1B7CCB5A00117CE4 /* website@3x.png in Resources */,
+				0DD18CD21B97B80F00444A43 /* du_craving_img.png in Resources */,
 				0D13EC151B7B774C0059FA4E /* locationbg@2x.png in Resources */,
 				0D3D830D1B6D16440031FC18 /* SourceSansPro-Regular.ttf in Resources */,
 				0D13EC131B7B774C0059FA4E /* location@3x.png in Resources */,
@@ -702,13 +693,6 @@
 				0D3D831F1B6EB4680031FC18 /* grid_photo_shadow.png in Resources */,
 				0DEF10C41B7CCB5A00117CE4 /* maps@3x.png in Resources */,
 				0D3D83211B6F02650031FC18 /* hamburger3.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0D0A862B1B58391000DF0C71 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,11 +762,14 @@
 				0DF554331B75AA1F00E2AB58 /* DishUpNavigationBar.swift in Sources */,
 				0D3D82F31B6BC7020031FC18 /* DishpicCell.swift in Sources */,
 				0D2519B91B665A5E0071AEF0 /* dishesLayout.swift in Sources */,
+				0DA0E3C31B9A447A00D2334E /* SpecialEvent.swift in Sources */,
 				0D81A7A11B585A0F0071EDEE /* DishType.swift in Sources */,
 				0D3AF4561B5E8C37000B1C48 /* coreDataModel.xcdatamodeld in Sources */,
 				0D894E191B77FB9800576557 /* DishesSingleLayout.swift in Sources */,
+				0DD18CD41B97C2DE00444A43 /* LoadingOverlay.swift in Sources */,
 				0D9205A41B78D41500D29FDF /* DishesTransitionLayout.swift in Sources */,
 				0D3D82F51B6BC70E0031FC18 /* Dishpic.swift in Sources */,
+				0DA0E3C71B9B5F5200D2334E /* SpecialEventButtonView.swift in Sources */,
 				0DE875CD1B7A1D39008F4715 /* DishInfoPanel.swift in Sources */,
 				0D81A7A61B5865070071EDEE /* DishTypesVC.swift in Sources */,
 				0D70D0C21B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift in Sources */,
@@ -802,22 +789,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0D0A86291B58391000DF0C71 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0D0A862F1B58391000DF0C71 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0D0A86171B58391000DF0C71 /* DishUp */;
-			targetProxy = 0D0A862E1B58391000DF0C71 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0D0A86211B58391000DF0C71 /* Main.storyboard */ = {
@@ -859,7 +831,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_BITCODE = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -905,7 +878,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_BITCODE = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -931,7 +905,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				ENABLE_BITCODE = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = DishUpApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -949,51 +924,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				ENABLE_BITCODE = NO;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = DishUpApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dishup.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DishUpApp/DishUpApp-Bridging-Header.h";
-			};
-			name = Release;
-		};
-		0D0A863B1B58391000DF0C71 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DishUpAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dishup.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DishUpApp.app/DishUpApp";
-			};
-			name = Debug;
-		};
-		0D0A863C1B58391000DF0C71 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = DishUpAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dishup.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DishUpApp.app/DishUpApp";
 			};
 			name = Release;
 		};
@@ -1014,15 +952,6 @@
 			buildConfigurations = (
 				0D0A86381B58391000DF0C71 /* Debug */,
 				0D0A86391B58391000DF0C71 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0D0A863A1B58391000DF0C71 /* Build configuration list for PBXNativeTarget "DishUpAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0D0A863B1B58391000DF0C71 /* Debug */,
-				0D0A863C1B58391000DF0C71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

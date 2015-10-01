@@ -9,6 +9,7 @@
 import UIKit
 import AMPopTip
 import SDWebImage
+import Mixpanel
 
 class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UINavigationControllerDelegate{
     let reuseIdentifier = "dish_type"
@@ -32,7 +33,18 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
         popTip.textColor = UIColor(red:1.00, green:0.46, blue:0.42, alpha:1.0)
         popTip.edgeInsets = UIEdgeInsetsMake(2, 8, 2, 8)
 
-        Networking.getDishTypes(self, completion: {self.dishTypes!.reloadData()})
+        Networking.getDishTypes(self, completion: {
+            self.dishTypes!.reloadData()
+            onboarding.displayOnboardingPopTip(
+                "Choose the food you're craving. Press and hold any icon to see its name.",
+                direction: AMPopTipDirection.None,
+                inView: self.view,
+                fromFrame: self.view.frame,
+                key: "DishTypesIntro",
+                onDismiss: nil
+            )
+
+        })
         
         if self.revealViewController() != nil {
             
@@ -41,14 +53,7 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         navigationController?.delegate = self
-        onboarding.displayOnboardingPopTip(
-            "Choose the food you're craving. Press and hold any icon to see it's name.",
-            direction: AMPopTipDirection.None,
-            inView: self.view,
-            fromFrame: self.view.frame,
-            key: "DishTypesIntro"
-        )
-    }
+            }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dishTypesArray.count
@@ -80,16 +85,20 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
         return cell
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "dishTypeToDishSegue" {
-            let cell = sender as! DishTypeCollectionViewCell
-            let dishesVC = segue.destinationViewController as! DishesVC
-            dishesVC.dishType = cell.dishType
-            
-           
-            
-
+        if let id = segue.identifier{
+            var props : [NSObject : AnyObject] = [:]
+            if id == "dishTypeToDishSegue" {
+                let cell = sender as! DishTypeCollectionViewCell
+                let dishesVC = segue.destinationViewController as! DishesVC
+                dishesVC.dishType = cell.dishType
+                props[NSString(string: "Craving")] = cell.dishType?.name
+                
+                
+                
+            }
+            props[NSString(string: "Identifier")] = id
+            Mixpanel.sharedInstance().track("Segue From Craving Screen ", properties: props)
         }
-        
     }
     func showToolTip( sender: AnyObject) {
         
@@ -105,7 +114,11 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
             var direction : AMPopTipDirection = .Up
             
             if relativeY <= 30{
-                direction = .Down
+                direction = .Right
+               
+                if relativeX >= screenWidth - 100{
+                    direction = .Left
+                }
             }
             
             let relativeFrame = CGRectMake(relativeX, relativeY, cell.frame.width, cell.frame.height)
