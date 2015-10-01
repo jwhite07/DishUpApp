@@ -32,6 +32,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     var transitionInProgress = false
     var dishType:DishType?
     var restaurant:Restaurant?
+    var loadingContent = false
     
     var dishesArray : [Dish] = []
     let transition = NavigationFlipTransitionController()
@@ -64,6 +65,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     override func viewDidLoad() {
+        loadingContent = true
         super.viewDidLoad()
         if layoutMode == .Single{
             dishes.setCollectionViewLayout(singleLayout, animated: false)
@@ -132,6 +134,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
                     )
                 }
             )
+            self.loadingContent = false
 
         }
         
@@ -463,7 +466,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     }
 
     func transitionSingleGridLayouts(){
-        if !transitionInProgress{
+        if !transitionInProgress && !loadingContent{
             
             let visible = self.dishes.visibleCells() as! [DishCollectionViewCell]
             var toLayout : UICollectionViewLayout
