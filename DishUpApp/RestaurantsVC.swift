@@ -11,16 +11,20 @@ import CoreLocation
 import Mixpanel
 import AMPopTip
 
-class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,  UINavigationControllerDelegate {
+class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,  UINavigationControllerDelegate, UISearchBarDelegate{
     let reuseIdentifier = "restaurant"
     var restaurantsArray : [Restaurant] = []
+    var restaurantsFullArray : [Restaurant] = []
+    
     let transition = NavigationFlipTransitionController()
     var specialEvent : SpecialEvent?
 
 
+    @IBOutlet weak var restaurantSearch: UISearchBar!
 
     @IBOutlet weak var restaurants: UICollectionView!
     override func viewDidLoad() {
+        
         let location = locationManager.location
         var urlParent : String?
         
@@ -31,7 +35,9 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         }
         
         Networking.getRestaurants(self, urlParent: urlParent, location: location, completion: {
+            self.restaurantsArray = self.restaurantsFullArray
             self.restaurants!.reloadData()
+            
             onboarding.displayOnboardingPopTip(
                 "Choose a restaurant to see their menu",
                 direction: AMPopTipDirection.None,
@@ -52,14 +58,27 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         
         // Do any additional setup after loading the view.
         navigationController?.delegate = self
+        restaurantSearch.delegate = self
+        self.automaticallyAdjustsScrollViewInsets = false
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        restaurantsArray = searchText.isEmpty ? restaurantsFullArray : restaurantsFullArray.filter(){
+            if let name = ($0 as Restaurant).name as String! {
+                print("searchText: \(searchText) name: \(name) range: \(name.rangeOfString(searchText))")
+                return name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
+            }else{
+                return false
+            }
+        }
+        
+        restaurants.reloadData()
+    }
+
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return restaurantsArray.count
     }
@@ -117,7 +136,7 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
             
                  cellWidth = collectionWidth
                  cellHeight = collectionHeight / 3
-            
+            print("collection x: \(collectionWidth) y: \(collectionHeight) cell x: \(cellWidth) y: \(cellHeight)")
             return CGSizeMake(cellWidth, cellHeight)
         }
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {

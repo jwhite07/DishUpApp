@@ -96,7 +96,7 @@ class Networking {
                     var jsonObj = JSON(jsonData!)
                     if let dishes = jsonObj["dish_previews"].arrayValue as [JSON]?{
                         let dishesArray = dishes.map({Dish(json: $0)})
-                        requester.dishesArray = dishesArray
+                        requester.dishesFullArray = dishesArray
                         completion?()
                         //LoadingOverlay.shared.hideOverlayView()
                     }
@@ -154,7 +154,7 @@ class Networking {
                     if let restaurants = jsonObj["locations"].arrayValue as [JSON]?{
                         
                         let restaurantsArray =  restaurants.map({ Restaurant(json: $0) })
-                        requester.restaurantsArray = restaurantsArray
+                        requester.restaurantsFullArray = restaurantsArray
                         
                         completion?()
                         LoadingOverlay.shared.hideOverlayView()

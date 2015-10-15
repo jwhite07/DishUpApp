@@ -142,11 +142,10 @@
 		0DFFE2A21B72E3FC0082B1C9 /* single-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE2A11B72E3FC0082B1C9 /* single-view.png */; };
 		0DFFE2A41B72E40B0082B1C9 /* single-view@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE2A31B72E40B0082B1C9 /* single-view@2x.png */; };
 		0DFFE2A61B72E41D0082B1C9 /* single-view@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DFFE2A51B72E41D0082B1C9 /* single-view@3x.png */; };
-		D72C07850EF9C6916392864E /* Pods_DishUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA085EEC2121DF3176BACF5 /* Pods_DishUp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		31C6E1263F7F72129B07E3B6 /* Pods_DishUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16BFD8E01F102ADA47B2BFF /* Pods_DishUp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		029A642AC2EEDB15808F8C52 /* Pods-DishUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DishUp/Pods-DishUp.debug.xcconfig"; sourceTree = "<group>"; };
 		0D0A86181B58391000DF0C71 /* DishUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DishUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D0A861C1B58391000DF0C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D0A861D1B58391000DF0C71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -286,8 +285,9 @@
 		0DFFE2A11B72E3FC0082B1C9 /* single-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-view.png"; sourceTree = "<group>"; };
 		0DFFE2A31B72E40B0082B1C9 /* single-view@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-view@2x.png"; sourceTree = "<group>"; };
 		0DFFE2A51B72E41D0082B1C9 /* single-view@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single-view@3x.png"; sourceTree = "<group>"; };
-		CEA085EEC2121DF3176BACF5 /* Pods_DishUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DishUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED2144F958F3DF4BD4A15B8E /* Pods-DishUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DishUp/Pods-DishUp.release.xcconfig"; sourceTree = "<group>"; };
+		2C37D45339BFB1023658AE7E /* Pods-DishUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DishUp/Pods-DishUp.debug.xcconfig"; sourceTree = "<group>"; };
+		4F3EEC7B165F6AA34B184868 /* Pods-DishUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DishUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DishUp/Pods-DishUp.release.xcconfig"; sourceTree = "<group>"; };
+		C16BFD8E01F102ADA47B2BFF /* Pods_DishUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DishUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,7 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DFC27A91B751A3D00AA2D7E /* CoreLocation.framework in Frameworks */,
-				D72C07850EF9C6916392864E /* Pods_DishUp.framework in Frameworks */,
+				31C6E1263F7F72129B07E3B6 /* Pods_DishUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +310,7 @@
 				0D0A861A1B58391000DF0C71 /* DishUpApp */,
 				0D0A86191B58391000DF0C71 /* Products */,
 				E733D5152CD3DE779F3CC6CB /* Frameworks */,
-				BFC1C109CE4E48DC540515C8 /* Pods */,
+				5D89F9DDA8A749581C9F8D73 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -513,11 +513,11 @@
 			name = Layouts;
 			sourceTree = "<group>";
 		};
-		BFC1C109CE4E48DC540515C8 /* Pods */ = {
+		5D89F9DDA8A749581C9F8D73 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				029A642AC2EEDB15808F8C52 /* Pods-DishUp.debug.xcconfig */,
-				ED2144F958F3DF4BD4A15B8E /* Pods-DishUp.release.xcconfig */,
+				2C37D45339BFB1023658AE7E /* Pods-DishUp.debug.xcconfig */,
+				4F3EEC7B165F6AA34B184868 /* Pods-DishUp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -526,7 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				0DFC27A81B751A3D00AA2D7E /* CoreLocation.framework */,
-				CEA085EEC2121DF3176BACF5 /* Pods_DishUp.framework */,
+				C16BFD8E01F102ADA47B2BFF /* Pods_DishUp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -538,12 +538,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D0A86371B58391000DF0C71 /* Build configuration list for PBXNativeTarget "DishUp" */;
 			buildPhases = (
-				89A3E597FF7C1C665EE1083D /* Check Pods Manifest.lock */,
+				07FD7BA33AD454F6DB92F555 /* Check Pods Manifest.lock */,
 				0D0A86141B58391000DF0C71 /* Sources */,
 				0D0A86151B58391000DF0C71 /* Frameworks */,
 				0D0A86161B58391000DF0C71 /* Resources */,
-				B4F8853D8C0C37478EE4D680 /* Embed Pods Frameworks */,
-				EED57CC702BEECDD00543C51 /* Copy Pods Resources */,
+				909967EBB1C7DA6AD41A0CA6 /* Embed Pods Frameworks */,
+				1008ABB5B866A3843A10240F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -699,7 +699,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		89A3E597FF7C1C665EE1083D /* Check Pods Manifest.lock */ = {
+		07FD7BA33AD454F6DB92F555 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -714,22 +714,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B4F8853D8C0C37478EE4D680 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DishUp/Pods-DishUp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EED57CC702BEECDD00543C51 /* Copy Pods Resources */ = {
+		1008ABB5B866A3843A10240F /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -742,6 +727,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DishUp/Pods-DishUp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		909967EBB1C7DA6AD41A0CA6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DishUp/Pods-DishUp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -900,12 +900,12 @@
 		};
 		0D0A86381B58391000DF0C71 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 029A642AC2EEDB15808F8C52 /* Pods-DishUp.debug.xcconfig */;
+			baseConfigurationReference = 2C37D45339BFB1023658AE7E /* Pods-DishUp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = DishUpApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
@@ -919,12 +919,12 @@
 		};
 		0D0A86391B58391000DF0C71 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED2144F958F3DF4BD4A15B8E /* Pods-DishUp.release.xcconfig */;
+			baseConfigurationReference = 4F3EEC7B165F6AA34B184868 /* Pods-DishUp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = DishUpApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
