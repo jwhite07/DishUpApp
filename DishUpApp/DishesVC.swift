@@ -23,7 +23,7 @@ var targetIndexPath : NSIndexPath = NSIndexPath(forItem: 0, inSection: 0)
 var targetGridOffset = CGPointZero
 let dishesGlobal : UICollectionView? = nil
 
-class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate {
+class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate, UISearchBarDelegate {
     let reuseIdentifier = "dish"
     @IBOutlet weak var zoomLevel: UIButton!
     @IBOutlet weak var dishes: UICollectionView!
@@ -35,6 +35,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     var loadingContent = false
     
     var dishesArray : [Dish] = []
+    var dishesFullArray : [Dish] = []
     let transition = NavigationFlipTransitionController()
     let singleLayout = DishesSingleLayout()
     let gridLayout = DishesGridLayout()
@@ -48,6 +49,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     var hideLeftArrowCurrent = false
     var hideRightArrowCurrent = false
     
+    @IBOutlet weak var dishesSearch: UISearchBar!
     @IBOutlet weak var infoPanel: UIView!
     @IBOutlet weak var leftArrow: UIButton!
     @IBOutlet weak var rightArrow: UIButton!
@@ -77,6 +79,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         let loadComplete : () -> () = {
             
             self.dishes!.reloadData()
+            self.dishesArray = self.dishesFullArray
             let relativeFrame = CGRectMake(screenWidth - 52, self.zoomLevel.frame.origin.y + 64, self.zoomLevel.frame.width, self.zoomLevel.frame.height)
             if layoutMode == .Single{
 //                self.infoPanel.hidden = false
@@ -135,7 +138,6 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
                 }
             )
             self.loadingContent = false
-
         }
         
         
@@ -149,10 +151,23 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         }
         self.zoomLevel.setImage(layoutButtonImg, forState: UIControlState.Normal)
         lastContentOffset = dishes.contentOffset.x
-        
+        dishesSearch.delegate = self
+self.automaticallyAdjustsScrollViewInsets = false
         
     }
-    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        dishesArray = searchText.isEmpty ? dishesFullArray : dishesFullArray.filter(){
+            if let name = ($0 as Dish).name as String! {
+                print("searchText: \(searchText) name: \(name) range: \(name.rangeOfString(searchText))")
+                return name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
+            }else{
+                return false
+            }
+        }
+        
+        dishes.reloadData()
+    }
+
     @IBAction func handleCellPinch(recognizer: UIPinchGestureRecognizer) {
 //        if recognizer.state == UIGestureRecognizerState.Ended{
 //            if !transitionInProgress{
