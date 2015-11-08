@@ -31,7 +31,9 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     var transitionLayout : UICollectionViewTransitionLayout?
     var transitionInProgress = false
     var dishType:DishType?
+    var dishTypeId:Int?
     var restaurant:Restaurant?
+    var menuId:Int?
     var loadingContent = false
     
     var dishesArray : [Dish] = []
@@ -140,12 +142,17 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
             self.loadingContent = false
         }
         
+        if let dtId = dishType?.id{
+            dishTypeId = dtId
+        }
+        if let restId = restaurant?.menu_id{
+            menuId = restId
+        }
         
-        
-        if let dishTypeId = dishType?.id{
-            Networking.getDishes(self, urlParent: "dish_types/\(dishTypeId)", completion: loadComplete)
-        }else if let menuId = restaurant?.menu_id{
-            Networking.getDishes(self, urlParent: "menus/\(menuId)", completion: loadComplete)
+        if  dishTypeId != nil{
+            Networking.getDishes(self, urlParent: "dish_types/\(dishTypeId!)", completion: loadComplete)
+        }else if  menuId != nil{
+            Networking.getDishes(self, urlParent: "menus/\(menuId!)", completion: loadComplete)
         }else{
             Networking.getDishes(self, urlParent: nil, completion: loadComplete)
         }
@@ -446,26 +453,31 @@ self.automaticallyAdjustsScrollViewInsets = false
     }
    
     @IBAction func tapLeftArrow(sender: AnyObject) {
-        let point = CGPointMake(dishes.frame.width / 2 + dishes.contentOffset.x, dishes.frame.height / 2 )
-        let indexPath : NSIndexPath = dishes.indexPathForItemAtPoint(point)!
-        if indexPath != 0{
-            self.dishes!.scrollToItemAtIndexPath(NSIndexPath(forItem: indexPath.row - 1, inSection: indexPath.section),
-                atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally,
-                animated: true)
+        if !loadingContent{
+            let point = CGPointMake(dishes.frame.width / 2 + dishes.contentOffset.x, dishes.frame.height / 2 )
+            let indexPath : NSIndexPath = dishes.indexPathForItemAtPoint(point)!
+            if indexPath != 0 {
+                self.dishes!.scrollToItemAtIndexPath(NSIndexPath(forItem: indexPath.row - 1, inSection: indexPath.section),
+                    atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally,
+                    animated: true)
+                
+            }
 
         }
         
     }
     @IBAction func tapRightArrow(sender: AnyObject) {
-        let point = CGPointMake(dishes.frame.width / 2 + dishes.contentOffset.x, dishes.frame.height / 2 )
-        let indexPath : NSIndexPath = dishes.indexPathForItemAtPoint(point)!
-        if indexPath != dishesArray.count - 1{
-            self.dishes!.scrollToItemAtIndexPath(NSIndexPath(forItem: indexPath.row + 1, inSection: indexPath.section),
-                atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally,
-                animated: true)
-
+        if !loadingContent{
+            let point = CGPointMake(dishes.frame.width / 2 + dishes.contentOffset.x, dishes.frame.height / 2 )
+            let indexPath : NSIndexPath = dishes.indexPathForItemAtPoint(point)!
+            if indexPath != dishesArray.count - 1 {
+                self.dishes!.scrollToItemAtIndexPath(NSIndexPath(forItem: indexPath.row + 1, inSection: indexPath.section),
+                    atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally,
+                    animated: true)
+                
+            }
+ 
         }
-        
         
     }
     func popAnimationForAxis(fromValue: CGFloat, toValue: CGFloat) -> POPAnimation{

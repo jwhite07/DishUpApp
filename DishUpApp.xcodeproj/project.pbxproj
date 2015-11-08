@@ -33,7 +33,7 @@
 		0D2B20701B5D8D71002B87CC /* DishesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B206F1B5D8D71002B87CC /* DishesVC.swift */; };
 		0D2B20721B5E81B2002B87CC /* DishCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B20711B5E81B2002B87CC /* DishCollectionViewCell.swift */; };
 		0D2B20741B5E8241002B87CC /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B20731B5E8241002B87CC /* Dish.swift */; };
-		0D3221731BA3CFC2001ABE44 /* DRW_Transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3221721BA3CFC2001ABE44 /* DRW_Transparent.png */; settings = {ASSET_TAGS = (); }; };
+		0D3221731BA3CFC2001ABE44 /* DRW_Transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D3221721BA3CFC2001ABE44 /* DRW_Transparent.png */; };
 		0D361A431B7BE10700C32319 /* avatarBorder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D361A371B7BE10700C32319 /* avatarBorder@3x.png */; };
 		0D361A441B7BE10700C32319 /* twitterLogin@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D361A381B7BE10700C32319 /* twitterLogin@3x.png */; };
 		0D361A451B7BE10700C32319 /* avatarDefault@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D361A391B7BE10700C32319 /* avatarDefault@3x.png */; };
@@ -74,6 +74,8 @@
 		0D46AB6B1B70E9B9006602C4 /* _.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D46AB6A1B70E9B9006602C4 /* _.png */; };
 		0D46AB6D1B70E9C3006602C4 /* _@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D46AB6C1B70E9C3006602C4 /* _@2x.png */; };
 		0D46AB6F1B70E9D2006602C4 /* _@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D46AB6E1B70E9D2006602C4 /* _@3x.png */; };
+		0D4F894D1BE41864009B4354 /* Promo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F894C1BE41864009B4354 /* Promo.swift */; };
+		0D4F89511BE69653009B4354 /* PromoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F89501BE69653009B4354 /* PromoButtonView.swift */; };
 		0D68BD9A1B82AD2B007DF033 /* VinsettaGarage_The3AM.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D68BD991B82AD2B007DF033 /* VinsettaGarage_The3AM.jpg */; };
 		0D70D0C21B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D70D0C11B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift */; };
 		0D70D3C41B6FF2BD007E49C3 /* iphone6+.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D70D3C31B6FF2BD007E49C3 /* iphone6+.png */; };
@@ -94,8 +96,7 @@
 		0D894E171B77FB8A00576557 /* DishesGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D894E161B77FB8A00576557 /* DishesGridLayout.swift */; };
 		0D894E191B77FB9800576557 /* DishesSingleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D894E181B77FB9800576557 /* DishesSingleLayout.swift */; };
 		0D9205A41B78D41500D29FDF /* DishesTransitionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9205A31B78D41500D29FDF /* DishesTransitionLayout.swift */; };
-		0DA0E3C31B9A447A00D2334E /* SpecialEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA0E3C21B9A447A00D2334E /* SpecialEvent.swift */; settings = {ASSET_TAGS = (); }; };
-		0DA0E3C71B9B5F5200D2334E /* SpecialEventButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA0E3C61B9B5F5200D2334E /* SpecialEventButtonView.swift */; settings = {ASSET_TAGS = (); }; };
+		0DA0E3C31B9A447A00D2334E /* SpecialEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA0E3C21B9A447A00D2334E /* SpecialEvent.swift */; };
 		0DA365E11B71979500DC12F8 /* grid-view.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365DE1B71979500DC12F8 /* grid-view.png */; };
 		0DA365E21B71979500DC12F8 /* left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365DF1B71979500DC12F8 /* left-arrow.png */; };
 		0DA365E31B71979500DC12F8 /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DA365E01B71979500DC12F8 /* right-arrow.png */; };
@@ -112,12 +113,12 @@
 		0DBBFAB11B7BBCD200A47AEB /* dishupLogo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DBBFAAE1B7BBCD200A47AEB /* dishupLogo@3x.png */; };
 		0DBBFAB21B7BBCD200A47AEB /* dishupLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DBBFAAF1B7BBCD200A47AEB /* dishupLogo@2x.png */; };
 		0DBBFAB31B7BBCD200A47AEB /* dishupLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DBBFAB01B7BBCD200A47AEB /* dishupLogo.png */; };
-		0DD18CD01B97B80900444A43 /* du_restaurant_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CCF1B97B80800444A43 /* du_restaurant_img.png */; settings = {ASSET_TAGS = (); }; };
-		0DD18CD21B97B80F00444A43 /* du_craving_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CD11B97B80F00444A43 /* du_craving_img.png */; settings = {ASSET_TAGS = (); }; };
-		0DD18CD41B97C2DE00444A43 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD18CD31B97C2DE00444A43 /* LoadingOverlay.swift */; settings = {ASSET_TAGS = (); }; };
-		0DD18CD61B97C7D500444A43 /* Mug.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CD51B97C7D500444A43 /* Mug.png */; settings = {ASSET_TAGS = (); }; };
-		0DD18CD81B97C7E000444A43 /* Mug@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CD71B97C7E000444A43 /* Mug@2x.png */; settings = {ASSET_TAGS = (); }; };
-		0DD18CDA1B97C7F300444A43 /* Mug@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CD91B97C7F300444A43 /* Mug@3x.png */; settings = {ASSET_TAGS = (); }; };
+		0DD18CD01B97B80900444A43 /* du_restaurant_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CCF1B97B80800444A43 /* du_restaurant_img.png */; };
+		0DD18CD21B97B80F00444A43 /* du_craving_img.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CD11B97B80F00444A43 /* du_craving_img.png */; };
+		0DD18CD41B97C2DE00444A43 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD18CD31B97C2DE00444A43 /* LoadingOverlay.swift */; };
+		0DD18CD61B97C7D500444A43 /* Mug.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CD51B97C7D500444A43 /* Mug.png */; };
+		0DD18CD81B97C7E000444A43 /* Mug@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CD71B97C7E000444A43 /* Mug@2x.png */; };
+		0DD18CDA1B97C7F300444A43 /* Mug@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DD18CD91B97C7F300444A43 /* Mug@3x.png */; };
 		0DD96EDC1B6ACD2C00265FE0 /* RestaurantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDB1B6ACD2C00265FE0 /* RestaurantsVC.swift */; };
 		0DD96EDE1B6ACE2700265FE0 /* RestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDD1B6ACE2700265FE0 /* RestaurantCell.swift */; };
 		0DD96EE01B6AD10F00265FE0 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD96EDF1B6AD10F00265FE0 /* Restaurant.swift */; };
@@ -217,6 +218,8 @@
 		0D46AB6A1B70E9B9006602C4 /* _.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = _.png; sourceTree = "<group>"; };
 		0D46AB6C1B70E9C3006602C4 /* _@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "_@2x.png"; sourceTree = "<group>"; };
 		0D46AB6E1B70E9D2006602C4 /* _@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "_@3x.png"; sourceTree = "<group>"; };
+		0D4F894C1BE41864009B4354 /* Promo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promo.swift; sourceTree = "<group>"; };
+		0D4F89501BE69653009B4354 /* PromoButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoButtonView.swift; sourceTree = "<group>"; };
 		0D68BD991B82AD2B007DF033 /* VinsettaGarage_The3AM.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = VinsettaGarage_The3AM.jpg; sourceTree = "<group>"; };
 		0D70D0C11B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationFlipTransitionController.swift; sourceTree = "<group>"; };
 		0D70D3C31B6FF2BD007E49C3 /* iphone6+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone6+.png"; sourceTree = "<group>"; };
@@ -238,7 +241,6 @@
 		0D894E181B77FB9800576557 /* DishesSingleLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesSingleLayout.swift; sourceTree = "<group>"; };
 		0D9205A31B78D41500D29FDF /* DishesTransitionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesTransitionLayout.swift; sourceTree = "<group>"; };
 		0DA0E3C21B9A447A00D2334E /* SpecialEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialEvent.swift; sourceTree = "<group>"; };
-		0DA0E3C61B9B5F5200D2334E /* SpecialEventButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialEventButtonView.swift; sourceTree = "<group>"; };
 		0DA365DE1B71979500DC12F8 /* grid-view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grid-view.png"; sourceTree = "<group>"; };
 		0DA365DF1B71979500DC12F8 /* left-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow.png"; sourceTree = "<group>"; };
 		0DA365E01B71979500DC12F8 /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				0DD96EDF1B6AD10F00265FE0 /* Restaurant.swift */,
 				0D3D82F41B6BC70E0031FC18 /* Dishpic.swift */,
 				0DA0E3C21B9A447A00D2334E /* SpecialEvent.swift */,
+				0D4F894C1BE41864009B4354 /* Promo.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -470,7 +473,7 @@
 				0D3D82F21B6BC7020031FC18 /* DishpicCell.swift */,
 				0DE875CC1B7A1D39008F4715 /* DishInfoPanel.swift */,
 				0D29CE611B7E2D9600822F78 /* DishPicZoomableCell.swift */,
-				0DA0E3C61B9B5F5200D2334E /* SpecialEventButtonView.swift */,
+				0D4F89501BE69653009B4354 /* PromoButtonView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -767,9 +770,9 @@
 				0D3AF4561B5E8C37000B1C48 /* coreDataModel.xcdatamodeld in Sources */,
 				0D894E191B77FB9800576557 /* DishesSingleLayout.swift in Sources */,
 				0DD18CD41B97C2DE00444A43 /* LoadingOverlay.swift in Sources */,
+				0D4F89511BE69653009B4354 /* PromoButtonView.swift in Sources */,
 				0D9205A41B78D41500D29FDF /* DishesTransitionLayout.swift in Sources */,
 				0D3D82F51B6BC70E0031FC18 /* Dishpic.swift in Sources */,
-				0DA0E3C71B9B5F5200D2334E /* SpecialEventButtonView.swift in Sources */,
 				0DE875CD1B7A1D39008F4715 /* DishInfoPanel.swift in Sources */,
 				0D81A7A61B5865070071EDEE /* DishTypesVC.swift in Sources */,
 				0D70D0C21B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift in Sources */,
@@ -778,6 +781,7 @@
 				0DD96EDC1B6ACD2C00265FE0 /* RestaurantsVC.swift in Sources */,
 				0D0A861E1B58391000DF0C71 /* AppDelegate.swift in Sources */,
 				0DB64ADE1B58417700BF3181 /* MenuTableVC.swift in Sources */,
+				0D4F894D1BE41864009B4354 /* Promo.swift in Sources */,
 				0D0A86401B58392D00DF0C71 /* SWRevealViewController.m in Sources */,
 				0DD96EE01B6AD10F00265FE0 /* Restaurant.swift in Sources */,
 				0D894E171B77FB8A00576557 /* DishesGridLayout.swift in Sources */,

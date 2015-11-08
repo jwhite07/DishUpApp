@@ -18,6 +18,7 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
     
     let transition = NavigationFlipTransitionController()
     var specialEvent : SpecialEvent?
+    var specialEventId : Int?
 
 
     @IBOutlet weak var restaurantSearch: UISearchBar!
