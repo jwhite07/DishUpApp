@@ -77,7 +77,6 @@
 		0D4F894D1BE41864009B4354 /* Promo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F894C1BE41864009B4354 /* Promo.swift */; };
 		0D4F89511BE69653009B4354 /* PromoButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4F89501BE69653009B4354 /* PromoButtonView.swift */; };
 		0D68BD9A1B82AD2B007DF033 /* VinsettaGarage_The3AM.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D68BD991B82AD2B007DF033 /* VinsettaGarage_The3AM.jpg */; };
-		0D70D0C21B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D70D0C11B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift */; };
 		0D70D3C41B6FF2BD007E49C3 /* iphone6+.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D70D3C31B6FF2BD007E49C3 /* iphone6+.png */; };
 		0D70D3C61B704AE4007E49C3 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D70D3C51B704AE4007E49C3 /* home.png */; };
 		0D70D3C81B704AEF007E49C3 /* home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D70D3C71B704AEF007E49C3 /* home@2x.png */; };
@@ -221,7 +220,6 @@
 		0D4F894C1BE41864009B4354 /* Promo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promo.swift; sourceTree = "<group>"; };
 		0D4F89501BE69653009B4354 /* PromoButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromoButtonView.swift; sourceTree = "<group>"; };
 		0D68BD991B82AD2B007DF033 /* VinsettaGarage_The3AM.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = VinsettaGarage_The3AM.jpg; sourceTree = "<group>"; };
-		0D70D0C11B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationFlipTransitionController.swift; sourceTree = "<group>"; };
 		0D70D3C31B6FF2BD007E49C3 /* iphone6+.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone6+.png"; sourceTree = "<group>"; };
 		0D70D3C51B704AE4007E49C3 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		0D70D3C71B704AEF007E49C3 /* home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home@2x.png"; sourceTree = "<group>"; };
@@ -489,7 +487,6 @@
 				0D3D82F01B6BC6A30031FC18 /* DishDetailVC.swift */,
 				0D3D831C1B6D8E5D0031FC18 /* LaunchScreenVC.swift */,
 				0DF554321B75AA1F00E2AB58 /* DishUpNavigationBar.swift */,
-				0D70D0C11B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift */,
 				0DE2236D1B7D547A0072822F /* DishPicsVC.swift */,
 				0DFDB0B01B827B2800619BE8 /* OnboardingController.swift */,
 			);
@@ -775,7 +772,6 @@
 				0D3D82F51B6BC70E0031FC18 /* Dishpic.swift in Sources */,
 				0DE875CD1B7A1D39008F4715 /* DishInfoPanel.swift in Sources */,
 				0D81A7A61B5865070071EDEE /* DishTypesVC.swift in Sources */,
-				0D70D0C21B7711FC00DDF6C5 /* NavigationFlipTransitionController.swift in Sources */,
 				0D1530111B680C6000F4B322 /* dishesFlowLayout.swift in Sources */,
 				0D0A86201B58391000DF0C71 /* ViewController.swift in Sources */,
 				0DD96EDC1B6ACD2C00265FE0 /* RestaurantsVC.swift in Sources */,

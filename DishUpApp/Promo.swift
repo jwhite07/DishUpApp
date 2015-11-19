@@ -39,7 +39,7 @@ final class Promo{
         self.restaurant_id = json["restaurant_id"].int
         self.special_event_id = json["special_event_id"].int
         self.dish_type_id = json["dish_type_id"].int
-        self.url = json["url"].string
+        self.url = json["link_url"].string
         self.distance = json["distance"].float
         self.action = json["action"].stringValue
         self.menu_id = json["menu_id"].int

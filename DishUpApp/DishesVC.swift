@@ -38,7 +38,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     
     var dishesArray : [Dish] = []
     var dishesFullArray : [Dish] = []
-    let transition = NavigationFlipTransitionController()
+//    let transition = NavigationFlipTransitionController()
     let singleLayout = DishesSingleLayout()
     let gridLayout = DishesGridLayout()
 
@@ -148,7 +148,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         if let restId = restaurant?.menu_id{
             menuId = restId
         }
-        
+        print("dish type id: \(dishTypeId) menuID: \(menuId)")
         if  dishTypeId != nil{
             Networking.getDishes(self, urlParent: "dish_types/\(dishTypeId!)", completion: loadComplete)
         }else if  menuId != nil{

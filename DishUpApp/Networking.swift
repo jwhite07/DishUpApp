@@ -98,7 +98,13 @@ class Networking {
                             requester.promoLabel.backgroundColor = hexStringToUIColor(promo.title_color)
                             requester.promoButton.backgroundColor = hexStringToUIColor(promo.body_color)
                             requester.promoButton.promo = promo
-                        
+                            if let promoimg = promo.img{
+                                if let url = Networking.sanitizeUrlFromString(promoimg){
+                                    requester.promoImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "placeholder.png"))
+                                }
+                                
+                            }
+
                         
                         completion?()
                     }

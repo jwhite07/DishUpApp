@@ -39,7 +39,7 @@ class LaunchScreenVC: UIViewController {
 
             
         case "special_event_link":
-            performSegueWithIdentifier("promoToRestaurant", sender: promoButton)
+            performSegueWithIdentifier("promoToRestaurants", sender: promoButton)
 
         default:
             print("invalid promo action")
@@ -95,9 +95,10 @@ class LaunchScreenVC: UIViewController {
                 let navController = segue.destinationViewController as! UINavigationController
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
-//
-                navController.pushViewController(dishesVC, animated: false)
+//      
                 dishesVC.menuId = promoButton.promo!.menu_id
+                navController.pushViewController(dishesVC, animated: false)
+                
                     
                     
                 
@@ -108,17 +109,16 @@ class LaunchScreenVC: UIViewController {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
                 //
-                navController.pushViewController(dishesVC, animated: false)
                 dishesVC.dishTypeId = promoButton.promo?.dish_type_id
+                navController.pushViewController(dishesVC, animated: false)
+                
 
             }
             
             if id == "promoToRestaurants" {
-                if let button = sender!.view as? PromoButtonView{
                     let restaurantsVC = (segue.destinationViewController as! UINavigationController).viewControllers.first as! RestaurantsVC
-                    restaurantsVC.specialEventId = button.promo!.special_event_id
+                    restaurantsVC.specialEventId = promoButton.promo!.special_event_id
                     
-                }
             }
 
 

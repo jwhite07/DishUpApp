@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="f8w-Mg-NRI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="f8w-Mg-NRI">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -245,7 +245,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cwV-E9-nts">
-                                        <rect key="frame" x="8" y="28" width="584" height="39"/>
+                                        <rect key="frame" x="8" y="20" width="584" height="55"/>
                                         <animations/>
                                     </imageView>
                                 </subviews>
@@ -253,8 +253,8 @@
                                 <color key="backgroundColor" red="0.11764705882352941" green="0.57647058823529407" blue="0.70588235294117641" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="cwV-E9-nts" firstAttribute="top" secondItem="8Sl-Td-i3V" secondAttribute="bottom" constant="8" id="HYI-or-Isg"/>
-                                    <constraint firstAttribute="bottom" secondItem="cwV-E9-nts" secondAttribute="bottom" constant="8" id="Z8L-e2-xVy"/>
+                                    <constraint firstItem="cwV-E9-nts" firstAttribute="top" secondItem="8Sl-Td-i3V" secondAttribute="bottom" id="HYI-or-Isg"/>
+                                    <constraint firstAttribute="bottom" secondItem="cwV-E9-nts" secondAttribute="bottom" id="Z8L-e2-xVy"/>
                                     <constraint firstItem="8Sl-Td-i3V" firstAttribute="leading" secondItem="Ncu-1u-AAS" secondAttribute="leading" id="Zar-dc-VnD"/>
                                     <constraint firstItem="8Sl-Td-i3V" firstAttribute="top" secondItem="Ncu-1u-AAS" secondAttribute="top" id="c39-eP-qKd"/>
                                     <constraint firstAttribute="height" constant="75" id="ck9-sC-puR"/>
@@ -500,7 +500,8 @@
                             <searchBar contentMode="redraw" placeholder="search by restaurant name" translatesAutoresizingMaskIntoConstraints="NO" id="f5Q-0A-nUT">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <animations/>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="tintColor" red="0.80392156859999997" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </searchBar>
                         </subviews>
                         <animations/>
@@ -1614,7 +1615,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qTT-HZ-QOT"/>
-        <segue reference="kkn-OE-nWX"/>
+        <segue reference="OJH-hh-rda"/>
         <segue reference="Fvz-or-EST"/>
         <segue reference="t5Y-YH-8pa"/>
     </inferredMetricsTieBreakers>

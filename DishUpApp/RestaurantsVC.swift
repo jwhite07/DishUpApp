@@ -11,12 +11,12 @@ import CoreLocation
 import Mixpanel
 import AMPopTip
 
-class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,  UINavigationControllerDelegate, UISearchBarDelegate{
+class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,   UISearchBarDelegate{
     let reuseIdentifier = "restaurant"
     var restaurantsArray : [Restaurant] = []
     var restaurantsFullArray : [Restaurant] = []
     
-    let transition = NavigationFlipTransitionController()
+//    let transition = NavigationFlipTransitionController()
     var specialEvent : SpecialEvent?
     var specialEventId : Int?
 
@@ -29,8 +29,8 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         let location = locationManager.location
         var urlParent : String?
         
-        if let s = specialEvent{
-            urlParent = "special_events/\(s.id)"
+        if specialEventId != nil{
+            urlParent = "special_events/\(specialEventId!)"
         }else{
             
         }
@@ -58,7 +58,7 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         }
         
         // Do any additional setup after loading the view.
-        navigationController?.delegate = self
+//        navigationController?.delegate = self
         restaurantSearch.delegate = self
         self.automaticallyAdjustsScrollViewInsets = false
     }
@@ -79,6 +79,7 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         
         restaurants.reloadData()
     }
+    
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return restaurantsArray.count
@@ -136,14 +137,14 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
             var cellHeight : CGFloat
             
                  cellWidth = collectionWidth
-                 cellHeight = collectionHeight / 3
+                 cellHeight = cellWidth / 16 * 9
             print("collection x: \(collectionWidth) y: \(collectionHeight) cell x: \(cellWidth) y: \(cellHeight)")
             return CGSizeMake(cellWidth, cellHeight)
         }
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.reverse = operation == .Pop
-        return transition
-    }
+//    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        transition.reverse = operation == .Pop
+//        return transition
+//    }
 
 
     /*
