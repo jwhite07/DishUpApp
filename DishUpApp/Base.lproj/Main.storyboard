@@ -385,6 +385,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O1I-j8-QjX">
+                                <rect key="frame" x="0.0" y="64" width="600" height="45"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="B2W-tE-Fba"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ADU-F5-koI">
                                 <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <animations/>
@@ -396,7 +404,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="restaurant" id="soG-wG-FFp" customClass="RestaurantCell" customModule="DishUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
@@ -497,23 +505,17 @@
                                     <outlet property="delegate" destination="pTd-nr-APT" id="b3H-SD-iog"/>
                                 </connections>
                             </collectionView>
-                            <searchBar contentMode="redraw" placeholder="search by restaurant name" translatesAutoresizingMaskIntoConstraints="NO" id="f5Q-0A-nUT">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <animations/>
-                                <color key="tintColor" red="0.80392156859999997" green="0.79215686269999996" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                            </searchBar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="f5Q-0A-nUT" secondAttribute="trailing" id="Em1-E0-TAa"/>
-                            <constraint firstItem="f5Q-0A-nUT" firstAttribute="leading" secondItem="KSM-52-sdr" secondAttribute="leading" id="Lij-M1-hnA"/>
+                            <constraint firstItem="O1I-j8-QjX" firstAttribute="leading" secondItem="KSM-52-sdr" secondAttribute="leading" id="D64-Oe-Crg"/>
                             <constraint firstItem="a1Q-fw-mAz" firstAttribute="top" secondItem="ADU-F5-koI" secondAttribute="bottom" id="Ncl-EZ-NX4"/>
-                            <constraint firstItem="ADU-F5-koI" firstAttribute="top" secondItem="f5Q-0A-nUT" secondAttribute="bottom" id="S22-Y2-pOZ"/>
+                            <constraint firstItem="ADU-F5-koI" firstAttribute="top" secondItem="O1I-j8-QjX" secondAttribute="bottom" id="Qqx-vS-AsR"/>
+                            <constraint firstAttribute="trailing" secondItem="O1I-j8-QjX" secondAttribute="trailing" id="UXR-oI-gcP"/>
                             <constraint firstAttribute="trailing" secondItem="ADU-F5-koI" secondAttribute="trailing" id="kPj-rD-KBS"/>
                             <constraint firstItem="ADU-F5-koI" firstAttribute="leading" secondItem="KSM-52-sdr" secondAttribute="leading" id="pyC-DC-zFC"/>
-                            <constraint firstItem="f5Q-0A-nUT" firstAttribute="top" secondItem="Bug-44-9Zj" secondAttribute="bottom" id="zBa-ZC-AAB"/>
+                            <constraint firstItem="O1I-j8-QjX" firstAttribute="top" secondItem="Bug-44-9Zj" secondAttribute="bottom" id="qWI-AE-5bh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XCn-t4-HwL">
@@ -525,8 +527,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="restaurantSearch" destination="f5Q-0A-nUT" id="aIa-GK-HeK"/>
                         <outlet property="restaurants" destination="ADU-F5-koI" id="31I-Rq-3sW"/>
+                        <outlet property="searchContainer" destination="O1I-j8-QjX" id="gQJ-ha-Hmh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Rd-Gt-8Mx" userLabel="First Responder" sceneMemberID="firstResponder"/>
