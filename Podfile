@@ -6,7 +6,7 @@ use_frameworks!
 target 'DishUp' do
   pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
   pod 'Alamofire'
-
+  pod 'Hoko', '~> 2.3.0'
 
   pod 'Cosmos', '~> 1.0'
   pod 'AMPopTip'

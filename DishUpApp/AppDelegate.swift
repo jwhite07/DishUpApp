@@ -9,6 +9,12 @@
 import UIKit
 import CoreData
 import Mixpanel
+import Hoko
+
+
+
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +26,82 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Mixpanel.sharedInstanceWithToken("c9f81e183e090615baf07d3bc7596316")
         Mixpanel.sharedInstance().timeEvent("Session End")
+        Hoko.setupWithToken("abb81ada490053a17911cdd9441def6a6879f29b")
+        //self.router = DPLDeepLinkRouter()
+        Hoko.deeplinking().mapRoute("menus/:menu_id", toTarget: {
+            (deeplink: HOKDeeplink) -> Void in
+            if let menuIdStr = deeplink.routeParameters?["menu_id"] {
+                if let menuId = Int(menuIdStr){
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+                    let navController = storyboard.instantiateViewControllerWithIdentifier("RestaurantsNavController") as! UINavigationController
+                    
+                    let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
+                    //
+                    dishesVC.menuId = menuId
+                    self.window?.rootViewController = navController
+                    navController.pushViewController(dishesVC, animated: false)
+                    
+
+                }
+            }
+        })
+        Hoko.deeplinking().mapRoute("menus/:menu_id/dishes/:dish_id", toTarget: {
+            (deeplink: HOKDeeplink) -> Void in
+            if let menuIdStr = deeplink.routeParameters?["menu_id"], let dishIdStr = deeplink.routeParameters?["dish_id"] {
+                if let menuId =  Int(menuIdStr), let dishId = Int(dishIdStr){
+                        
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                    let navController = storyboard.instantiateViewControllerWithIdentifier("RestaurantsNavController") as! UINavigationController
+                    
+                    let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
+                    //
+                    dishesVC.menuId = menuId
+                    dishesVC.initialDishId = dishId
+                    self.window?.rootViewController = navController
+                    navController.pushViewController(dishesVC, animated: false)
+                }
+
+            }
+        })
+        Hoko.deeplinking().mapRoute("dish_types/:dish_type_id", toTarget: {
+            (deeplink: HOKDeeplink) -> Void in
+            if let dishTypeIdStr = deeplink.routeParameters?["dish_type_id"] {
+                if let dishTypeId = Int(dishTypeIdStr){
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                    let navController = storyboard.instantiateViewControllerWithIdentifier("DishTypesNavController") as! UINavigationController
+                    
+                    let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
+                    //
+                    dishesVC.dishTypeId = dishTypeId
+                    //dishesVC.initialDishId = dishId
+                    self.window?.rootViewController = navController
+
+                }
+            }
+        })
+        Hoko.deeplinking().mapRoute("dish_types/:dish_type_id/dishes/:dish_id", toTarget: {
+            (deeplink: HOKDeeplink) -> Void in
+            if let dishTypeIdStr = deeplink.routeParameters?["dish_type_id"], let dishIdStr = deeplink.routeParameters?["dish_id"] {
+                if let dishTypeId =  Int(dishTypeIdStr), let dishId = Int(dishIdStr){
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    
+                    let navController = storyboard.instantiateViewControllerWithIdentifier("DishTypesNavController") as! UINavigationController
+                    
+                    let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
+                    //
+                    dishesVC.dishTypeId = dishTypeId
+                    dishesVC.initialDishId = dishId
+                    self.window?.rootViewController = navController
+                }
+            }
+        })
+
+
         return true
     }
 

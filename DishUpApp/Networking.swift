@@ -81,6 +81,7 @@ class Networking {
         //
         print("starting promo fetch")
         setParams()
+        
         Alamofire.request(.GET, "\(GlobalConstants.API.url)promos", parameters: params)
             .responseJSON {(request, response, json)in
                 print("json object: \(json), request: \(request), response: \(response)")
@@ -123,7 +124,12 @@ class Networking {
         if let u = urlParent{
             requestUrl += u
         }
+        
         requestUrl += "/dishes"
+        
+        if let dishId = requester.initialDishId{
+            params["initialDishId"] = String(dishId)
+        }
         print("Dishes Request url: \(requestUrl)")
        // LoadingOverlay.shared.showOverlay(requester.view)
         Alamofire.request(.GET, requestUrl, parameters: params)
@@ -239,7 +245,7 @@ class Networking {
             )
 
         }else{
-            return  UIColor(red: 200, green: 200, blue: 200, alpha: 0.6)
+            return  UIColor(red: 200, green: 200, blue: 200, alpha: 0)
         }
     }
 //    static func getImageAtUrl (imageURL : String, completion: ((UIImage) -> ())? = nil) {

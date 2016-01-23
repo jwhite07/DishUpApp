@@ -11,6 +11,7 @@ import pop
 import Cosmos
 import AMPopTip
 import Mixpanel
+import Hoko
 
 enum LayoutMode{
     case Single
@@ -34,6 +35,7 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     var dishTypeId:Int?
     var restaurant:Restaurant?
     var menuId:Int?
+    var initialDishId:Int?
     var loadingContent = false
     
     var dishesArray : [Dish] = []
@@ -66,6 +68,70 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
     @IBAction func switchToGridView(sender: AnyObject) {
         targetIndexPath = currentIndexPath
         transitionSingleGridLayouts()
+    }
+    
+    @IBOutlet weak var shareButton: UIButton!
+    
+    @IBAction func copyDeepLink(sender: AnyObject) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        var image = UIGraphicsGetImageFromCurrentImageContext()
+        print( "\(image)")
+        UIGraphicsEndImageContext()
+        
+        if layoutMode == .Grid{
+            if let menu_id = menuId{
+                let deeplink = HOKDeeplink(route: "menus/:menu_id", routeParameters: ["menu_id": String(menu_id)])
+                Hoko.deeplinking().generateSmartlinkForDeeplink(deeplink, success: { (smartlink: String) -> Void in
+                    let shareMessage = "Check out \(self.restaurant!.name)'s menu on DishUp!"
+                    let shareController = UIActivityViewController(activityItems: [shareMessage, smartlink, image], applicationActivities: nil)
+                    self.presentViewController(shareController, animated: true, completion: nil)
+                    
+                    }) { (error: NSError) -> Void in
+                    UIPasteboard.generalPasteboard().string = "dishup://menus/\(menu_id)"
+                }
+
+            }
+            if let dish_type_id = dishTypeId{
+                let deeplink = HOKDeeplink(route: "dish_types/:dish_type_id", routeParameters: ["dish_type_id": String(dish_type_id)])
+                Hoko.deeplinking().generateSmartlinkForDeeplink(deeplink, success: { (smartlink: String) -> Void in
+                    let shareMessage = "Check out these awesome looking \(self.dishType!.name) on DishUp!"
+                    let shareController = UIActivityViewController(activityItems: [shareMessage, smartlink, image], applicationActivities: nil)
+                    self.presentViewController(shareController, animated: true, completion: nil)
+                    
+                    }) { (error: NSError) -> Void in
+                        UIPasteboard.generalPasteboard().string = "dishup://dish_types/\(dish_type_id)"
+                }
+                
+            }
+        }else if layoutMode == .Single && currentDish != nil{
+            if let menu_id = menuId{
+                let deeplink = HOKDeeplink(route: "menus/:menu_id", routeParameters: ["menu_id": String(menu_id), "dish_id": String(currentDish!.id)])
+                Hoko.deeplinking().generateSmartlinkForDeeplink(deeplink, success: { (smartlink: String) -> Void in
+                    let shareMessage = "The \(self.currentDish!.name) at \(self.currentDish!.restaurant_name!) looks amazing, check it out on DishUp!"
+                    let shareController = UIActivityViewController(activityItems: [shareMessage, smartlink, image], applicationActivities: nil)
+                    self.presentViewController(shareController, animated: true, completion: nil)
+                    
+                    }) { (error: NSError) -> Void in
+                        UIPasteboard.generalPasteboard().string = "dishup://menus/\(menu_id)/dishes/\(self.currentDish?.id)"
+                }
+                
+            }
+            if let dish_type_id = dishTypeId{
+                let deeplink = HOKDeeplink(route: "dish_types/:dish_type_id", routeParameters: ["dish_type_id": String(dish_type_id), "dish_id": String(currentDish!.id)])
+                Hoko.deeplinking().generateSmartlinkForDeeplink(deeplink, success: { (smartlink: String) -> Void in
+                    let shareMessage = "The \(self.currentDish!.name) at \(self.currentDish!.restaurant_name!) looks amazing, check it out on DishUp!"
+                    let shareController = UIActivityViewController(activityItems: [shareMessage, smartlink, image], applicationActivities: nil)
+                    self.presentViewController(shareController, animated: true, completion: nil)
+                    
+                    }) { (error: NSError) -> Void in
+                        UIPasteboard.generalPasteboard().string = "dishup://dish_types/\(dish_type_id)/dishes/\(self.currentDish?.id)"
+                }
+                
+            }
+
+        }
+        
     }
     
     override func viewDidLoad() {
