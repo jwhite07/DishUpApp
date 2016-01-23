@@ -5,3 +5,4 @@
 #import "SWRevealViewController.h"
 //#import <AWSCore/AWSCore.h>
 //#import <AWSS3/AWSS3.h>
+#import <Hoko/Hoko.h>

@@ -17,10 +17,34 @@ let onboarding = OnboardingController()
 let locationManager = CLLocationManager()
 
 class LaunchScreenVC: UIViewController {
-    var specialEvent : SpecialEvent?
-    @IBOutlet weak var specialEventButton: SpecialEventButtonView?
+    var promo : Promo?
+    
    
-    @IBAction func specialEventTap(sender: AnyObject) {
+    @IBOutlet weak var promoButton: PromoButtonView!
+    @IBOutlet weak var promoLabel: UILabel!
+    @IBOutlet weak var promoImage: UIImageView!
+
+    
+
+    @IBAction func tapPromoButton(sender: AnyObject) {
+        switch promoButton.promo!.action{
+        case "restaurant_link":
+            performSegueWithIdentifier("promoToRestaurantDishes", sender: promoButton)
+        case "dish_type_link":
+            performSegueWithIdentifier("promoToDishTypeDishes", sender: promoButton)
+        
+        case "url_link":
+            //performSegueWithIdentifier("promoToDishType", sender: promoButton)
+            UIApplication.sharedApplication().openURL(NSURL(string: promoButton.promo!.url!)!)
+
+            
+        case "special_event_link":
+            performSegueWithIdentifier("promoToRestaurants", sender: promoButton)
+
+        default:
+            print("invalid promo action")
+        }
+        
         
     }
     
@@ -30,17 +54,20 @@ class LaunchScreenVC: UIViewController {
     @IBAction func tapCraving(sender: AnyObject) {
         
     }
+    
+    
+    
     let locationManager = CLLocationManager()
     @IBOutlet weak var cravingButton: UIView!
     @IBOutlet weak var locationButton: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        super.viewDidLoad()
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         locationManager.startUpdatingLocation()
-        Networking.getSpecialEvents(self)
+//        Networking.getSpecialEvents(self)
+        
         onboarding.displayOnboardingPopTip(
             "Begin by selecting how you want to browse",
             direction: AMPopTipDirection.None,
@@ -53,6 +80,9 @@ class LaunchScreenVC: UIViewController {
         // Do any additional setup after loading the view.
         
     }
+    override func viewDidAppear(animated: Bool) {
+        Networking.getPromos(self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -61,13 +91,36 @@ class LaunchScreenVC: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let id = segue.identifier{
             Mixpanel.sharedInstance().track("Segue From Launch Screen ", properties: [NSString(string: "Identifier") : id])
-            if id == "specialEventSegue" {
-                if let button = sender!.view as? SpecialEventButtonView{
-                    let restaurantsVC = (segue.destinationViewController as! UINavigationController).viewControllers.first as! RestaurantsVC
-                    restaurantsVC.specialEvent = button.specialEvent
+            if id == "promoToRestaurantDishes" {
+                let navController = segue.destinationViewController as! UINavigationController
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
+//      
+                dishesVC.menuId = promoButton.promo!.menu_id
+                navController.pushViewController(dishesVC, animated: false)
+                
                     
-                }
+                    
+                
+                    
             }
+            if id == "promoToDishTypeDishes" {
+                let navController = segue.destinationViewController as! UINavigationController
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
+                //
+                dishesVC.dishTypeId = promoButton.promo?.dish_type_id
+                navController.pushViewController(dishesVC, animated: false)
+                
+
+            }
+            
+            if id == "promoToRestaurants" {
+                    let restaurantsVC = (segue.destinationViewController as! UINavigationController).viewControllers.first as! RestaurantsVC
+                    restaurantsVC.specialEventId = promoButton.promo!.special_event_id
+                    
+            }
+
 
         }
     }

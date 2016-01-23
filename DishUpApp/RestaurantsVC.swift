@@ -11,16 +11,18 @@ import CoreLocation
 import Mixpanel
 import AMPopTip
 
-class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource,  UINavigationControllerDelegate, UISearchBarDelegate{
+class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UISearchResultsUpdating {
     let reuseIdentifier = "restaurant"
     var restaurantsArray : [Restaurant] = []
     var restaurantsFullArray : [Restaurant] = []
+    var searchController: UISearchController!
     
-    let transition = NavigationFlipTransitionController()
+    @IBOutlet weak var searchContainer: UIView!
+//    let transition = NavigationFlipTransitionController()
     var specialEvent : SpecialEvent?
+    var specialEventId : Int?
 
 
-    @IBOutlet weak var restaurantSearch: UISearchBar!
 
     @IBOutlet weak var restaurants: UICollectionView!
     override func viewDidLoad() {
@@ -28,8 +30,8 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         let location = locationManager.location
         var urlParent : String?
         
-        if let s = specialEvent{
-            urlParent = "special_events/\(s.id)"
+        if specialEventId != nil{
+            urlParent = "special_events/\(specialEventId!)"
         }else{
             
         }
@@ -57,8 +59,15 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         }
         
         // Do any additional setup after loading the view.
-        navigationController?.delegate = self
-        restaurantSearch.delegate = self
+//        navigationController?.delegate = self
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        
+        searchController.dimsBackgroundDuringPresentation = false
+        
+        searchController.searchBar.sizeToFit()
+        searchContainer.addSubview(searchController.searchBar)
+        definesPresentationContext = true
         self.automaticallyAdjustsScrollViewInsets = false
     }
 
@@ -66,16 +75,23 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        restaurantsArray = searchText.isEmpty ? restaurantsFullArray : restaurantsFullArray.filter(){
-            if let name = ($0 as Restaurant).name as String! {
-                print("searchText: \(searchText) name: \(name) range: \(name.rangeOfString(searchText))")
-                return name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
-            }else{
-                return false
-            }
-        }
-        
+//    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+//        restaurantsArray = searchText.isEmpty ? restaurantsFullArray : restaurantsFullArray.filter(){
+//            if let name = ($0 as Restaurant).name as String! {
+//                print("searchText: \(searchText) name: \(name) range: \(name.rangeOfString(searchText))")
+//                return name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
+//            }else{
+//                return false
+//            }
+//        }
+//        
+//        restaurants.reloadData()
+//    }
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchText = searchController.searchBar.text
+        restaurantsArray = searchText!.isEmpty ? restaurantsFullArray : restaurantsFullArray.filter({(restaurant: Restaurant) -> Bool in
+            return restaurant.name.rangeOfString(searchText!, options: .CaseInsensitiveSearch) != nil
+        })
         restaurants.reloadData()
     }
 
@@ -135,14 +151,14 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
             var cellHeight : CGFloat
             
                  cellWidth = collectionWidth
-                 cellHeight = collectionHeight / 3
+                 cellHeight = cellWidth / 16 * 9
             print("collection x: \(collectionWidth) y: \(collectionHeight) cell x: \(cellWidth) y: \(cellHeight)")
             return CGSizeMake(cellWidth, cellHeight)
         }
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.reverse = operation == .Pop
-        return transition
-    }
+//    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        transition.reverse = operation == .Pop
+//        return transition
+//    }
 
 
     /*

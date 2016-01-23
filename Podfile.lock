@@ -2,6 +2,7 @@ PODS:
   - Alamofire (2.0.2)
   - AMPopTip (0.9.12)
   - Cosmos (1.1.1)
+  - Hoko (2.3.0)
   - Mixpanel (2.8.3):
     - Mixpanel/Mixpanel (= 2.8.3)
   - Mixpanel/Mixpanel (2.8.3)
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Alamofire
   - AMPopTip
   - Cosmos (~> 1.0)
+  - Hoko (~> 2.3.0)
   - Mixpanel
   - pop (~> 1.0)
   - SDWebImage (~> 3.7)
@@ -33,9 +35,10 @@ SPEC CHECKSUMS:
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   AMPopTip: 3c98a9b38148868366b57765064bd9565f653038
   Cosmos: a1e31979093262edd64241e5482f3d8722f53c3a
+  Hoko: b015751f406d455da0c8acb9404d7c617cb66877
   Mixpanel: fd52e097ae0d27295d0595b2261c60b94d191fda
   pop: bb773ae2c791ca2629de13b347e7a8b450fa6a57
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

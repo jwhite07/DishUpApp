@@ -19,6 +19,7 @@ class Networking {
     static func setParams(){
         params["latitude"] = locationManager.location?.coordinate.latitude.description
         params["longitude"] = locationManager.location?.coordinate.longitude.description
+        print("locationManager: \(locationManager), location: \(locationManager.location), coordinates: \(locationManager.location?.coordinate)")
         print("params: \(params)")
     }
     
@@ -48,25 +49,63 @@ class Networking {
         }
 
     }
-    static func getSpecialEvents(requester: LaunchScreenVC, completion: (() -> ())? = nil){
+//    static func getSpecialEvents(requester: LaunchScreenVC, completion: (() -> ())? = nil){
+//        //
+//        
+//        Alamofire.request(.GET, "\(GlobalConstants.API.url)special_events", parameters: params)
+//            .responseJSON {(request, response, json)in
+//                if json.isSuccess{
+//                    let jsonData = json.value
+//                    print("dish type json: \(json.value)")
+//                    var jsonObj = JSON(jsonData!)
+//                    if let specialevents = jsonObj["special_events"].arrayValue as [JSON]?{
+//                        
+//                        let specialEvent =  SpecialEvent(json: specialevents[0])
+//                        print(specialevents)
+//                        if specialevents.count > 0{
+//                            requester.specialEvent = specialEvent
+//                            requester.specialEventButton!.hidden = false
+//                            //requester.specialEventButton!.setTitle(specialEvent.name, forState: UIControlState.Normal)
+//                            requester.promoImage.sd_setImageWithURL(promo.img, placeholderImage: UIImage(named: "placeholder.png"))
+//
+//                            requester.specialEventButton?.specialEvent = specialEvent
+//                        }
+//                        
+//                        completion?()
+//                    }
+//                }
+//        }
+//        
+//    }
+    static func getPromos(requester: LaunchScreenVC, completion: (() -> ())? = nil){
         //
+        print("starting promo fetch")
+        setParams()
         
-        Alamofire.request(.GET, "\(GlobalConstants.API.url)special_events", parameters: params)
+        Alamofire.request(.GET, "\(GlobalConstants.API.url)promos", parameters: params)
             .responseJSON {(request, response, json)in
+                print("json object: \(json), request: \(request), response: \(response)")
                 if json.isSuccess{
                     let jsonData = json.value
                     print("dish type json: \(json.value)")
                     var jsonObj = JSON(jsonData!)
-                    if let specialevents = jsonObj["special_events"].arrayValue as [JSON]?{
+                    if let promoJson = jsonObj["promo"] as JSON?{
                         
-                        let specialEvent =  SpecialEvent(json: specialevents[0])
-                        print(specialevents)
-                        if specialevents.count > 0{
-                            requester.specialEvent = specialEvent
-                            requester.specialEventButton!.hidden = false
-                            //requester.specialEventButton!.setTitle(specialEvent.name, forState: UIControlState.Normal)
-                            requester.specialEventButton?.specialEvent = specialEvent
-                        }
+                         let promo =  Promo(json: promoJson)
+                        
+                            requester.promo = promo
+                            requester.promoButton!.hidden = false
+                            requester.promoLabel.text = promo.message
+                            requester.promoLabel.backgroundColor = hexStringToUIColor(promo.title_color)
+                            requester.promoButton.backgroundColor = hexStringToUIColor(promo.body_color)
+                            requester.promoButton.promo = promo
+                            if let promoimg = promo.img{
+                                if let url = Networking.sanitizeUrlFromString(promoimg){
+                                    requester.promoImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "placeholder.png"))
+                                }
+                                
+                            }
+
                         
                         completion?()
                     }
@@ -74,6 +113,7 @@ class Networking {
         }
         
     }
+
 
     static func getDishes(requester: DishesVC, urlParent: String?, completion: (() -> ())? = nil){
         //
@@ -84,7 +124,12 @@ class Networking {
         if let u = urlParent{
             requestUrl += u
         }
+        
         requestUrl += "/dishes"
+        
+        if let dishId = requester.initialDishId{
+            params["initialDishId"] = String(dishId)
+        }
         print("Dishes Request url: \(requestUrl)")
        // LoadingOverlay.shared.showOverlay(requester.view)
         Alamofire.request(.GET, requestUrl, parameters: params)
@@ -174,6 +219,34 @@ class Networking {
         }
         
         
+    }
+    static func hexStringToUIColor (color:String?) -> UIColor {
+        if let hex = color{
+            var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
+            
+            if (cString.hasPrefix("#")) {
+                cString = String(cString.characters.dropFirst())
+            }
+            
+            if (cString.characters.count != 6) {
+                return  UIColor(red: 200, green: 200, blue: 200, alpha: 0.6)
+                
+                
+            }
+            
+            var rgbValue:UInt32 = 0
+            NSScanner(string: cString).scanHexInt(&rgbValue)
+            
+            return UIColor(
+                red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+                green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+                blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+                alpha: CGFloat(0.6)
+            )
+
+        }else{
+            return  UIColor(red: 200, green: 200, blue: 200, alpha: 0)
+        }
     }
 //    static func getImageAtUrl (imageURL : String, completion: ((UIImage) -> ())? = nil) {
 //        let allowedSet = NSCharacterSet(charactersInString:"=#%<>?@^{|}\"' ").invertedSet

@@ -11,11 +11,11 @@ import AMPopTip
 import SDWebImage
 import Mixpanel
 
-class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UINavigationControllerDelegate{
+class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     let reuseIdentifier = "dish_type"
         var dishTypesArray : [DishType] = []
     let popTip = AMPopTip()
-    let transition = NavigationFlipTransitionController()
+//     let transition = NavigationFlipTransitionController()
     
     
     //@IBOutlet var dishTypes: UICollectionView?
@@ -52,7 +52,7 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
             //menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        navigationController?.delegate = self
+//        navigationController?.delegate = self
             }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -128,9 +128,9 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
         }
         
     }
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.reverse = operation == .Pop
-        return transition
-    }
+//    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        transition.reverse = operation == .Pop
+//        return transition
+//    }
     
 }
