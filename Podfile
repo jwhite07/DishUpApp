@@ -13,6 +13,6 @@ target 'DishUp' do
   pod 'pop', '~> 1.0'
   pod 'SDWebImage', '~> 3.7'
   pod 'Mixpanel'
-
+  pod 'Localytics', '~> 3.6'
 	
 end
