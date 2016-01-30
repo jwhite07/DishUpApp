@@ -32,6 +32,14 @@
 				<string>dishup</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ampcd7c382352e307c5cb72e4a-def0c20e-c218-11e5-a1d0-00342b7f5075</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>53</string>
@@ -43,6 +51,19 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>public.localytics.s3.amazonaws.com</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
+            <key>pushapi.localytics.com</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
+        </dict>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We need your location to find nearby food</string>

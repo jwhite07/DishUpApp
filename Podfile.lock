@@ -1,8 +1,8 @@
 PODS:
   - Alamofire (2.0.2)
   - AMPopTip (0.9.12)
+  - Branch (0.11.14)
   - Cosmos (1.1.1)
-  - Hoko (2.3.0)
   - Localytics (3.6.1)
   - Mixpanel (2.8.3):
     - Mixpanel/Mixpanel (= 2.8.3)
@@ -16,9 +16,9 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AMPopTip
+  - Branch
   - Cosmos (~> 1.0)
-  - Hoko (~> 2.3.0)
-  - Localytics (~> 3.0)
+  - Localytics (~> 3.6)
   - Mixpanel
   - pop (~> 1.0)
   - SDWebImage (~> 3.7)
@@ -36,8 +36,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   AMPopTip: 3c98a9b38148868366b57765064bd9565f653038
+  Branch: 8f76ea498816981768f318f74624250a41620f54
   Cosmos: a1e31979093262edd64241e5482f3d8722f53c3a
-  Hoko: b015751f406d455da0c8acb9404d7c617cb66877
   Localytics: 6f365959f1012ebeb0db88fe7dd06b4ff433b18d
   Mixpanel: fd52e097ae0d27295d0595b2261c60b94d191fda
   pop: bb773ae2c791ca2629de13b347e7a8b450fa6a57

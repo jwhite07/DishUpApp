@@ -11,7 +11,7 @@ import pop
 import Cosmos
 import AMPopTip
 import Mixpanel
-import Hoko
+//import Hoko
 
 enum LayoutMode{
     case Single
@@ -81,59 +81,63 @@ class DishesVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         
         if layoutMode == .Grid{
             if let menu_id = menuId{
-                let deeplink = HOKDeeplink(route: "menus/:menu_id", routeParameters: ["menu_id": String(menu_id)])
-                Hoko.deeplinking().generateSmartlinkForDeeplink(deeplink, success: { (smartlink: String) -> Void in
-                    let shareMessage = "Check out \(self.restaurant!.name)'s menu on DishUp!"
-                    let shareController = UIActivityViewController(activityItems: [shareMessage, smartlink, image], applicationActivities: nil)
-                    self.presentViewController(shareController, animated: true, completion: nil)
-                    
-                    }) { (error: NSError) -> Void in
-                    UIPasteboard.generalPasteboard().string = "dishup://menus/\(menu_id)"
-                }
+//                let deeplink = HOKDeeplink(route: "menus/:menu_id", routeParameters: ["menu_id": String(menu_id)])
+//                Hoko.deeplinking().generateSmartlinkForDeeplink(deeplink, success: { (smartlink: String) -> Void in
+//                    let shareMessage = "Check out \(self.restaurant!.name)'s menu on DishUp!"
+//                    let shareController = UIActivityViewController(activityItems: [shareMessage, smartlink, image], applicationActivities: nil)
+//                    self.presentViewController(shareController, animated: true, completion: nil)
+//                    
+//                    }) { (error: NSError) -> Void in
+//                    UIPasteboard.generalPasteboard().string = "dishup://menus/\(menu_id)"
+//                }
 
             }
             if let dish_type_id = dishTypeId{
-                let deeplink = HOKDeeplink(route: "dish_types/:dish_type_id", routeParameters: ["dish_type_id": String(dish_type_id)])
-                Hoko.deeplinking().generateSmartlinkForDeeplink(deeplink, success: { (smartlink: String) -> Void in
-                    let shareMessage = "Check out these awesome looking \(self.dishType!.name) on DishUp!"
-                    let shareController = UIActivityViewController(activityItems: [shareMessage, smartlink, image], applicationActivities: nil)
-                    self.presentViewController(shareController, animated: true, completion: nil)
-                    
-                    }) { (error: NSError) -> Void in
-                        UIPasteboard.generalPasteboard().string = "dishup://dish_types/\(dish_type_id)"
-                }
+//                let deeplink = HOKDeeplink(route: "dish_types/:dish_type_id", routeParameters: ["dish_type_id": String(dish_type_id)])
+//                Hoko.deeplinking().generateSmartlinkForDeeplink(deeplink, success: { (smartlink: String) -> Void in
+//                    let shareMessage = "Check out these awesome looking \(self.dishType!.name) on DishUp!"
+//                    let shareController = UIActivityViewController(activityItems: [shareMessage, smartlink, image], applicationActivities: nil)
+//                    self.presentViewController(shareController, animated: true, completion: nil)
+//                    
+//                    }) { (error: NSError) -> Void in
+//                        UIPasteboard.generalPasteboard().string = "dishup://dish_types/\(dish_type_id)"
+//                }
                 
             }
         }else if layoutMode == .Single && currentDish != nil{
             if let menu_id = menuId{
-                let deeplink = HOKDeeplink(route: "menus/:menu_id", routeParameters: ["menu_id": String(menu_id), "dish_id": String(currentDish!.id)])
-                Hoko.deeplinking().generateSmartlinkForDeeplink(deeplink, success: { (smartlink: String) -> Void in
-                    let shareMessage = "The \(self.currentDish!.name) at \(self.currentDish!.restaurant_name!) looks amazing, check it out on DishUp!"
-                    let shareController = UIActivityViewController(activityItems: [shareMessage, smartlink, image], applicationActivities: nil)
-                    self.presentViewController(shareController, animated: true, completion: nil)
-                    
-                    }) { (error: NSError) -> Void in
-                        UIPasteboard.generalPasteboard().string = "dishup://menus/\(menu_id)/dishes/\(self.currentDish?.id)"
-                }
+//                let deeplink = HOKDeeplink(route: "menus/:menu_id", routeParameters: ["menu_id": String(menu_id), "dish_id": String(currentDish!.id)])
+//                Hoko.deeplinking().generateSmartlinkForDeeplink(deeplink, success: { (smartlink: String) -> Void in
+//                    let shareMessage = "The \(self.currentDish!.name) at \(self.currentDish!.restaurant_name!) looks amazing, check it out on DishUp!"
+//                    let shareController = UIActivityViewController(activityItems: [shareMessage, smartlink, image], applicationActivities: nil)
+//                    self.presentViewController(shareController, animated: true, completion: nil)
+//                    
+//                    }) { (error: NSError) -> Void in
+//                        UIPasteboard.generalPasteboard().string = "dishup://menus/\(menu_id)/dishes/\(self.currentDish?.id)"
+//                }
                 
             }
             if let dish_type_id = dishTypeId{
-                let deeplink = HOKDeeplink(route: "dish_types/:dish_type_id", routeParameters: ["dish_type_id": String(dish_type_id), "dish_id": String(currentDish!.id)])
-                Hoko.deeplinking().generateSmartlinkForDeeplink(deeplink, success: { (smartlink: String) -> Void in
-                    let shareMessage = "The \(self.currentDish!.name) at \(self.currentDish!.restaurant_name!) looks amazing, check it out on DishUp!"
-                    let shareController = UIActivityViewController(activityItems: [shareMessage, smartlink, image], applicationActivities: nil)
-                    self.presentViewController(shareController, animated: true, completion: nil)
-                    
-                    }) { (error: NSError) -> Void in
-                        UIPasteboard.generalPasteboard().string = "dishup://dish_types/\(dish_type_id)/dishes/\(self.currentDish?.id)"
-                }
+//                let deeplink = HOKDeeplink(route: "dish_types/:dish_type_id", routeParameters: ["dish_type_id": String(dish_type_id), "dish_id": String(currentDish!.id)])
+//                Hoko.deeplinking().generateSmartlinkForDeeplink(deeplink, success: { (smartlink: String) -> Void in
+//                    let shareMessage = "The \(self.currentDish!.name) at \(self.currentDish!.restaurant_name!) looks amazing, check it out on DishUp!"
+//                    let shareController = UIActivityViewController(activityItems: [shareMessage, smartlink, image], applicationActivities: nil)
+//                    self.presentViewController(shareController, animated: true, completion: nil)
+//                    
+//                    }) { (error: NSError) -> Void in
+//                        UIPasteboard.generalPasteboard().string = "dishup://dish_types/\(dish_type_id)/dishes/\(self.currentDish?.id)"
+//                }
                 
             }
 
         }
         
     }
-    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.viewScreen("Dishes View")
+        
+    }
     override func viewDidLoad() {
         loadingContent = true
         super.viewDidLoad()
@@ -346,6 +350,15 @@ self.automaticallyAdjustsScrollViewInsets = false
         nextDishName.alpha = 0
         nextDishPrice.alpha = 0
        // nextDishRating.alpha = 0
+        var analyticsProps = ["Name":dish.name]
+        if let rest = self.restaurant{
+            analyticsProps["Restaurant"] = rest.name
+            
+        }
+        if let dt = self.dishType{
+            analyticsProps["Dish Type"] = dt.name
+        }
+        Analytics.trackEvent("Saw Dish", properties: analyticsProps )
 
     }
     func updateNextDish(dish: Dish){
@@ -483,21 +496,21 @@ self.automaticallyAdjustsScrollViewInsets = false
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let id = segue.identifier{
-            var props : [NSObject : AnyObject] = [:]
+            var props : [String : String] = [:]
             if segue.identifier == "showDishDetailSegue" {
                 let cell = sender as! DishCollectionViewCell
                 let dishDetailVC = segue.destinationViewController as! DishDetailVC
                 dishDetailVC.dish = cell.dish
                 dishDetailVC.restaurant = self.restaurant
                 
-                props[NSString(string: "Dish")] = cell.dish?.name
+                props[ "Dish"] = cell.dish?.name
                 props["Restaurant"] = cell.dish?.restaurant_name
                 props["Craving"] = self.dishType?.name
                 
                 
             }
-            props[NSString(string: "Identifier")] = id
-            Mixpanel.sharedInstance().track("Segue From Dishes Screen ", properties: props)
+            props["Identifier"] = id
+            Analytics.trackEvent("Segue From Dishes Screen ", properties: props)
         }
 
     }
@@ -566,6 +579,7 @@ self.automaticallyAdjustsScrollViewInsets = false
             var toMode : LayoutMode
             var direction : String = ""
             
+            
             if layoutMode == .Single{
                 toMode = .Grid
                 layoutButtonImg = UIImage(named: "single-view.png")
@@ -577,18 +591,19 @@ self.automaticallyAdjustsScrollViewInsets = false
                 toLayout = singleLayout
                 direction = "Single"
             }
+            
             transitionInProgress = true
-            Mixpanel.sharedInstance().track("Toggle dishes single grid views", properties:
-                [
-                    "Direction" : direction
-                ])
+            var transitionProps = ["Direction":direction]
+            
 
             if layoutMode == .Grid{
                 print("Before - leftArrow alpha: \(leftArrow.alpha) leftArrow hidden: \(leftArrow.hidden)")
                 setArrowsForIndexPath(targetIndexPath)
                 print("After - leftArrow alpha: \(leftArrow.alpha) leftArrow hidden: \(leftArrow.hidden)")
                 self.updateDishInfo(dishesArray[targetIndexPath.item])
+                transitionProps["Dish"] = dishesArray[targetIndexPath.item].name
             }
+            Analytics.trackEvent("Toggle Dishes Grid/Single", properties: transitionProps)
             let transition = self.dishes.startInteractiveTransitionToCollectionViewLayout(toLayout, completion: { (completed, finish) -> Void in
                 if finish && completed{
                     layoutMode = toMode

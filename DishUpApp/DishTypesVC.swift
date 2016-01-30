@@ -26,7 +26,11 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
     
     
     
-    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.viewScreen("Cravings Listing")
+        
+    }
     override func viewDidLoad() {
         popTip.popoverColor = UIColor.whiteColor()
         popTip.font = UIFont(name: "SourceSansPro-Regular", size: 17.0)
@@ -86,18 +90,18 @@ class DishTypesVC: UIViewController, UICollectionViewDelegateFlowLayout, UIColle
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let id = segue.identifier{
-            var props : [NSObject : AnyObject] = [:]
+            var props : [String : String] = [:]
             if id == "dishTypeToDishSegue" {
                 let cell = sender as! DishTypeCollectionViewCell
                 let dishesVC = segue.destinationViewController as! DishesVC
                 dishesVC.dishType = cell.dishType
-                props[NSString(string: "Craving")] = cell.dishType?.name
+                props["Craving"] = cell.dishType?.name
                 
                 
                 
             }
-            props[NSString(string: "Identifier")] = id
-            Mixpanel.sharedInstance().track("Segue From Craving Screen ", properties: props)
+            props["Identifier"] = id
+            Analytics.trackEvent("Segue From Craving Screen ", properties: props)
         }
     }
     func showToolTip( sender: AnyObject) {

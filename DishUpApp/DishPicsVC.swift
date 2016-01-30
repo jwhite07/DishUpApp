@@ -41,7 +41,11 @@ class DishPicsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollec
             animated: false)
 
     }
-    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.viewScreen("DishPic Viewer")
+        
+    }
     
     override func viewDidLoad(){
         super.viewDidLoad()

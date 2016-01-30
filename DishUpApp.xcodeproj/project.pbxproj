@@ -28,6 +28,7 @@
 		0D13EC1C1B7B774C0059FA4E /* locationbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D13EC101B7B774C0059FA4E /* locationbg.png */; };
 		0D1530111B680C6000F4B322 /* dishesFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1530101B680C6000F4B322 /* dishesFlowLayout.swift */; };
 		0D1B1DEA1B82C65100FAF68A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D1B1DE91B82C65100FAF68A /* Settings.bundle */; };
+		0D1B9CEB1C5434C100F2933A /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1B9CEA1C5434C100F2933A /* Analytics.swift */; };
 		0D2519B91B665A5E0071AEF0 /* dishesLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2519B81B665A5E0071AEF0 /* dishesLayout.swift */; };
 		0D29CE621B7E2D9600822F78 /* DishPicZoomableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D29CE611B7E2D9600822F78 /* DishPicZoomableCell.swift */; };
 		0D2B20701B5D8D71002B87CC /* DishesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B206F1B5D8D71002B87CC /* DishesVC.swift */; };
@@ -172,6 +173,7 @@
 		0D13EC101B7B774C0059FA4E /* locationbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = locationbg.png; path = "../../../Desktop/dishup assets 8.11.15a/New Login Screen/login screen redo-assets/locationbg.png"; sourceTree = "<group>"; };
 		0D1530101B680C6000F4B322 /* dishesFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dishesFlowLayout.swift; sourceTree = "<group>"; };
 		0D1B1DE91B82C65100FAF68A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		0D1B9CEA1C5434C100F2933A /* Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		0D2519B81B665A5E0071AEF0 /* dishesLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dishesLayout.swift; sourceTree = "<group>"; };
 		0D29CE611B7E2D9600822F78 /* DishPicZoomableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishPicZoomableCell.swift; sourceTree = "<group>"; };
 		0D2B206F1B5D8D71002B87CC /* DishesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DishesVC.swift; sourceTree = "<group>"; };
@@ -345,6 +347,24 @@
 		0D0A861B1B58391000DF0C71 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0D1B9CE91C542FA500F2933A /* Fonts */,
+				0D1B9CE81C542F8500F2933A /* Images */,
+				0D0A863E1B58392D00DF0C71 /* SWRevealViewController.h */,
+				0D0A863F1B58392D00DF0C71 /* SWRevealViewController.m */,
+				0D0A861C1B58391000DF0C71 /* Info.plist */,
+				0D0A863D1B58392C00DF0C71 /* DishUpApp-Bridging-Header.h */,
+				0D81A79E1B5859390071EDEE /* Constants.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0D1B9CE81C542F8500F2933A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0D78E9291B626F2600AECC90 /* line14.png */,
+				0D3D82F61B6D03E00031FC18 /* AscensionBrewingCompany_EdamameHummus.jpg */,
+				0D68BD991B82AD2B007DF033 /* VinsettaGarage_The3AM.jpg */,
+				0D3872761B5BF4C500CF931A /* placeholder.png */,
 				0DEF10CB1B7CD73500117CE4 /* uploadCamera.png */,
 				0DEF10B91B7CCB5A00117CE4 /* maps.png */,
 				0DD18CD71B97C7E000444A43 /* Mug@2x.png */,
@@ -424,6 +444,13 @@
 				0D3D831A1B6D88E90031FC18 /* Craving.png */,
 				0D3D83181B6D88E00031FC18 /* Craving@3x.png */,
 				0D3D83161B6D88D80031FC18 /* Craving@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		0D1B9CE91C542FA500F2933A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
 				0D3D82F81B6D16440031FC18 /* SourceSansPro-Black.ttf */,
 				0D3D82F91B6D16440031FC18 /* SourceSansPro-BlackItalic.ttf */,
 				0D3D82FA1B6D16440031FC18 /* SourceSansPro-Bold.ttf */,
@@ -436,17 +463,8 @@
 				0D3D83011B6D16440031FC18 /* SourceSansPro-Regular.ttf */,
 				0D3D83021B6D16440031FC18 /* SourceSansPro-Semibold.ttf */,
 				0D3D83031B6D16440031FC18 /* SourceSansPro-SemiboldItalic.ttf */,
-				0D78E9291B626F2600AECC90 /* line14.png */,
-				0D3D82F61B6D03E00031FC18 /* AscensionBrewingCompany_EdamameHummus.jpg */,
-				0D68BD991B82AD2B007DF033 /* VinsettaGarage_The3AM.jpg */,
-				0D3872761B5BF4C500CF931A /* placeholder.png */,
-				0D0A863E1B58392D00DF0C71 /* SWRevealViewController.h */,
-				0D0A863F1B58392D00DF0C71 /* SWRevealViewController.m */,
-				0D0A861C1B58391000DF0C71 /* Info.plist */,
-				0D0A863D1B58392C00DF0C71 /* DishUpApp-Bridging-Header.h */,
-				0D81A79E1B5859390071EDEE /* Constants.swift */,
 			);
-			name = "Supporting Files";
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		0D81A79B1B58584E0071EDEE /* Models */ = {
@@ -501,6 +519,7 @@
 			children = (
 				0D81A7A31B5861290071EDEE /* Networking.swift */,
 				0DD18CD31B97C2DE00444A43 /* LoadingOverlay.swift */,
+				0D1B9CEA1C5434C100F2933A /* Analytics.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -781,6 +800,7 @@
 				0DD96EDC1B6ACD2C00265FE0 /* RestaurantsVC.swift in Sources */,
 				0D0A861E1B58391000DF0C71 /* AppDelegate.swift in Sources */,
 				0DB64ADE1B58417700BF3181 /* MenuTableVC.swift in Sources */,
+				0D1B9CEB1C5434C100F2933A /* Analytics.swift in Sources */,
 				0D4F894D1BE41864009B4354 /* Promo.swift in Sources */,
 				0D0A86401B58392D00DF0C71 /* SWRevealViewController.m in Sources */,
 				0DD96EE01B6AD10F00265FE0 /* Restaurant.swift in Sources */,

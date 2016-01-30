@@ -9,7 +9,8 @@
 import UIKit
 import CoreData
 import Mixpanel
-import Hoko
+//import Hoko
+
 
 
 
@@ -26,83 +27,99 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Mixpanel.sharedInstanceWithToken("c9f81e183e090615baf07d3bc7596316")
         Mixpanel.sharedInstance().timeEvent("Session End")
-        Hoko.setupWithToken("abb81ada490053a17911cdd9441def6a6879f29b")
-        //self.router = DPLDeepLinkRouter()
-        Hoko.deeplinking().mapRoute("menus/:menu_id", toTarget: {
-            (deeplink: HOKDeeplink) -> Void in
-            if let menuIdStr = deeplink.routeParameters?["menu_id"] {
-                if let menuId = Int(menuIdStr){
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-                    let navController = storyboard.instantiateViewControllerWithIdentifier("RestaurantsNavController") as! UINavigationController
-                    
-                    let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
-                    //
-                    dishesVC.menuId = menuId
-                    self.window?.rootViewController = navController
-                    navController.pushViewController(dishesVC, animated: false)
-                    
-
-                }
-            }
-        })
-        Hoko.deeplinking().mapRoute("menus/:menu_id/dishes/:dish_id", toTarget: {
-            (deeplink: HOKDeeplink) -> Void in
-            if let menuIdStr = deeplink.routeParameters?["menu_id"], let dishIdStr = deeplink.routeParameters?["dish_id"] {
-                if let menuId =  Int(menuIdStr), let dishId = Int(dishIdStr){
-                        
-                    
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    
-                    let navController = storyboard.instantiateViewControllerWithIdentifier("RestaurantsNavController") as! UINavigationController
-                    
-                    let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
-                    //
-                    dishesVC.menuId = menuId
-                    dishesVC.initialDishId = dishId
-                    self.window?.rootViewController = navController
-                    navController.pushViewController(dishesVC, animated: false)
-                }
-
-            }
-        })
-        Hoko.deeplinking().mapRoute("dish_types/:dish_type_id", toTarget: {
-            (deeplink: HOKDeeplink) -> Void in
-            if let dishTypeIdStr = deeplink.routeParameters?["dish_type_id"] {
-                if let dishTypeId = Int(dishTypeIdStr){
-                    
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    
-                    let navController = storyboard.instantiateViewControllerWithIdentifier("DishTypesNavController") as! UINavigationController
-                    
-                    let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
-                    //
-                    dishesVC.dishTypeId = dishTypeId
-                    //dishesVC.initialDishId = dishId
-                    self.window?.rootViewController = navController
-
-                }
-            }
-        })
-        Hoko.deeplinking().mapRoute("dish_types/:dish_type_id/dishes/:dish_id", toTarget: {
-            (deeplink: HOKDeeplink) -> Void in
-            if let dishTypeIdStr = deeplink.routeParameters?["dish_type_id"], let dishIdStr = deeplink.routeParameters?["dish_id"] {
-                if let dishTypeId =  Int(dishTypeIdStr), let dishId = Int(dishIdStr){
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    
-                    let navController = storyboard.instantiateViewControllerWithIdentifier("DishTypesNavController") as! UINavigationController
-                    
-                    let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
-                    //
-                    dishesVC.dishTypeId = dishTypeId
-                    dishesVC.initialDishId = dishId
-                    self.window?.rootViewController = navController
-                }
-            }
-        })
-
-
+        
+        Localytics.integrate("cd7c382352e307c5cb72e4a-def0c20e-c218-11e5-a1d0-00342b7f5075")
+        if(application.applicationState != UIApplicationState.Background){
+            Localytics.openSession()
+        }
+//        Hoko.setupWithToken("abb81ada490053a17911cdd9441def6a6879f29b")
+//        
+//        //self.router = DPLDeepLinkRouter()
+//        Hoko.deeplinking().mapRoute("menus/:menu_id", toTarget: {
+//            (deeplink: HOKDeeplink) -> Void in
+//            if let menuIdStr = deeplink.routeParameters?["menu_id"] {
+//                if let menuId = Int(menuIdStr){
+//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//                    let navController = storyboard.instantiateViewControllerWithIdentifier("RestaurantsNavController") as! UINavigationController
+//                    
+//                    let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
+//                    //
+//                    dishesVC.menuId = menuId
+//                    self.window?.rootViewController = navController
+//                    navController.pushViewController(dishesVC, animated: false)
+//                    
+//
+//                }
+//            }
+//        })
+//        Hoko.deeplinking().mapRoute("menus/:menu_id/dishes/:dish_id", toTarget: {
+//            (deeplink: HOKDeeplink) -> Void in
+//            if let menuIdStr = deeplink.routeParameters?["menu_id"], let dishIdStr = deeplink.routeParameters?["dish_id"] {
+//                if let menuId =  Int(menuIdStr), let dishId = Int(dishIdStr){
+//                        
+//                    
+//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                    
+//                    let navController = storyboard.instantiateViewControllerWithIdentifier("RestaurantsNavController") as! UINavigationController
+//                    
+//                    let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
+//                    //
+//                    dishesVC.menuId = menuId
+//                    dishesVC.initialDishId = dishId
+//                    self.window?.rootViewController = navController
+//                    navController.pushViewController(dishesVC, animated: false)
+//                }
+//
+//            }
+//        })
+//        Hoko.deeplinking().mapRoute("dish_types/:dish_type_id", toTarget: {
+//            (deeplink: HOKDeeplink) -> Void in
+//            if let dishTypeIdStr = deeplink.routeParameters?["dish_type_id"] {
+//                if let dishTypeId = Int(dishTypeIdStr){
+//                    
+//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                    
+//                    let navController = storyboard.instantiateViewControllerWithIdentifier("DishTypesNavController") as! UINavigationController
+//                    
+//                    let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
+//                    //
+//                    dishesVC.dishTypeId = dishTypeId
+//                    //dishesVC.initialDishId = dishId
+//                    self.window?.rootViewController = navController
+//
+//                }
+//            }
+//        })
+//        Hoko.deeplinking().mapRoute("dish_types/:dish_type_id/dishes/:dish_id", toTarget: {
+//            (deeplink: HOKDeeplink) -> Void in
+//            if let dishTypeIdStr = deeplink.routeParameters?["dish_type_id"], let dishIdStr = deeplink.routeParameters?["dish_id"] {
+//                if let dishTypeId =  Int(dishTypeIdStr), let dishId = Int(dishIdStr){
+//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                    
+//                    let navController = storyboard.instantiateViewControllerWithIdentifier("DishTypesNavController") as! UINavigationController
+//                    
+//                    let dishesVC = storyboard.instantiateViewControllerWithIdentifier("DishesStoryboardVC") as! DishesVC
+//                    //
+//                    dishesVC.dishTypeId = dishTypeId
+//                    dishesVC.initialDishId = dishId
+//                    self.window?.rootViewController = navController
+//                }
+//            }
+//        })
+//
+        
         return true
+    }
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        Localytics.handlePushNotificationOpened(userInfo)
+        completionHandler(UIBackgroundFetchResult.NoData)
+    }
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        Localytics.setPushToken(deviceToken)
+    }
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        NSLog("Failed to register for remote notifications: \(error)")
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -115,21 +132,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         Mixpanel.sharedInstance().track("Session End")
+        Localytics.dismissCurrentInAppMessage()
+        Localytics.closeSession()
+        Localytics.upload()
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
         Mixpanel.sharedInstance().timeEvent("Session End")
+        Localytics.openSession()
+        Localytics.upload()
+
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        Localytics.openSession()
+        Localytics.upload()
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         Mixpanel.sharedInstance().track("Session End")
         self.saveContext()
+    }
+    func application(app: UIApplication, openURL url: NSURL, sourceApplication: String, annotation: AnyObject?, options: [String : AnyObject]) -> Bool {
+        if Localytics.handleTestModeURL(url){
+            return true
+        }
+//        return Hoko.deeplinking().openURL(url, sourceApplication: sourceApplication, annotation: annotation)
     }
     // MARK: - Core Data stack
     

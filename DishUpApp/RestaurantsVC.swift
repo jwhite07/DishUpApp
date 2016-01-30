@@ -25,6 +25,11 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
 
 
     @IBOutlet weak var restaurants: UICollectionView!
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.viewScreen("Restaurants Listing")
+        
+    }
     override func viewDidLoad() {
         
         let location = locationManager.location
@@ -126,19 +131,19 @@ class RestaurantsVC: UIViewController, UICollectionViewDelegateFlowLayout, UICol
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
                
         if let id = segue.identifier{
-            var props : [NSObject : AnyObject] = [:]
+            var props : [String : String] = [:]
             if id == "restaurantToDishesSegue" {
                 let cell = sender as! RestaurantCell
                 let dishesVC = segue.destinationViewController as! DishesVC
                 dishesVC.restaurant = cell.restaurant
-                props[NSString(string: "Restaurant")] = cell.restaurant?.name
+                props["Restaurant"] = cell.restaurant?.name
                 
                 
                 
                 
             }
-            props[NSString(string: "Identifier")] = id
-            Mixpanel.sharedInstance().track("Segue From Restaurant Screen ", properties: props)
+            props["Identifier"] = id
+            Analytics.trackEvent("Segue From Restaurant Screen ", properties: props)
         }
 
     }

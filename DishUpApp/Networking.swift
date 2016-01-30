@@ -35,7 +35,7 @@ class Networking {
             .responseJSON {(request, response, json)in
                 if json.isSuccess{
                     let jsonData = json.value
-                    print("dish type json: \(json.value)")
+                   // print("dish type json: \(json.value)")
                     var jsonObj = JSON(jsonData!)
                     if let dishtypes = jsonObj["dish_types"].arrayValue as [JSON]?{
                         
@@ -84,10 +84,10 @@ class Networking {
         
         Alamofire.request(.GET, "\(GlobalConstants.API.url)promos", parameters: params)
             .responseJSON {(request, response, json)in
-                print("json object: \(json), request: \(request), response: \(response)")
+               // print("json object: \(json), request: \(request), response: \(response)")
                 if json.isSuccess{
                     let jsonData = json.value
-                    print("dish type json: \(json.value)")
+                    //print("dish type json: \(json.value)")
                     var jsonObj = JSON(jsonData!)
                     if let promoJson = jsonObj["promo"] as JSON?{
                         
@@ -130,12 +130,12 @@ class Networking {
         if let dishId = requester.initialDishId{
             params["initialDishId"] = String(dishId)
         }
-        print("Dishes Request url: \(requestUrl)")
+       // print("Dishes Request url: \(requestUrl)")
        // LoadingOverlay.shared.showOverlay(requester.view)
         Alamofire.request(.GET, requestUrl, parameters: params)
             .responseJSON {(request, response, json)in
                 if json.isSuccess{
-                    print("dish json: \(json.value)")
+                    //print("dish json: \(json.value)")
                     let jsonData = json.value
                     
                     var jsonObj = JSON(jsonData!)

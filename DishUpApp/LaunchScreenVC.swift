@@ -80,7 +80,11 @@ class LaunchScreenVC: UIViewController {
         // Do any additional setup after loading the view.
         
     }
+
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.viewScreen("Launch Screen")
+
         Networking.getPromos(self)
     }
 
@@ -90,7 +94,7 @@ class LaunchScreenVC: UIViewController {
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let id = segue.identifier{
-            Mixpanel.sharedInstance().track("Segue From Launch Screen ", properties: [NSString(string: "Identifier") : id])
+            Analytics.trackEvent("Segue From Launch Screen ", properties: ["Identifier" : id])
             if id == "promoToRestaurantDishes" {
                 let navController = segue.destinationViewController as! UINavigationController
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
